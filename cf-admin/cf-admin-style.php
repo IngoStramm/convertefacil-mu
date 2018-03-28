@@ -159,6 +159,7 @@ function cf_admin_style_init() {
 	function cf_menus_edit_style() {
 		$screen = get_current_screen();
 		if( $screen->id == 'nav-menus' ) : ?>
+			<?php /* ?>
 			<style>
 				a.page-title-action.hide-if-no-customize,
 				h2.nav-tab-wrapper.wp-clearfix,
@@ -178,12 +179,22 @@ function cf_admin_style_init() {
 					display: block !important;
 				}
 			</style>
+			<?php */ ?>
 		<?php elseif( $screen->id == 'users' ) : ?>
+			<?php /* ?>
 			<style>
 				#new_role,
 				#changeit,
 				#ure_grant_roles {
 					display: none;
+				}
+				<?php */ ?>
+			</style>
+		<?php elseif( $screen->id == 'woocommerce_page_wc-settings' ) : ?>
+			<style>
+				h2:nth-child(2) {
+					/*display: none;*/
+					
 				}
 			</style>
 		<?php endif;

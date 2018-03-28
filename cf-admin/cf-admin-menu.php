@@ -12,16 +12,15 @@ function cf_admin_menu_init() {
 
 		function cf_remove_menus(){
 	        global $menu, $submenu;
-	        // cf_debug( $menu );
+	        // cf_debug( $submenu );
 	        // $edit_menu = $submenu['themes.php'][10];
 	        // add_menu_page( __( 'Editar Menus' ), __( ' Menus '), 'edit_theme_options', 'nav-menus.php', null, null, 60 );
 	        // remove_menu_page( 'index.php' );                  //Dashboard
 	        // remove_menu_page( 'edit.php?post_type=page' );    //Pages
 	        // remove_menu_page( 'plugins.php' );                //Plugins
 	        // remove_menu_page( 'users.php' );                  //Users
-	        // remove_menu_page( 'admin.php?page=jetpack' );                 
+	        remove_menu_page( 'admin.php?page=jetpack' );                 
 	        // remove_menu_page( 'duplicator' ); 
-	        // remove_menu_page( 'wpcf7' ); 
 	        // remove_menu_page( 'edit.php?post_type=featured_item' ); 
 	        // remove_menu_page( 'edit.php?post_type=blocks' ); 
 
@@ -80,13 +79,18 @@ function cf_admin_menu_init() {
 	        // unset($submenu['edit.php?post_type=product'][17]); // Atributos // edit.php?post_type=product&page=product_attributes
 	        
 	        // Parcela
-	        remove_menu_page( 'edit.php?post_type=parcela' ); 
+	        remove_menu_page( 'edit.php?post_type=parcela' );
+	        remove_submenu_page( 'edit.php?post_type=parcela', 'edit.php?post_type=parcela' );
+	        // unset( $menu['edit-parcela'] ); 
 
 	        // Woocommerce
-	        remove_menu_page( 'woocommerce' );                    							//WC
-	        remove_submenu_page( 'woocommerce', 'edit.php?post_type=shop_order' );			// pedidos
-	        remove_submenu_page( 'woocommerce', 'edit.php?post_type=shop_coupon' );			// coupons
-	        remove_submenu_page( 'woocommerce', 'wc-reports' );								// relatórios // admin.php?page=wc-reports
+	        remove_menu_page( 'woocommerce' );               							//WC
+	        remove_submenu_page( 'woocommerce', 'edit.php?post_type=shop_order' );		// pedidos
+	        remove_submenu_page( 'woocommerce', 'edit.php?post_type=shop_coupon' );		// coupons
+	        // remove_submenu_page( 'woocommerce', 'wc-reports' );							// relatórios // admin.php?page=wc-reports
+	        // remove_submenu_page( 'woocommerce', 'wc-settings' );						// Configurações
+	        remove_submenu_page( 'woocommerce', 'wc-status' );							// Status
+	        remove_submenu_page( 'woocommerce', 'wc-addons' );							// Extensões
 	        	        
 	        // Appearance Menu
 	        // unset($submenu['themes.php'][5]); // Themes        
@@ -108,7 +112,6 @@ function cf_admin_menu_init() {
 
 	        // Contact Form 7
 	        remove_menu_page( 'wpcf7' );
-	        // unset( $menu['wpcf7'] );
 	        
 	        // Yoast Plugin
 	        remove_menu_page( 'yit_plugin_panel' );
@@ -122,7 +125,16 @@ function cf_admin_menu_init() {
 	        remove_menu_page( 'psts-checkout' ); // Pro Upgrade
 	        remove_menu_page( 'loco' ); // Pro Upgrade
 
-	        // remove_menu_page( 'cf_logo_options' );
+	        // Popup (wpmudev)
+	        remove_menu_page( 'edit.php?post_type=inc_popup' );
+	        remove_submenu_page( 'edit.php?post_type=inc_popup', 'edit.php?post_type=inc_popup' );
+	        remove_submenu_page( 'edit.php?post_type=inc_popup', 'post-new.php?post_type=inc_popup' );
+	        remove_submenu_page( 'edit.php?post_type=inc_popup', 'edit.php?post_type=inc_popup&page=settings' );
+
+	        // Flamingo
+	        remove_menu_page( 'flamingo' );
+	        remove_submenu_page( 'flamingo', 'flamingo' );							// admin.php?page=flamingo
+	        remove_submenu_page( 'flamingo', 'flamingo_edit_inbound_messages' );	// admin.php?page=flamingo_inbound
 
 	    }
 
@@ -245,9 +257,11 @@ function cf_admin_menu_init() {
 	        	// Tags
 	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'Tags', 'cf' ), __( 'Tags', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=post_tag', null );
 	        	// Popup
-	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'Popup', 'cf' ), __( 'Popup', 'cf' ), 'edit_theme_options', 'cf-marketing-popup', 'cf_em_breve' );
+	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'Popup', 'cf' ), __( 'Popup', 'cf' ), 'edit_theme_options', 'edit.php?post_type=inc_popup', null );
 	        	// Base de Contatos
-	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'Base de Contatos', 'cf' ), __( 'Base de Contatos', 'cf' ), 'edit_theme_options', 'cf-marketing-base-de-contatos', 'cf_em_breve' );
+	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'Envios de Contatos', 'cf' ), __( 'Envios de Contatos', 'cf' ), 'edit_theme_options', 'admin.php?page=flamingo_inbound', null );
+	        	// Envios de Contatos
+	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'Base de Contatos', 'cf' ), __( 'Base de Contatos', 'cf' ), 'edit_theme_options', 'admin.php?page=flamingo', null );
 	        	// relatórios
 	        	// add_submenu_page( 'cf-marketing-atrair', __( 'relatórios', 'cf' ), __( 'relatórios', 'cf' ), 'edit_theme_options', 'cf-marketing-relatorios', 'cf_em_breve' );
 	        
@@ -256,7 +270,7 @@ function cf_admin_menu_init() {
 	        	// O que você precisa saber?
 	        	add_submenu_page( 'cf-vendas-e-pagamentos-tudo-o-que-voce-precisa-saber', __( 'O que você precisa saber?', 'cf' ), __( 'O que você precisa saber?', 'cf' ), 'edit_theme_options', 'cf-vendas-e-pagamentos-tudo-o-que-voce-precisa-saber', 'cf_em_breve' );
 	        	// Formas de Pagamento
-	        	add_submenu_page( 'cf-vendas-e-pagamentos-tudo-o-que-voce-precisa-saber', __( 'Formas de Pagamento', 'cf' ), __( 'Formas de Pagamento', 'cf' ), 'edit_theme_options', 'cf-vendas-e-pagamentos-formas-pagamento', 'cf_em_breve' );
+	        	add_submenu_page( 'cf-vendas-e-pagamentos-tudo-o-que-voce-precisa-saber', __( 'Formas de Pagamento', 'cf' ), __( 'Formas de Pagamento', 'cf' ), 'read', 'admin.php?page=wc-settings&tab=checkout', null );
 	        	// Antifraudes
 	        	// add_submenu_page( 'cf-vendas-e-pagamentos-tudo-o-que-voce-precisa-saber', __( 'Antifraudes', 'cf' ), __( 'Antifraudes', 'cf' ), 'edit_theme_options', 'cf-vendas-e-pagamentos-antifraudes', 'cf_em_breve' );
 	        	// Parcelas
@@ -270,7 +284,7 @@ function cf_admin_menu_init() {
 	        	// Marketplaces
 	        	// add_submenu_page( 'cf-vendas-e-pagamentos-tudo-o-que-voce-precisa-saber', __( 'Marketplaces', 'cf' ), __( 'Marketplaces', 'cf' ), 'edit_theme_options', 'cf-vendas-e-pagamentos-marketplaces', 'cf_em_breve' );
 	        	// Relatórios
-	        	add_submenu_page( 'cf-vendas-e-pagamentos-tudo-o-que-voce-precisa-saber', __( 'Relatórios', 'cf' ), __( 'Relatórios', 'cf' ), 'edit_theme_options', 'cf-vendas-e-pagamentos-relatorios', 'cf_em_breve' ); // admin.php?page=wc-reports      	
+	        	add_submenu_page( 'cf-vendas-e-pagamentos-tudo-o-que-voce-precisa-saber', __( 'Relatórios', 'cf' ), __( 'Relatórios', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-reports', null ); // admin.php?page=wc-reports      	
 
 	        // 11. Operações e Logística
 	        add_menu_page( __( 'Operações e Logística', 'cf' ), __( 'Operações e Logística', 'cf' ), 'edit_theme_options', 'cf-operacoes-e-logistica-o-que-voce-precisa-saber', null, null, 11 );
@@ -282,15 +296,15 @@ function cf_admin_menu_init() {
 	        	// Todos os Produtos
 	        	add_submenu_page( 'cf-operacoes-e-logistica-o-que-voce-precisa-saber', __( 'Produtos', 'cf' ), __( 'Produtos', 'cf' ), 'edit_theme_options', 'edit.php?post_type=product', null );
 	        	// Adicionar novo Produto
-	        	add_submenu_page( 'cf-operacoes-e-logistica-o-que-voce-precisa-saber', __( 'Adicionar novo produto', 'cf' ), __( 'Adicionar novo produto', 'cf' ), 'edit_theme_options', 'post-new.php?post_type=product', null );
+	        	// add_submenu_page( 'cf-operacoes-e-logistica-o-que-voce-precisa-saber', __( 'Adicionar novo produto', 'cf' ), __( 'Adicionar novo produto', 'cf' ), 'edit_theme_options', 'post-new.php?post_type=product', null );
 	        	// Categorias de Produto
-	        	add_submenu_page( 'cf-operacoes-e-logistica-o-que-voce-precisa-saber', __( 'Categoria de produto', 'cf' ), __( 'Categoria de produto', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=product_cat&post_type=product', null );
+	        	// add_submenu_page( 'cf-operacoes-e-logistica-o-que-voce-precisa-saber', __( 'Categoria de produto', 'cf' ), __( 'Categoria de produto', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=product_cat&post_type=product', null );
 	        	// Tags de Produto
-	        	add_submenu_page( 'cf-operacoes-e-logistica-o-que-voce-precisa-saber', __( 'Tag de produto', 'cf' ), __( 'Tag de produto', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=product_tag&post_type=product', null );
+	        	// add_submenu_page( 'cf-operacoes-e-logistica-o-que-voce-precisa-saber', __( 'Tag de produto', 'cf' ), __( 'Tag de produto', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=product_tag&post_type=product', null );
 	        	// Atributos de Produto
-	        	add_submenu_page( 'cf-operacoes-e-logistica-o-que-voce-precisa-saber', __( 'Atributos de produto', 'cf' ), __( 'Atributos de produto', 'cf' ), 'edit_theme_options', 'edit.php?post_type=product&page=product_attributes', null );
+	        	// add_submenu_page( 'cf-operacoes-e-logistica-o-que-voce-precisa-saber', __( 'Atributos de produto', 'cf' ), __( 'Atributos de produto', 'cf' ), 'edit_theme_options', 'edit.php?post_type=product&page=product_attributes', null );
 	        	// Gestão de Transportes e Tabela de Fretes
-	        	// add_submenu_page( 'cf-operacoes-e-logistica-o-que-voce-precisa-saber', __( 'Gestão de Transportes e Tabela de Fretes', 'cf' ), __( 'Gestão de Transportes e Tabela de Fretes', 'cf' ), 'edit_theme_options', 'cf-operacoes-e-logistica-gestao-de-transportes-e-tabela-de-fretes', 'cf_em_breve' );	        	
+	        	add_submenu_page( 'cf-operacoes-e-logistica-o-que-voce-precisa-saber', __( 'Gestão de Transportes e Tabela de Fretes', 'cf' ), __( 'Gestão de Transportes e Tabela de Fretes', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=shipping', null );	        	
 	        // 12. Atendimento ao Cliente
 	        add_menu_page( __( 'Atendimento ao Cliente', 'cf' ), __( 'Atendimento ao Cliente', 'cf' ), 'edit_theme_options', 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber', null, null, 12 );
 	        	// O que você precisa saber?
@@ -311,18 +325,14 @@ function cf_admin_menu_init() {
 			echo '<h3>Em breve!</h3>';
 		}
 
-		function cf_logo() {
-			$cf_logo = get_option( 'cf_logo_options' );
-			cf_debug( $cf_logo['cf_site_logo'] );
-			// include CF_DIR . 'cf-admin/cf-admin-content/cf-logo.php';
-		}
-
+		// Substitui o nome dos menus e submenus
 		add_action( 'admin_menu', 'cf_troca_nomes', 150 );
 
 		function cf_troca_nomes() {
 			global $submenu;
 			// cf_debug( $submenu );
 			$submenu['cf_logo_options'][0][0] = __( 'Logo', 'cf' );
+			$submenu['cf_formas_pagamento'][0][0] = __( 'Formas de Pagamento', 'cf' );
 		}
 
 	endif; // is_super_admin	
@@ -347,4 +357,4 @@ function cf_remove_items() {
   }
 }
 
-add_action( 'admin_menu', 'cf_remove_items', 99, 0 );
+// add_action( 'admin_menu', 'cf_remove_items', 99, 0 );
