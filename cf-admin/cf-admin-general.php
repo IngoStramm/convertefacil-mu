@@ -190,6 +190,10 @@ function cf_admin_general_init() {
 		    elseif( $current_screen->id == 'settings_page_tawkto_plugin' ) :
 		    	$plugin_page = 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber';
 		        $submenu_file = 'options-general.php?page=tawkto_plugin';
+		    // Avaliação dos Clientes (trustvox)
+		    elseif( $current_screen->id == 'settings_page_trustvox' ) :
+		    	$plugin_page = 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber';
+		        $submenu_file = 'options-general.php?page=trustvox';
 			endif;
 		    return $parent_file;
 

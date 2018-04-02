@@ -334,6 +334,8 @@ function cf_admin_menu_init() {
 	        	add_submenu_page( 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber', __( 'Tawk', 'cf' ), __( 'Tawk', 'cf' ), 'edit_theme_options', 'options-general.php?page=tawkto_plugin', null );
 	        	// Chat
 	        	// add_submenu_page( 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber', __( 'Chat', 'cf' ), __( 'Chat', 'cf' ), 'edit_theme_options', 'cf-atendimento-ao-cliente-chat', 'cf_em_breve' );	        	
+	        	// Avaliação dos Clientes
+	        	add_submenu_page( 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber', __( 'Avaliação dos Clientes', 'cf' ), __( 'Avaliação dos Clientes', 'cf' ), 'edit_theme_options', 'options-general.php?page=trustvox', null );	        	
 	        	// E-mail
 	        	add_submenu_page( 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber', __( 'E-mail Transacionais', 'cf' ), __( 'E-mail Transacionais', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=email', null );	        	
 	        	// Mensagem
