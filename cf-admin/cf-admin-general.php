@@ -109,6 +109,10 @@ function cf_admin_general_init() {
 				        $plugin_page = 'cf-operacoes-e-logistica-o-que-voce-precisa-saber';
 				        $submenu_file = 'admin.php?page=wc-settings&tab=shipping';
 		    			break;
+		    		case 'integration':
+				        $plugin_page = 'cf-erp-integracao-tudo-o-que-voce-precisa-saber';
+				        $submenu_file = 'admin.php?page=wc-settings&tab=integration';
+		    			break;
 		    		
 		    		default:
 				        // $plugin_page = 'cf-operacoes-e-logistica-o-que-voce-precisa-saber';
