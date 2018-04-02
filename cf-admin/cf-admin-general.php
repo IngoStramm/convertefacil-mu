@@ -50,7 +50,8 @@ function cf_admin_general_init() {
 				'checkout',
 				'integration',
 				'mailchimp',
-				'sendinblue'
+				'sendinblue',
+				'email'
 			);
 		    // Declare the tabs we want to hide
 		    $tabs_to_hide = array(
@@ -112,6 +113,10 @@ function cf_admin_general_init() {
 		    		case 'shipping':
 				        $plugin_page = 'cf-operacoes-e-logistica-o-que-voce-precisa-saber';
 				        $submenu_file = 'admin.php?page=wc-settings&tab=shipping';
+		    			break;
+		    		case 'email':
+				        $plugin_page = 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber';
+				        $submenu_file = 'admin.php?page=wc-settings&tab=email';
 		    			break;
 		    		case 'integration':
 				        $plugin_page = 'cf-erp-integracao-tudo-o-que-voce-precisa-saber';

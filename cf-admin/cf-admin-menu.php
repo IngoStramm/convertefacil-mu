@@ -335,7 +335,7 @@ function cf_admin_menu_init() {
 	        	// Chat
 	        	// add_submenu_page( 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber', __( 'Chat', 'cf' ), __( 'Chat', 'cf' ), 'edit_theme_options', 'cf-atendimento-ao-cliente-chat', 'cf_em_breve' );	        	
 	        	// E-mail
-	        	add_submenu_page( 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber', __( 'E-mail Transacionais', 'cf' ), __( 'E-mail Transacionais', 'cf' ), 'edit_theme_options', 'cf-atendimento-ao-cliente-email', 'cf_em_breve' );	        	
+	        	add_submenu_page( 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber', __( 'E-mail Transacionais', 'cf' ), __( 'E-mail Transacionais', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=email', null );	        	
 	        	// Mensagem
 	        	// add_submenu_page( 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber', __( 'Mensagem', 'cf' ), __( 'Mensagem', 'cf' ), 'edit_theme_options', 'cf-atendimento-ao-cliente-mensagem', 'cf_em_breve' );	        	
 
