@@ -12,7 +12,7 @@ function cf_admin_menu_init() {
 
 		function cf_remove_menus(){
 	        global $menu, $submenu;
-	        // cf_debug( $menu );
+	        // cf_debug( $submenu['options-general.php'] );
 	        // $edit_menu = $submenu['themes.php'][10];
 	        // add_menu_page( __( 'Editar Menus' ), __( ' Menus '), 'edit_theme_options', 'nav-menus.php', null, null, 60 );
 	        // remove_menu_page( 'index.php' );                  //Dashboard
@@ -46,6 +46,7 @@ function cf_admin_menu_init() {
 	        
 	        //Settings
 	        remove_menu_page( 'options-general.php' );
+	        remove_submenu_page( 'options-general.php', 'options-general.php' );
 
 	        // Posts
 	        remove_menu_page( 'edit.php' );                   //Posts
@@ -138,6 +139,11 @@ function cf_admin_menu_init() {
 
 	        // E-goi
 	        remove_menu_page( 'egoi-mail-list-builder-contact-form-7-info' );
+
+	        // tawk
+	        // remove_submenu_page( 'options-general.php', 'tawkto_plugin' );
+	        // remove_submenu_page( 'options-general.php', 'options-general.php?page=tawkto_plugin' );
+	        // unset($submenu['options-general.php'][42]); // Tags
 
 	    }
 
@@ -324,6 +330,8 @@ function cf_admin_menu_init() {
 	        	add_submenu_page( 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber', __( 'O que você precisa saber?', 'cf' ), __( 'O que você precisa saber?', 'cf' ), 'edit_theme_options', 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber', 'cf_em_breve' );
 	        	// Comentários
 	        	add_submenu_page( 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber', __( 'Comentários', 'cf' ), __( 'Comentários', 'cf' ), 'edit_theme_options', 'edit-comments.php', null );
+	        	// Tawk
+	        	add_submenu_page( 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber', __( 'Tawk', 'cf' ), __( 'Tawk', 'cf' ), 'edit_theme_options', 'options-general.php?page=tawkto_plugin', null );
 	        	// Chat
 	        	// add_submenu_page( 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber', __( 'Chat', 'cf' ), __( 'Chat', 'cf' ), 'edit_theme_options', 'cf-atendimento-ao-cliente-chat', 'cf_em_breve' );	        	
 	        	// E-mail

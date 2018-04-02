@@ -181,6 +181,10 @@ function cf_admin_general_init() {
 		    elseif( $current_screen->id == 'toplevel_page_egoi-mail-list-builder-contact-form-7-info' ) :
 		    	$plugin_page = 'cf-marketing-tudo-o-que-voce-precisa-saber';
 		        $submenu_file = 'admin.php?page=egoi-mail-list-builder-contact-form-7-info';
+		    // Tawk
+		    elseif( $current_screen->id == 'settings_page_tawkto_plugin' ) :
+		    	$plugin_page = 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber';
+		        $submenu_file = 'options-general.php?page=tawkto_plugin';
 			endif;
 		    return $parent_file;
 
