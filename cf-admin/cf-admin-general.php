@@ -48,19 +48,23 @@ function cf_admin_general_init() {
 			$allowed_tabs = array(
 				'shipping',
 				'checkout',
-				'integration' //
+				'integration',
+				'mailchimp',
+				'sendinblue'
 			);
 		    // Declare the tabs we want to hide
 		    $tabs_to_hide = array(
-		        'general' => 'General',
-		        'products' => 'Products',
-		        'shipping' => 'Shipping',
-		        'tax' => 'Tax',
-		        'checkout' => 'Checkout',
-		        'email' => 'Emails',
-		        'api' => 'API',
-		        'account' => 'Accounts',
-		        'integration' => 'Integration',
+		        'general' 		=> 'General',
+		        'products'		=> 'Products',
+		        'shipping' 		=> 'Shipping',
+		        'tax' 			=> 'Tax',
+		        'checkout' 		=> 'Checkout',
+		        'email' 		=> 'Emails',
+		        'api' 			=> 'API',
+		        'account' 		=> 'Accounts',
+		        'integration' 	=> 'Integration',
+		        'mailchimp'		=> 'MailChimp',
+		        'sendinblue'	=> 'SendinBlue'
 	        );
 
 	        foreach( $allowed_tabs as $allowed_tab ) :
@@ -112,6 +116,14 @@ function cf_admin_general_init() {
 		    		case 'integration':
 				        $plugin_page = 'cf-erp-integracao-tudo-o-que-voce-precisa-saber';
 				        $submenu_file = 'admin.php?page=wc-settings&tab=integration';
+		    			break;
+		    		case 'mailchimp':
+				        $plugin_page = 'cf-marketing-tudo-o-que-voce-precisa-saber';
+				        $submenu_file = 'admin.php?page=wc-settings&tab=mailchimp';
+		    			break;
+		    		case 'sendinblue':
+				        $plugin_page = 'cf-marketing-tudo-o-que-voce-precisa-saber';
+				        $submenu_file = 'admin.php?page=wc-settings&tab=sendinblue';
 		    			break;
 		    		
 		    		default:
@@ -165,6 +177,10 @@ function cf_admin_general_init() {
 		    elseif( $current_screen->id == 'toplevel_page_flamingo' ) :
 		    	$plugin_page = 'cf-marketing-tudo-o-que-voce-precisa-saber';
 		        $submenu_file = 'admin.php?page=flamingo';
+		    // E-goi
+		    elseif( $current_screen->id == 'toplevel_page_egoi-mail-list-builder-contact-form-7-info' ) :
+		    	$plugin_page = 'cf-marketing-tudo-o-que-voce-precisa-saber';
+		        $submenu_file = 'admin.php?page=egoi-mail-list-builder-contact-form-7-info';
 			endif;
 		    return $parent_file;
 

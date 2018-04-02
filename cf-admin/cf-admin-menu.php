@@ -12,7 +12,7 @@ function cf_admin_menu_init() {
 
 		function cf_remove_menus(){
 	        global $menu, $submenu;
-	        // cf_debug( $submenu );
+	        // cf_debug( $menu );
 	        // $edit_menu = $submenu['themes.php'][10];
 	        // add_menu_page( __( 'Editar Menus' ), __( ' Menus '), 'edit_theme_options', 'nav-menus.php', null, null, 60 );
 	        // remove_menu_page( 'index.php' );                  //Dashboard
@@ -136,6 +136,9 @@ function cf_admin_menu_init() {
 	        remove_submenu_page( 'flamingo', 'flamingo' );							// admin.php?page=flamingo
 	        remove_submenu_page( 'flamingo', 'flamingo_edit_inbound_messages' );	// admin.php?page=flamingo_inbound
 
+	        // E-goi
+	        remove_menu_page( 'egoi-mail-list-builder-contact-form-7-info' );
+
 	    }
 
 		
@@ -258,10 +261,16 @@ function cf_admin_menu_init() {
 	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'Categorias', 'cf' ), __( 'Categorias', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=category', null );
 	        	// Tags
 	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'Tags', 'cf' ), __( 'Tags', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=post_tag', null );
-	        	// Social
-	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'Social', 'cf' ), __( 'Social', 'cf' ), 'edit_theme_options', 'cf-marketing-social', 'cf_em_breve' );
+	        	// // Social
+	        	// add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'Social', 'cf' ), __( 'Social', 'cf' ), 'edit_theme_options', 'cf-marketing-social', 'cf_em_breve' );
 	        	// Popup
 	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'Popup', 'cf' ), __( 'Popup', 'cf' ), 'edit_theme_options', 'edit.php?post_type=inc_popup', null );
+	        	// MailChimp
+	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'MailChimp', 'cf' ), __( 'MailChimp', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=mailchimp', null );
+	        	// E-goi
+	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'E-goi', 'cf' ), __( 'E-goi', 'cf' ), 'edit_theme_options', 'admin.php?page=egoi-mail-list-builder-contact-form-7-info', null );
+	        	// SendinBlue
+	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'SendinBlue', 'cf' ), __( 'SendinBlue', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=sendinblue', null );
 	        	// Base de Contatos
 	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'Envios de Contatos', 'cf' ), __( 'Envios de Contatos', 'cf' ), 'edit_theme_options', 'admin.php?page=flamingo_inbound', null );
 	        	// Envios de Contatos
