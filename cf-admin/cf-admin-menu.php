@@ -196,7 +196,7 @@ function cf_admin_menu_init() {
 	        	// Menu
 	        	add_submenu_page( 'cf_logo_options', __( 'Menu', 'cf' ), __( 'Menu', 'cf' ), 'edit_theme_options', 'nav-menus.php', null );
 	        	// 12go
-	        	add_submenu_page( 'cf_logo_options', __( '12go', 'cf' ), __( '12go', 'cf' ), 'edit_theme_options', 'cf-12go', 'cf_em_breve' );
+	        	// add_submenu_page( 'cf_logo_options', __( '12go', 'cf' ), __( '12go', 'cf' ), 'edit_theme_options', 'cf-12go', 'cf_em_breve' );
 	        	// // UX Builder
 	        	// add_submenu_page( 'cf_logo_options', __( 'UX Builder', 'cf' ), __( 'UX Builder', 'cf' ), 'edit_theme_options', 'cf-ux-builder', 'cf_em_breve' );
 	        	// UX Builder Todas as Páginas
@@ -234,7 +234,7 @@ function cf_admin_menu_init() {
 	        	// O que você precisa saber?
 	        	add_submenu_page( 'cf-erp-integracao-tudo-o-que-voce-precisa-saber', __( 'O que você precisa saber?', 'cf' ), __( 'O que você precisa saber?', 'cf' ), 'edit_theme_options', 'cf-erp-integracao-tudo-o-que-voce-precisa-saber', 'cf_em_breve' );
 	        	// Integrações
-	        	add_submenu_page( 'cf-erp-integracao-tudo-o-que-voce-precisa-saber', __( 'Integrações', 'cf' ), __( 'Integrações', 'cf' ), 'edit_theme_options', 'cf-erp-integracoes', 'cf_em_breve' );
+	        	add_submenu_page( 'cf-erp-integracao-tudo-o-que-voce-precisa-saber', __( 'Integrações', 'cf' ), __( 'Integrações', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=integration', '' );
 
 	        // 8. Segurança e Validação
 	        add_menu_page( __( 'Segurança e Validação', 'cf' ), __( 'Segurança e Validação', 'cf' ), 'edit_theme_options', 'cf-seguranca-e-validacao-tudo-o-que-voce-precisa-saber', 'cf_em_breve', null, 9 );

@@ -47,7 +47,8 @@ function cf_admin_general_init() {
 			// abas permitidas
 			$allowed_tabs = array(
 				'shipping',
-				'checkout'
+				'checkout',
+				'integration' //
 			);
 		    // Declare the tabs we want to hide
 		    $tabs_to_hide = array(
