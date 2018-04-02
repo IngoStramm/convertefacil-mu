@@ -241,6 +241,8 @@ function cf_admin_menu_init() {
 	        	
 	        	// O que você precisa saber?
 	        	add_submenu_page( 'cf-seguranca-e-validacao-tudo-o-que-voce-precisa-saber', __( 'O que você precisa saber?', 'cf' ), __( 'O que você precisa saber?', 'cf' ), 'edit_theme_options', 'cf-seguranca-e-validacao-tudo-o-que-voce-precisa-saber', 'cf_em_breve' );
+	        	// Certificado SSL
+	        	add_submenu_page( 'cf-seguranca-e-validacao-tudo-o-que-voce-precisa-saber', __( 'Certificado SSL', 'cf' ), __( 'Certificado SSL', 'cf' ), 'edit_theme_options', 'cf-seguranca-e-validacao-certificado-ssl', 'cf_em_breve' );
 	        	// Selos e Segurança
 	        	// add_submenu_page( 'cf-seguranca-e-validacao-tudo-o-que-voce-precisa-saber', __( 'Selos e Segurança', 'cf' ), __( 'Selos e Segurança', 'cf' ), 'edit_theme_options', 'cf-seguranca-e-validacao-selos-e-seguranca', 'cf_em_breve' );
 	        	// Validação
@@ -256,6 +258,8 @@ function cf_admin_menu_init() {
 	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'Categorias', 'cf' ), __( 'Categorias', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=category', null );
 	        	// Tags
 	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'Tags', 'cf' ), __( 'Tags', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=post_tag', null );
+	        	// Social
+	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'Social', 'cf' ), __( 'Social', 'cf' ), 'edit_theme_options', 'cf-marketing-social', 'cf_em_breve' );
 	        	// Popup
 	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'Popup', 'cf' ), __( 'Popup', 'cf' ), 'edit_theme_options', 'edit.php?post_type=inc_popup', null );
 	        	// Base de Contatos
