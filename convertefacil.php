@@ -19,3 +19,4 @@ require_once 'core.php';
 require_once 'registration.php';
 require_once 'scripts.php';
 require_once 'cf-admin/cf-admin.php';
+require_once 'pro-sites/pro-sites.php';

@@ -12,7 +12,7 @@ function cf_admin_menu_init() {
 
 		function cf_remove_menus(){
 	        global $menu, $submenu;
-	        // cf_debug( $submenu['options-general.php'] );
+	        // cf_debug( $menu );
 	        // $edit_menu = $submenu['themes.php'][10];
 	        // add_menu_page( __( 'Editar Menus' ), __( ' Menus '), 'edit_theme_options', 'nav-menus.php', null, null, 60 );
 	        // remove_menu_page( 'index.php' );                  //Dashboard
@@ -145,6 +145,27 @@ function cf_admin_menu_init() {
 	        // remove_submenu_page( 'options-general.php', 'options-general.php?page=tawkto_plugin' );
 	        // unset($submenu['options-general.php'][42]); // Tags
 
+	        // Yoast SEO
+	        remove_menu_page( 'wpseo_dashboard' );
+
+	        // FB Comments
+	        remove_menu_page( 'FB-comments' );
+
+			// Seo Optimized Images
+	        remove_menu_page( 'soi_setting' );
+
+	        // W3 Total Cache
+	        remove_menu_page( 'w3tc_dashboard' );
+
+	        // Woo Feed
+	        remove_menu_page( 'webappick-product-feed-for-woocommerce/admin/class-woo-feed-admin.php' );
+
+	        // WP All Export
+	        remove_menu_page( 'pmxe-admin-home' );
+
+	        // WP All Import
+	        remove_menu_page( 'pmxi-admin-home' );
+
 	    }
 
 		
@@ -274,7 +295,7 @@ function cf_admin_menu_init() {
 	        	// MailChimp
 	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'MailChimp', 'cf' ), __( 'MailChimp', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=mailchimp', null );
 	        	// E-goi
-	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'E-goi', 'cf' ), __( 'E-goi', 'cf' ), 'edit_theme_options', 'admin.php?page=egoi-mail-list-builder-contact-form-7-info', null );
+	        	// add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'E-goi', 'cf' ), __( 'E-goi', 'cf' ), 'edit_theme_options', 'admin.php?page=egoi-mail-list-builder-contact-form-7-info', null );
 	        	// SendinBlue
 	        	add_submenu_page( 'cf-marketing-tudo-o-que-voce-precisa-saber', __( 'SendinBlue', 'cf' ), __( 'SendinBlue', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=sendinblue', null );
 	        	// Base de Contatos

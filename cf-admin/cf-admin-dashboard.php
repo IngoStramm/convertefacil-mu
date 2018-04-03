@@ -26,6 +26,12 @@ function cf_admin_dashboard_init() {
 			// Woocommerce Avaliações Recentes
 			remove_meta_box( 'woocommerce_dashboard_recent_reviews', 'dashboard', 'normal' );
 			remove_meta_box( 'woocommerce_dashboard_status', 'dashboard', 'normal' );
+
+			// Yoast SEO
+			remove_meta_box( 'wpseo-dashboard-overview', 'dashboard', 'normal' );
+			// Google Analytics
+			remove_meta_box( 'gadwp-widget', 'dashboard', 'normal' );
+
 			// Atividades
 			unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'] );
 			// Yoast SEO
@@ -38,6 +44,7 @@ function cf_admin_dashboard_init() {
 			// Coluna da direita
 			wp_add_dashboard_widget( 'feedback', __( 'Feedback', 'cf' ),'cf_feedback','dashboard','side','high');
 			add_meta_box( 'dashboard_activity', __( 'Activity' ), 'wp_dashboard_site_activity', 'dashboard', 'side', 'core' );
+			// add_meta_box( 'gadwp-widget', 'dashboard', 'normal' );
 			// add_meta_box( 'cf_dashboard_recent_reviews', __( 'WooCommerce recent reviews', 'woocommerce' ), 'cf_recent_reviews' ,'dashboard','side','core');
 		}
 

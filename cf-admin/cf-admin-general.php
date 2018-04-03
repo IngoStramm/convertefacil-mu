@@ -194,6 +194,14 @@ function cf_admin_general_init() {
 		    elseif( $current_screen->id == 'settings_page_trustvox' ) :
 		    	$plugin_page = 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber';
 		        $submenu_file = 'options-general.php?page=trustvox';
+		    // Yoast SEO
+			// elseif( $current_screen->id == 'toplevel_page_wpseo_dashboard' ) :
+			// 	$plugin_page = '';
+			// 	$submenu_file = 'admin.php?page=wpseo_dashboard';
+		    // RD Station
+		    // elseif( $current_screen->id == 'edit-rdcf7_integrations' ) :
+		    // 	$plugin_page = '';
+		    //     $submenu_file = 'post_type=rdcf7_integrations';
 			endif;
 		    return $parent_file;
 
