@@ -229,15 +229,13 @@ function cf_admin_menu_init() {
 	        // add_menu_page( __( 'Design e Layouts', 'cf' ), __( 'Design e Layouts', 'cf' ), 'edit_theme_options', 'cf-logo', null, null, 6 );
 
 	        	// Logo
-	        	add_submenu_page( 'cf_logo_options', __( 'Logo', 'cf' ), __( 'Logo', 'cf' ), 'edit_theme_options', 'cf-logo', 'cf_logo' );
+	        	// add_submenu_page( 'cf_logo_options', __( 'Logo', 'cf' ), __( 'Logo', 'cf' ), 'edit_theme_options', 'cf-logo', 'cf_logo' );
 	        	// Temas
 	        	// add_submenu_page( 'cf-logo', __( 'Temas', 'cf' ), __( 'Temas', 'cf' ), 'edit_theme_options', 'cf-temas', 'cf_em_breve' );
 	        	// Menu
 	        	add_submenu_page( 'cf_logo_options', __( 'Menu', 'cf' ), __( 'Menu', 'cf' ), 'edit_theme_options', 'nav-menus.php', null );
 	        	// 12go
 	        	// add_submenu_page( 'cf_logo_options', __( '12go', 'cf' ), __( '12go', 'cf' ), 'edit_theme_options', 'cf-12go', 'cf_em_breve' );
-	        	// // UX Builder
-	        	// add_submenu_page( 'cf_logo_options', __( 'UX Builder', 'cf' ), __( 'UX Builder', 'cf' ), 'edit_theme_options', 'cf-ux-builder', 'cf_em_breve' );
 	        	// UX Builder Todas as Páginas
 	        	add_submenu_page( 'cf_logo_options', __( 'Páginas', 'cf' ), __( 'UX Builder (Páginas)', 'cf' ), 'edit_theme_options', 'edit.php?post_type=page', null );
 	        	// Adicionar página
@@ -379,7 +377,7 @@ function cf_admin_menu_init() {
 		}
 
 		// Substitui o nome dos menus e submenus
-		add_action( 'admin_menu', 'cf_troca_nomes', 150 );
+		add_action( 'admin_menu', 'cf_troca_nomes', 201 );
 
 		function cf_troca_nomes() {
 			global $submenu;

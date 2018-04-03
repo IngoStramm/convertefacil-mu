@@ -123,7 +123,7 @@ function cf_admin_general_init() {
 				        $submenu_file = 'admin.php?page=wc-settings&tab=integration';
 		    			break;
 		    		case 'mailchimp':
-				        $plugin_page = 'cf-marketing-tudo-o-que-voce-precisa-saber';
+				        $plugin_page = 'edit.php';
 				        $submenu_file = 'admin.php?page=wc-settings&tab=mailchimp';
 		    			break;
 		    		case 'sendinblue':
@@ -180,11 +180,11 @@ function cf_admin_general_init() {
 		    	$plugin_page = 'cf-marketing-tudo-o-que-voce-precisa-saber';
 		    // Flamingo
 		    elseif( $current_screen->id == 'flamingo_page_flamingo_inbound' ) :
-		    	$plugin_page = 'cf-marketing-tudo-o-que-voce-precisa-saber';
+		    	$plugin_page = 'edit.php';
 		        $submenu_file = 'admin.php?page=flamingo_inbound';
 		    // Flamingo
 		    elseif( $current_screen->id == 'toplevel_page_flamingo' ) :
-		    	$plugin_page = 'cf-marketing-tudo-o-que-voce-precisa-saber';
+		    	$plugin_page = 'edit.php';
 		        $submenu_file = 'admin.php?page=flamingo';
 		    // E-goi
 		    elseif( $current_screen->id == 'toplevel_page_egoi-mail-list-builder-contact-form-7-info' ) :
