@@ -43,6 +43,7 @@ function cf_admin_menu_init() {
 
 	        //Tools
 	        remove_menu_page( 'tools.php' );
+	        remove_submenu_page( 'tools.php', 'tools.php' );
 	        
 	        //Settings
 	        remove_menu_page( 'options-general.php' );
@@ -174,6 +175,22 @@ function cf_admin_menu_init() {
 
 	        // WP All Import
 	        remove_menu_page( 'pmxi-admin-home' );
+
+	        // Domain Mapping
+	        remove_submenu_page( 'tools.php', 'tools.php?page=domainmapping' );
+
+	        // RD Station CF7
+	        remove_menu_page( 'edit.php?post_type=rdcf7_integrations' );
+	        remove_submenu_page( 'edit.php?post_type=rdcf7_integrations', 'edit.php?post_type=rdcf7_integrations' );
+
+	        // Google Analytics
+	        // cf_debug($menu);
+	        // unset( $menu[105] );
+	        // unset( $menu['admin.php?page=gadwp_settings'] );
+	        // unset( $submenu['gadwp_settings'][5] );
+	        remove_menu_page( 'gadwp_settings' );
+	        // remove_submenu_page( 'gadwp_settings', 'admin.php?page=gadwp_settings' );
+	        // remove_menu_page( 'admin.php?page=gadwp_settings' );
 
 	    }
 
@@ -367,7 +384,16 @@ function cf_admin_menu_init() {
 	        	// E-mail
 	        	add_submenu_page( 'edit-comments.php', __( 'E-mail Transacionais', 'cf' ), __( 'E-mail Transacionais', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=email', null );	        	
 	        	// Mensagem
-	        	// add_submenu_page( 'edit-comments.php', __( 'Mensagem', 'cf' ), __( 'Mensagem', 'cf' ), 'edit_theme_options', 'cf-atendimento-ao-cliente-mensagem', 'cf_em_breve' );	        	
+	        	// add_submenu_page( 'edit-comments.php', __( 'Mensagem', 'cf' ), __( 'Mensagem', 'cf' ), 'edit_theme_options', 'cf-atendimento-ao-cliente-mensagem', 'cf_em_breve' );	    
+
+	        // 13. Configurações
+
+	        	// Domínio
+	        	add_submenu_page( 'cf_plugin_options', __( 'Domínio', 'cf' ), __( 'Domínio', 'cf' ), 'edit_theme_options', 'tools.php?page=domainmapping', null );
+	        	// RD Station
+	        	add_submenu_page( 'cf_plugin_options', __( 'RD Station', 'cf' ), __( 'RD Station', 'cf' ), 'edit_theme_options', 'edit.php?post_type=rdcf7_integrations', null );
+	        	// Google Analytics
+	        	add_submenu_page( 'cf_plugin_options', __( 'Google Analytics', 'cf' ), __( 'Google Analytics', 'cf' ), 'edit_theme_options', 'admin.php?page=gadwp_settings', null );
 
 
 		}
@@ -393,41 +419,40 @@ function cf_admin_menu_init() {
 		function cf_custom_menu_order( $menu_ord ) {
 			// cf_debug( $menu_ord );
 		    if ( !$menu_ord ) return true;
-		    // array(17) {
-		    // [0]=>
-		    // string(9) "index.php"
-		    // [1]=>
-		    // string(45) "cf-financeiro-calculo-de-investimento-inicial"
-		    // [2]=>
-		    // string(10) "separator1"
-		    // [3]=>
-		    // string(15) "cf_logo_options"
-		    // [4]=>
-		    // string(42) "admin.php?page=wc-settings&tab=integration"
-		    // [5]=>
-		    // string(42) "cf-marketing-tudo-o-que-voce-precisa-saber"
-		    // [6]=>
-		    // string(52) "cf-vendas-e-pagamentos-tudo-o-que-voce-precisa-saber"
-		    // [7]=>
-		    // string(49) "cf-operacoes-e-logistica-o-que-voce-precisa-saber"
-		    // [8]=>
-		    // string(50) "cf-atendimento-ao-cliente-o-que-voce-precisa-saber"
-		    // [9]=>
-		    // string(26) "edit.php?post_type=product"
-		    // [10]=>
-		    // string(37) "edit.php?post_type=rdcf7_integrations"
-		    // [11]=>
-		    // string(10) "separator2"
-		    // [12]=>
-		    // string(9) "users.php"
-		    // [13]=>
-		    // string(14) "separator-last"
-		    // [14]=>
-		    // string(21) "separator-woocommerce"
-		    // [15]=>
-		    // string(10) "cf_options"		    // }
+		    // array(15) {
+		    //   [0]=>
+		    //   string(9) "index.php"
+		    //   [1]=>
+		    //   string(45) "cf-financeiro-calculo-de-investimento-inicial"
+		    //   [2]=>
+		    //   string(10) "separator1"
+		    //   [3]=>
+		    //   string(15) "cf_logo_options"
+		    //   [4]=>
+		    //   string(42) "admin.php?page=wc-settings&tab=integration"
+		    //   [5]=>
+		    //   string(8) "edit.php"
+		    //   [6]=>
+		    //   string(39) "admin.php?page=wc-settings&tab=checkout"
+		    //   [7]=>
+		    //   string(29) "edit.php?post_type=shop_order"
+		    //   [8]=>
+		    //   string(17) "edit-comments.php"
+		    //   [9]=>
+		    //   string(26) "edit.php?post_type=product"
+		    //   [10]=>
+		    //   string(10) "separator2"
+		    //   [11]=>
+		    //   string(9) "users.php"
+		    //   [12]=>
+		    //   string(14) "separator-last"
+		    //   [13]=>
+		    //   string(21) "separator-woocommerce"
+		    //   [14]=>
+		    //   string(17) "cf_plugin_options"
+		    // }
 		    // cf_debug( $menu_ord );
-		    $new_menu_order = array( 0, 1, 2, 3, 9, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15 );
+		    $new_menu_order = array( 0, 1, 2, 3, 9, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14 );
 		    $new_menu = [];
 		    foreach( $new_menu_order as $i ) :
 		    	$new_menu[ $i ] = $menu_ord[ $i ];

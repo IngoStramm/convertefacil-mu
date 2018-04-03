@@ -206,6 +206,18 @@ function cf_admin_general_init() {
 		    // elseif( $current_screen->id == 'edit-rdcf7_integrations' ) :
 		    // 	$plugin_page = '';
 		    //     $submenu_file = 'post_type=rdcf7_integrations';
+		    // Domain Mapping
+		    elseif( $current_screen->id == 'tools_page_domainmapping' ) :
+		    	$plugin_page = 'cf_plugin_options';
+		        $submenu_file = 'tools.php?page=domainmapping';
+		    // RD Station CF7
+		    elseif( $current_screen->id == 'edit-rdcf7_integrations' ) :
+		    	$plugin_page = 'cf_plugin_options';
+		        $submenu_file = 'edit.php?post_type=rdcf7_integrations';
+		    // Google Analytics
+		    elseif( $current_screen->id == 'toplevel_page_gadwp_settings' ) :
+		    	$plugin_page = 'cf_plugin_options';
+		        $submenu_file = 'admin.php?page=gadwp_settings';
 			endif;
 		    return $parent_file;
 
