@@ -107,19 +107,19 @@ function cf_admin_general_init() {
 		    if ( $current_screen->id == 'woocommerce_page_wc-settings' ) :
 		    	switch ( $current_tab ) {
 		    		case 'checkout':
-				        $plugin_page = 'cf-vendas-e-pagamentos-tudo-o-que-voce-precisa-saber';
+				        $plugin_page = 'admin.php?page=wc-settings&tab=checkout';
 				        $submenu_file = 'admin.php?page=wc-settings&tab=checkout';
 		    			break;
 		    		case 'shipping':
-				        $plugin_page = 'cf-operacoes-e-logistica-o-que-voce-precisa-saber';
+				        $plugin_page = 'edit.php?post_type=shop_order';
 				        $submenu_file = 'admin.php?page=wc-settings&tab=shipping';
 		    			break;
 		    		case 'email':
-				        $plugin_page = 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber';
+				        $plugin_page = 'edit-comments.php';
 				        $submenu_file = 'admin.php?page=wc-settings&tab=email';
 		    			break;
 		    		case 'integration':
-				        $plugin_page = 'cf-erp-integracao-tudo-o-que-voce-precisa-saber';
+				        $plugin_page = 'admin.php?page=wc-settings&tab=integration';
 				        $submenu_file = 'admin.php?page=wc-settings&tab=integration';
 		    			break;
 		    		case 'mailchimp':
@@ -138,7 +138,7 @@ function cf_admin_general_init() {
 		    	}
 		    // Relatórios WC
 		    elseif( $current_screen->id == 'woocommerce_page_wc-reports' ) :
-		    	$plugin_page = 'cf-vendas-e-pagamentos-tudo-o-que-voce-precisa-saber';
+		    	$plugin_page = 'admin.php?page=wc-settings&tab=checkout';
 		        $submenu_file = 'admin.php?page=wc-reports';
 		    // Parcelas
 		    elseif( $current_screen->id == 'edit-parcela' ) :
@@ -152,24 +152,28 @@ function cf_admin_general_init() {
 		    // Post
 		    elseif( $current_screen->id == 'edit-post' ) :
 		    	$plugin_page = 'cf-marketing-tudo-o-que-voce-precisa-saber';
+		    // Add Produto
+		    elseif( $current_screen->id == 'product' ) :
+		    	$plugin_page = 'edit.php?post_type=product';
+		        $submenu_file = 'edit.php?post_type=product';
 		    // Categorias de Produto
 		    elseif( $current_screen->id == 'edit-product_cat' && $taxonomy == 'product_cat' ) :
-		    	$plugin_page = 'cf-conteudo-o-que-voce-precisa-saber';
-		        $submenu_file = 'edit-tags.php?taxonomy=product_cat&post_type=product';
+		    	// $plugin_page = 'edit.php?post_type=product';
+		     //    $submenu_file = 'edit-tags.php?taxonomy=product_cat&post_type=product';
 		    // Tags de Produto
 		    elseif( $current_screen->id == 'edit-product_tag' && $taxonomy == 'product_tag' ) :
-		    	$plugin_page = 'cf-conteudo-o-que-voce-precisa-saber';
-		        $submenu_file = 'edit-tags.php?taxonomy=product_tag&post_type=product';
+		    	// $plugin_page = 'edit.php?post_type=product';
+		     //    $submenu_file = 'edit-tags.php?taxonomy=product_tag&post_type=product';
 		    // Atributos de Produto
 		    elseif( $current_screen->id == 'product_page_product_attributes' ) :
-		    	$plugin_page = 'cf-conteudo-o-que-voce-precisa-saber';
-		        $submenu_file = 'edit.php?post_type=product&page=product_attributes';
+		    	// $plugin_page = 'edit.php?post_type=product';
+		     //    $submenu_file = 'edit.php?post_type=product&page=product_attributes';
 		    // Páginas
 		    elseif( $current_screen->id == 'edit-page' ) :
 		    	$plugin_page = 'cf-conteudo-o-que-voce-precisa-saber';
 		    // Upload
 		    elseif( $current_screen->id == 'upload' ) :
-		    	$plugin_page = 'cf-conteudo-o-que-voce-precisa-saber';
+		    	$plugin_page = 'edit.php?post_type=product';
 		        $submenu_file = 'upload.php';
 		    // Popup
 		    elseif( $current_screen->id == 'edit-inc_popup' ) :
@@ -188,11 +192,11 @@ function cf_admin_general_init() {
 		        $submenu_file = 'admin.php?page=egoi-mail-list-builder-contact-form-7-info';
 		    // Tawk
 		    elseif( $current_screen->id == 'settings_page_tawkto_plugin' ) :
-		    	$plugin_page = 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber';
+		    	$plugin_page = 'edit-comments.php';
 		        $submenu_file = 'options-general.php?page=tawkto_plugin';
 		    // Avaliação dos Clientes (trustvox)
 		    elseif( $current_screen->id == 'settings_page_trustvox' ) :
-		    	$plugin_page = 'cf-atendimento-ao-cliente-o-que-voce-precisa-saber';
+		    	$plugin_page = 'edit-comments.php';
 		        $submenu_file = 'options-general.php?page=trustvox';
 		    // Yoast SEO
 			// elseif( $current_screen->id == 'toplevel_page_wpseo_dashboard' ) :

@@ -61,7 +61,6 @@ function cf_add_pro_sites_script ( $content, $blog_id, $domain ) {
 				var dados_pessoais = form_register.find( '#dados-pessoais ');
 				dados_pessoais.detach().prependTo( form_register );
 				setup_site_title.insertAfter( dados_pessoais );
-				console.log('foi');			
 			}); // $(document).ready
 		});
 	</script>
