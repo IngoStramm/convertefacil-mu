@@ -48,21 +48,6 @@ function cf_admin_dashboard_init() {
 			add_meta_box( 'dashboard_activity', __( 'Activity' ), 'wp_dashboard_site_activity', 'dashboard', 'side', 'core' );
 		}
 
-		// Reordena os widgets nas colunas
-		// Força e sobrepõe as opções do usuário
-		add_action( 'admin_init', 'cf_set_dashboard_meta_order' );
-
-		function cf_set_dashboard_meta_order() {
-		  $id = get_current_user_id(); //we need to know who we're updating
-		  $meta_value = array(
-		    'normal'  => '', //first key/value pair from the above serialized array
-		    'side'    => 'gadwp-widget', //second key/value pair from the above serialized array
-		    'column3' => 'woocommerce_dashboard_status', //third key/value pair from the above serialized array
-		    'column4' => '', //last key/value pair from the above serialized array
-		  );
-		  update_user_meta( $id, 'meta-box-order_dashboard', $meta_value ); //update the user meta with the user's ID, the meta_key meta-box-order_dashboard, and the new meta_value
-		}
-
 		// Remove o painel de 'Bem Vindo ao Wordpress'
 		remove_action('welcome_panel', 'wp_welcome_panel');
 
@@ -87,31 +72,39 @@ function cf_admin_dashboard_init() {
 			include 'feedback/feedback-form.php';
 		}
 
+		// Adiciona as últimas notícias do blog
+		add_action( 'wp_dashboard_setup', 'cf_add_feed_widget' );
+
+		function cf_add_feed_widget() {
+		     wp_add_dashboard_widget( 'cf_feed_widget', __( 'Últimas notícias do ConverteFacil', 'cf' ), 'cf_feed_widget', 'dashboard', 'side', 'high' );
+		}
+
 		function cf_feed_widget() {
-		     $rss = fetch_feed( "https://lawyerist.com/feed/" );
+		     $rss = fetch_feed( 'https://lawyerist.com/feed/' );
 
 		     if ( is_wp_error($rss) ) {
 		          if ( is_admin() || current_user_can( 'manage_options' ) ) {
 		               echo '<p>';
-		               printf( __( '<strong>RSS Error</strong>: %s' ), $rss->get_error_message() );
+		               printf( __( '<strong>RSS Erro</strong>: %s', 'cf' ), $rss->get_error_message() );
 		               echo '</p>';
 		          }
 		     return;
 		}
 
-		if ( !$rss->get_item_quantity() ) {
-		     echo '<p>Apparently, there are no updates to show!</p>';
+		if ( !$rss->get_item_quantity() ) :
+		     echo '<p>' . __( 'Nenhuma notícia para exibir.', 'cf' ) . '</p>';
 		     $rss->__destruct();
 		     unset($rss);
 		     return;
-		}
+		endif;
 
 		echo "<ul>\n";
 
 		if ( !isset($items) )
 		     $items = 5;
 
-		     foreach ( $rss->get_items( 0, $items ) as $item ) {
+		     foreach ( $rss->get_items( 0, $items ) as $item ) :
+
 		          $publisher = '';
 		          $site_link = '';
 		          $link = '';
@@ -123,19 +116,27 @@ function cf_admin_dashboard_init() {
 		          $content = wp_html_excerpt( $content, 250 ) . ' ...';
 
 		         echo "<li><a class='rsswidget' href='$link'>$title</a>\n<div class='rssSummary'>$content</div>\n";
-		}
+			endforeach;
 
 		echo "</ul>\n";
 		$rss->__destruct();
-		unset($rss);
+		unset( $rss );
 		}
 
-		function cf_add_feed_widget() {
-		     wp_add_dashboard_widget( 'cf_feed_widget', __( 'Últimas notícias do ConverteFacil', 'cf' ), 'cf_feed_widget' );
+		// Reordena os widgets nas colunas
+		// Força e sobrepõe as opções do usuário
+		add_action( 'admin_init', 'cf_set_dashboard_meta_order' );
+
+		function cf_set_dashboard_meta_order() {
+		  $id = get_current_user_id(); //we need to know who we're updating
+		  $meta_value = array(
+		    'normal'  => '', //first key/value pair from the above serialized array
+		    'side'    => 'cf_feed_widget', //second key/value pair from the above serialized array
+		    'column3' => 'woocommerce_dashboard_status', //last key/value pair from the above serialized array
+		    'column4' => 'gadwp-widget', //third key/value pair from the above serialized array
+		  );
+		  update_user_meta( $id, 'meta-box-order_dashboard', $meta_value ); //update the user meta with the user's ID, the meta_key meta-box-order_dashboard, and the new meta_value
 		}
-
-		add_action( 'wp_dashboard_setup', 'cf_add_feed_widget' );
-
 
 	endif; // is_super_admin
 }
