@@ -83,7 +83,7 @@ function cf_plugin_message_callback( $cmb, $args ) {
 add_action( 'admin_init', 'cf_update_blogname' );
 
 function cf_update_blogname() {
-	
+
 	$user_id = get_current_user_id();
 	if( !is_super_admin( $user_id ) ) :
 
@@ -91,7 +91,7 @@ function cf_update_blogname() {
 		$cf_options = get_option( 'cf_plugin_options' );
 		$new_blogname = $cf_options['blogname'];
 		$old_blogname = get_option( 'blogname' );
-	    if ( $old_blogname  !== $new_blogname ) {
+	    if ( !empty( $new_blogname ) && $old_blogname  !== $new_blogname ) {
 	    	// set_theme_mod( 'blogname', $new_blogname );
 	    	// update_blog_details( $blog_id, array( 'blogname' => $new_blogname ) );
 	    	update_option( 'blogname', $new_blogname );
