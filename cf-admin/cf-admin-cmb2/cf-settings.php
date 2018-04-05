@@ -80,7 +80,7 @@ function cf_plugin_message_callback( $cmb, $args ) {
 	endif;
 }
 
-add_action( 'admin_init', 'cf_update_blogname' );
+// add_action( 'admin_init', 'cf_update_blogname' );
 
 function cf_update_blogname() {
 
