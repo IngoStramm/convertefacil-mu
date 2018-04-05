@@ -46,6 +46,20 @@ function test_filter( $att1, $att2, $att3 ) {
 	return $att1;
 }
 
+function cf_test_action() {
+	cf_debug( 'cf_test_action' );
+}
+
+add_filter( 'prosites_render_checkout_page', 'cf_wrap_content', 10, 1 );
+
+function cf_wrap_content( $content ) {
+	$return = '<div class="pro-sites-checkout-page">';
+	$return .= '<h2>' . __( 'Escolha um dos planos', 'cf' ) . '</h2>';
+	$return .= $content;
+	$return .= '</div>';
+	return $return;
+}
+
 add_filter( 'prosites_render_checkout_page', 'cf_add_pro_sites_script', 10, 3 );
 
 function cf_add_pro_sites_script ( $content, $blog_id, $domain ) {
@@ -67,4 +81,14 @@ function cf_add_pro_sites_script ( $content, $blog_id, $domain ) {
 	<!-- <?php -->
 EOT;
 	return $content . $script;
+}
+
+// add_action( 'psts_page_after_main', 'cf_test_action' );
+
+// add_action( 'prosites_before_checkout_page', 'cf_add_checkout_title' );
+
+function cf_add_checkout_title() {
+	?>
+	<h2><?php _e( 'Escolha um dos planos', 'cf' ); ?></h2>
+	<?php
 }

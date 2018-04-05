@@ -1,0 +1,117 @@
+.pro-sites-checkout-page {
+	h2 {
+		position: relative;
+		display: block;
+		margin: 10px 0 30px;
+		padding-bottom: 20px;
+		text-align: center;
+		color: $verde;
+		font-size: 50px;
+		font-weight: bold;
+		border-bottom: 10px $cinza-claro solid;
+		line-height: 50px;
+		&:before {
+			content: '';
+			display: block;
+			margin: 0 auto 10px;
+			@include bg-size(contain);
+		}
+		&:first-child {
+			&:before {
+				width: 83px;
+				height: 83px;
+				@include bg-img('icon-user.png', no-repeat )
+			}
+		}
+		&:nth-child(2) {
+			&:before {
+				width: 105px;
+				height: 105px;
+				@include bg-img('icon-setup.png', no-repeat )
+			}
+		}
+	}
+
+	h3 {
+		position: relative;
+		display: block;
+		margin: 10px 0 30px;
+		padding-bottom: 20px;
+		text-align: center;
+		color: $verde;
+		font-size: 50px;
+		font-weight: bold;
+		border-bottom: 10px $cinza-claro solid;
+		line-height: 50px;
+		&:before {
+			content: '';
+			display: block;
+			margin: 0 auto 10px;
+			@include bg-size(contain);
+			width: 100px;
+			height: 100px;
+			@include bg-img('icon-template.png', no-repeat )
+		}
+	}
+
+	.select-wrapper {
+		position: relative;
+		overflow: hidden;	
+		&:after {
+			content: '';
+			width: 0; 
+			height: 0; 
+			border-left: 6px solid transparent;
+			border-right: 6px solid transparent;
+			border-top: 6px solid $branco;
+			position: absolute;
+			top: 18px;
+			right: 25px;
+			z-index: 98;								
+		}
+		select {
+			border: none;
+			background-color: transparent;
+			color: $branco;
+			padding-left: 10px;
+			padding-right: 10px;
+			border: none;
+			background: $verde;
+			@include radius(10px);
+			cursor: pointer;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+
+	.pro-sites-checkout-page {
+		.username,
+		.email,
+		.blogname,
+		.blog_title {
+			display: inline-block;
+			vertical-align: top;
+			margin: 0;
+			padding: 0;
+			width: 48%;
+		}
+
+		.username,
+		.email {
+			margin-bottom: 20px;
+		}
+
+		.email,
+		.blog_title {
+			margin-left: 4%;
+		}
+
+		.blog_title {
+			label {
+				margin-bottom: 25px;
+			}
+		}
+	}
+
+}

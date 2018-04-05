@@ -19,12 +19,14 @@ function cf_tipos_pessoa() {
 function cf_select_tipos_pessoa( $user ) {
 	$tipos_arr = cf_tipos_pessoa();
 	?>
-	<select name="tipo_pessoa" id="tipo_pessoa_selector" onchange="toggle_tipo_pessoa(this.value);">
-		<?php foreach ( $tipos_arr as $k => $v ) : ?>
-			 <option <?php echo esc_attr( get_user_meta( $user->ID, 'tipo_pessoa', true ) ) == $k ? 'selected' : '' ?> value="<?php echo $k ?>" data-tipo-pessoa="<?php echo $k ?>"><?php echo $v ?></option>
-		<?php endforeach; ?>
-	</select>
-	<script>
+	<div class="select-wrapper">
+		<select name="tipo_pessoa" id="tipo_pessoa_selector" onchange="toggle_tipo_pessoa(this.value);">
+			<?php foreach ( $tipos_arr as $k => $v ) : ?>
+				 <option <?php echo esc_attr( get_user_meta( $user->ID, 'tipo_pessoa', true ) ) == $k ? 'selected' : '' ?> value="<?php echo $k ?>" data-tipo-pessoa="<?php echo $k ?>"><?php echo $v ?></option>
+			<?php endforeach; ?>
+		</select>
+	</div>
+	<!-- /.select-wrapper -->	<script>
 		var toggle_tipo_pessoa = function( tipo_pessoa ) {
 			tipo_pessoa = tipo_pessoa.replace( '_', '-' );
 			jQuery( '.tipo-pessoa' ).hide();
@@ -74,11 +76,14 @@ function cf_estados_br() {
 // HTML select Estados BR
 function cf_select_estados_br( $selected = false ) {
 	$estados = cf_estados_br(); ?>
-	<select name="uf" id="uf" class="uf">
-		<option value=""><?php _e( 'Selecione uma opção…', 'cf' ); ?></option>
-		<?php foreach ( $estados as $k => $v) : ?>
-			<option value="<?php echo $k; ?>" <?php echo ( $selected == $k ) ? 'selected="selected"' : '' ?>><?php echo $v; ?></option>
-		<?php endforeach; ?>
-	</select>
+	<div class="select-wrapper">
+		<select name="uf" id="uf" class="uf">
+			<option value=""><?php _e( 'Selecione uma opção…', 'cf' ); ?></option>
+			<?php foreach ( $estados as $k => $v) : ?>
+				<option value="<?php echo $k; ?>" <?php echo ( $selected == $k ) ? 'selected="selected"' : '' ?>><?php echo $v; ?></option>
+			<?php endforeach; ?>
+		</select>
+	</div>
+	<!-- /.select-wrapper -->
 	<?php
 }

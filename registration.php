@@ -15,110 +15,163 @@ function cf_register_form() {
 		
 		<h2><?php _e( 'Dados Pessoais', 'cf' ); ?></h2>
 
-		<div class="tipo-pessoa-selector">
-			<label for="tipo_pessoa"><?php _e( 'Tipo de pessoa', 'cf' ); ?></label>
-			<?php cf_select_tipos_pessoa( $tipo_pessoa ); ?>
+		<div class="row">
+
+			<div class="col medium-6 small-12 large-6">
+				
+				<div class="tipo-pessoa-selector">
+					<label for="tipo_pessoa"><?php _e( 'Tipo de pessoa', 'cf' ); ?></label>
+					<?php cf_select_tipos_pessoa( $tipo_pessoa ); ?>
+				</div>
+				<!-- /.tipo-pessoa -->
+				<?php
+					$cpf = ( ! empty( $_POST['cpf'] ) ) ? sanitize_text_field( $_POST['cpf'] ) : '';
+					if( empty( $cpf ) )
+						$cpf = get_user_meta( $user_id, 'cpf', true );
+					$cnpj = ( ! empty( $_POST['cnpj'] ) ) ? sanitize_text_field( $_POST['cnpj'] ) : '';
+					if( empty( $cnpj ) )
+						$cnpj = get_user_meta( $user_id, 'cnpj', true );
+				?>
+
+				<div class="tipo-pessoa tipo-pessoa-fisica">
+					<label for="cpf"><?php _e( 'CPF', 'cf' ); ?></label>
+					<input type="text" name="cpf" id="cpf" class="cpf" value="<?php echo $cpf; ?>" />
+				</div>
+				<!-- /.cpf -->
+
+				<div class="tipo-pessoa tipo-pessoa-juridica">
+					<label for="cnpj"><?php _e( 'CNPJ', 'cf' ); ?></label>
+					<input type="text" name="cnpj" id="cnpj" class="cnpj" value="<?php echo $cnpj; ?>" />
+				</div>
+				<!-- /.cnpj -->
+
+
+				<div class="row">
+					<div class="col small-12 medium-6 large-6 p-b-0-i">
+
+						<?php
+							$fone = ( ! empty( $_POST['fone'] ) ) ? sanitize_text_field( $_POST['fone'] ) : '';
+							if( empty( $fone ) )
+								$fone = get_user_meta( $user_id, 'fone', true );
+						?>
+
+						<div>
+							<label for="fone"><?php _e( 'Telefone (com DDD)', 'cf' ); ?></label>
+							<input type="text" name="fone" id="fone" class="fone" value="<?php echo $fone; ?>" />
+						</div>
+
+					</div>
+					<!-- /.col small-12 medium-6 large-6 -->
+
+					<div class="col small-12 medium-6 large-6 p-b-0-i">
+
+						<?php
+							$cep = ( ! empty( $_POST['cep'] ) ) ? sanitize_text_field( $_POST['cep'] ) : '';
+							if( empty( $cep ) )
+								$cep = get_user_meta( $user_id, 'cep', true );
+						?>
+
+						<div>
+							<label for="cep"><?php _e( 'Cep', 'cf' ); ?></label>
+							<input type="text" name="cep" id="cep" class="cep" value="<?php echo $cep; ?>" />
+						</div>
+
+					</div>
+					<!-- /.col small-12 medium-6 large-6 -->
+				</div>
+				<!-- /.row -->
+
+				<?php
+					$rua = ( ! empty( $_POST['rua'] ) ) ? sanitize_text_field( $_POST['rua'] ) : '';
+					if( empty( $rua ) )
+						$rua = get_user_meta( $user_id, 'rua', true );
+				?>
+
+				<div>
+					<label for="rua"><?php _e( 'Rua', 'cf' ); ?></label>
+					<input type="text" name="rua" id="rua" class="rua" value="<?php echo $rua; ?>" />
+				</div>
+
+			</div>
+			<!-- /.col medium-6 small-12 large-6 -->
+
+			<div class="col medium-6 small-12 large-6">
+
+				<div class="row">
+					<div class="col small-12 medium-6 large-6 p-b-0-i">
+
+						<?php
+							$numero = ( ! empty( $_POST['numero'] ) ) ? sanitize_text_field( $_POST['numero'] ) : '';
+							if( empty( $numero ) )
+								$numero = get_user_meta( $user_id, 'numero', true );
+						?>
+
+						<div>
+							<label for="numero"><?php _e( 'Número', 'cf' ); ?></label>
+							<input type="text" name="numero" id="numero" class="numero" value="<?php echo $numero; ?>" />
+						</div>
+
+					</div>
+					<!-- /.col small-12 medium-6 large-6 -->
+
+					<div class="col small-12 medium-6 large-6 p-b-0-i">
+
+						<?php
+							$complemento = ( ! empty( $_POST['complemento'] ) ) ? sanitize_text_field( $_POST['complemento'] ) : '';
+							if( empty( $complemento ) )
+								$complemento = get_user_meta( $user_id, 'complemento', true );
+						?>
+
+						<div>
+							<label for="complemento"><?php _e( 'Complemento', 'cf' ); ?></label>
+							<input type="text" name="complemento" id="complemento" class="complemento" value="<?php echo $complemento; ?>" />
+						</div>
+
+					</div>
+					<!-- /.col small-12 medium-6 large-6 -->
+				</div>
+				<!-- /.row -->
+
+				<?php
+					$bairro = ( ! empty( $_POST['bairro'] ) ) ? sanitize_text_field( $_POST['bairro'] ) : '';
+					if( empty( $bairro ) )
+						$bairro = get_user_meta( $user_id, 'bairro', true );
+				?>
+		
+				<div>
+					<label for="bairro"><?php _e( 'Bairro', 'cf' ); ?></label>
+					<input type="text" name="bairro" id="bairro" class="bairro" value="<?php echo $bairro; ?>" />
+				</div>
+				
+				<?php
+					$cidade = ( ! empty( $_POST['cidade'] ) ) ? sanitize_text_field( $_POST['cidade'] ) : '';
+					if( empty( $cidade ) )
+						$cidade = get_user_meta( $user_id, 'cidade', true );
+				?>
+
+				<div>
+					<label for="cidade"><?php _e( 'Cidade', 'cf' ); ?></label>
+					<input type="text" name="cidade" id="cidade" class="cidade" value="<?php echo $cidade; ?>" />
+				</div>
+
+				<?php
+					$uf = ( ! empty( $_POST['uf'] ) ) ? sanitize_text_field( $_POST['uf'] ) : '';
+					if( empty( $uf ) )
+						$uf = get_user_meta( $user_id, 'uf', true );
+				?>
+
+				<div>
+					<label for="uf"><?php _e( 'Estado', 'cf' ); ?></label>
+					<?php echo cf_select_estados_br( $uf ); ?>
+				</div>
+
+				<br />
+
+			</div>
+			<!-- /.col medium-6 small-12 large-6 -->
+
 		</div>
-		<!-- /.tipo-pessoa -->
-		<?php
-			$cpf = ( ! empty( $_POST['cpf'] ) ) ? sanitize_text_field( $_POST['cpf'] ) : '';
-			if( empty( $cpf ) )
-				$cpf = get_user_meta( $user_id, 'cpf', true );
-			$cnpj = ( ! empty( $_POST['cnpj'] ) ) ? sanitize_text_field( $_POST['cnpj'] ) : '';
-			if( empty( $cnpj ) )
-				$cnpj = get_user_meta( $user_id, 'cnpj', true );
-		?>
-
-		<div class="tipo-pessoa tipo-pessoa-fisica">
-			<label for="cpf"><?php _e( 'CPF', 'cf' ); ?></label>
-			<input type="text" name="cpf" id="cpf" class="cpf" value="<?php echo $cpf; ?>" />
-		</div>
-		<!-- /.cpf -->
-
-		<div class="tipo-pessoa tipo-pessoa-juridica">
-			<label for="cnpj"><?php _e( 'CNPJ', 'cf' ); ?></label>
-			<input type="text" name="cnpj" id="cnpj" class="cnpj" value="<?php echo $cnpj; ?>" />
-		</div>
-		<!-- /.cnpj -->
-
-		<?php
-			$fone = ( ! empty( $_POST['fone'] ) ) ? sanitize_text_field( $_POST['fone'] ) : '';
-			if( empty( $fone ) )
-				$fone = get_user_meta( $user_id, 'fone', true );
-		?>
-
-		<div>
-			<label for="fone"><?php _e( 'Telefone (com DDD)', 'cf' ); ?></label>
-			<input type="text" name="fone" id="fone" class="fone" value="<?php echo $fone; ?>" />
-		</div>
-
-		<?php
-			$cep = ( ! empty( $_POST['cep'] ) ) ? sanitize_text_field( $_POST['cep'] ) : '';
-			if( empty( $cep ) )
-				$cep = get_user_meta( $user_id, 'cep', true );
-		?>
-
-		<div>
-			<label for="cep"><?php _e( 'Cep', 'cf' ); ?></label>
-			<input type="text" name="cep" id="cep" class="cep" value="<?php echo $cep; ?>" />
-		</div>
-
-		<?php
-			$rua = ( ! empty( $_POST['rua'] ) ) ? sanitize_text_field( $_POST['rua'] ) : '';
-			if( empty( $rua ) )
-				$rua = get_user_meta( $user_id, 'rua', true );
-		?>
-
-		<div>
-			<label for="rua"><?php _e( 'Rua', 'cf' ); ?></label>
-			<input type="text" name="rua" id="rua" class="rua" value="<?php echo $rua; ?>" />
-		</div>
-
-		<?php
-			$numero = ( ! empty( $_POST['numero'] ) ) ? sanitize_text_field( $_POST['numero'] ) : '';
-			if( empty( $numero ) )
-				$numero = get_user_meta( $user_id, 'numero', true );
-		?>
-
-		<div>
-			<label for="numero"><?php _e( 'Número', 'cf' ); ?></label>
-			<input type="text" name="numero" id="numero" class="numero" value="<?php echo $numero; ?>" />
-		</div>
-
-		<?php
-			$bairro = ( ! empty( $_POST['bairro'] ) ) ? sanitize_text_field( $_POST['bairro'] ) : '';
-			if( empty( $bairro ) )
-				$bairro = get_user_meta( $user_id, 'bairro', true );
-		?>
-
-		<div>
-			<label for="bairro"><?php _e( 'Bairro', 'cf' ); ?></label>
-			<input type="text" name="bairro" id="bairro" class="bairro" value="<?php echo $bairro; ?>" />
-		</div>
-
-		<?php
-			$cidade = ( ! empty( $_POST['cidade'] ) ) ? sanitize_text_field( $_POST['cidade'] ) : '';
-			if( empty( $cidade ) )
-				$cidade = get_user_meta( $user_id, 'cidade', true );
-		?>
-
-		<div>
-			<label for="cidade"><?php _e( 'Cidade', 'cf' ); ?></label>
-			<input type="text" name="cidade" id="cidade" class="cidade" value="<?php echo $cidade; ?>" />
-		</div>
-
-		<?php
-			$uf = ( ! empty( $_POST['uf'] ) ) ? sanitize_text_field( $_POST['uf'] ) : '';
-			if( empty( $uf ) )
-				$uf = get_user_meta( $user_id, 'uf', true );
-		?>
-
-		<div>
-			<label for="uf"><?php _e( 'Estado', 'cf' ); ?></label>
-			<?php echo cf_select_estados_br( $uf ); ?>
-		</div>
-
-		<br />
+		<!-- /.row -->
 
 	</div>
 	<!-- /#dados-pessoais -->
@@ -200,6 +253,9 @@ function cf_user_register( $user_id ) {
 	if ( ! empty( $_POST['numero'] ) ) :
 		update_user_meta( $user_id, 'numero', sanitize_text_field( $_POST['numero'] ) );
 	endif;
+	if ( ! empty( $_POST['complemento'] ) ) :
+		update_user_meta( $user_id, 'complemento', sanitize_text_field( $_POST['complemento'] ) );
+	endif;
 	if ( ! empty( $_POST['bairro'] ) ) :
 		update_user_meta( $user_id, 'bairro', sanitize_text_field( $_POST['bairro'] ) );
 	endif;
@@ -260,6 +316,11 @@ function cf_extra_fields( $user ) {
 			<th><?php _e( 'Número', 'cf' ); ?></th>
 			<td><input name="numero" type="text" value="<?php echo $numero; ?>" class="numero regular-text" id="numero" /></td>
 		</tr>
+		<?php $complemento = get_user_meta( $user->ID, 'complemento', true ); ?>
+		<tr>
+			<th><?php _e( 'Complemento', 'cf' ); ?></th>
+			<td><input name="complemento" type="text" value="<?php echo $complemento; ?>" class="complemento regular-text" id="complemento" /></td>
+		</tr>
 		<?php $bairro = get_user_meta( $user->ID, 'bairro', true ); ?>
 		<tr>
 			<th><?php _e( 'Bairro', 'cf' ); ?></th>
@@ -289,6 +350,7 @@ function cf_save_fields( $user_id ) {
     update_user_meta( $user_id, 'cep', $_POST['cep'] );
     update_user_meta( $user_id, 'rua', $_POST['rua'] );
     update_user_meta( $user_id, 'numero', $_POST['numero'] );
+    update_user_meta( $user_id, 'complemento', $_POST['complemento'] );
     update_user_meta( $user_id, 'bairro', $_POST['bairro'] );
     update_user_meta( $user_id, 'cidade', $_POST['cidade'] );
     update_user_meta( $user_id, 'uf', $_POST['uf'] );
