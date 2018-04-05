@@ -45,6 +45,7 @@ function cf_admin_dashboard_init() {
 			wp_add_dashboard_widget( 'modulos', __( 'Loja Converte Fácil', 'cf' ),'cf_add_modules','dashboard','normal','high');
 			// Coluna da direita
 			wp_add_dashboard_widget( 'feedback', __( 'Feedback', 'cf' ),'cf_feedback','dashboard','side','high');
+			wp_add_dashboard_widget( 'flamingo_contacts', __( 'Base de Contatos', 'cf' ),'cf_flamingo_widget','dashboard','side','high');
 			add_meta_box( 'dashboard_activity', __( 'Activity' ), 'wp_dashboard_site_activity', 'dashboard', 'side', 'core' );
 		}
 
@@ -121,6 +122,22 @@ function cf_admin_dashboard_init() {
 		echo "</ul>\n";
 		$rss->__destruct();
 		unset( $rss );
+		}
+
+		function cf_flamingo_widget() {
+			// flamingo_contact
+			$args = array();
+			$the_query = new WP_Query( $args ); ?>
+
+			<?php if ( $the_query->have_posts() ) : ?>
+
+				<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+					<h2><?php the_title(); ?></h2>
+				<?php endwhile; ?>
+				<?php wp_reset_postdata(); ?>
+			<?php else : ?>
+				<p><?php esc_html_e( 'Nenhum contato encontrado.', 'cf' ); ?></p>
+			<?php endif;
 		}
 
 		// Reordena os widgets nas colunas
