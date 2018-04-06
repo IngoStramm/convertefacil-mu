@@ -1,0 +1,26 @@
+#psts-payment-info-received {
+	h2 {
+		position: relative;
+		display: block;
+		margin: 10px 0 30px !important;
+		padding-bottom: 20px !important;
+		text-align: center;
+		color: $verde;
+		font-size: 50px;
+		font-weight: bold;
+		border-bottom: 10px $cinza-claro solid;
+		line-height: 50px;
+		&:before {
+			content: '';
+			display: block;
+			margin: 0 auto 10px;
+			width: 105px;
+			height: 105px;
+			@include bg-size(contain);
+			@include bg-img('icon-setup.png', no-repeat )
+		}
+	}
+	p {
+		color: $cinza-escuro;
+	}
+}

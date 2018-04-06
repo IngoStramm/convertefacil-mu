@@ -26,4 +26,18 @@
 		font-size: 16px;
 	}
 
+	#check-prosite-blog {
+		display: block;
+		margin: 40px auto 0;
+		padding: 10px 40px;
+		font-size: 37px;
+		font-weight: bold;
+		color: $branco;
+		background: $verde;
+		text-transform: none;
+		text-align: center;
+		@include radius(20px);
+		@include bgc-hover($verde-destaque);
+	}
+
 }

@@ -54,6 +54,26 @@
 		}
 	}
 
+	.reserved_msg {
+		h2 {
+			&:before {
+				width: 105px;
+				height: 105px;
+				@include bg-img('icon-setup.png', no-repeat )
+			}			
+		}
+	}
+
+	.checkout-gateways {
+		h2 {
+			&:before {
+				width: 105px;
+				height: 105px;
+				@include bg-img('icon-cartao.png', no-repeat )
+			}			
+		}
+	}
+
 	.select-wrapper {
 		position: relative;
 		overflow: hidden;	
@@ -80,6 +100,21 @@
 			@include radius(10px);
 			cursor: pointer;
 		}
+	}
+
+	.ui-widget-content {
+		border: none;
+	}
+
+	#psts-manual-instructions {
+		color: $cinza-escuro;
+	}
+
+	#psts-manual-submit {
+		text-transform: none;
+		background: $verde;
+		@include radius(10px);
+		@include bgc-hover($verde-destaque);
 	}
 }
 

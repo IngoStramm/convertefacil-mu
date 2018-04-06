@@ -179,7 +179,7 @@ function cf_register_form() {
 	<?php
 }
 
-add_filter( 'registration_errors', 'cf_registration_errors', 10, 3 );
+// add_filter( 'registration_errors', 'cf_registration_errors', 10, 3 );
 
 // Valida os campos
 function cf_registration_errors( $errors, $sanitized_user_login, $user_email ) {

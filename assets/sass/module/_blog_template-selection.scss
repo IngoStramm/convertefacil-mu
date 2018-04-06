@@ -8,6 +8,16 @@
 		padding: 0;
 		background: none;
 		border: none;
+		&.blog_template-default_item {
+			background: none !important;
+			top: -25px;
+			.blog_template-item_selector {
+				@include box-shadow(0, 12px, 20px, 0, $penumbra-2);				
+				img {
+					@include opacity(1);
+				}
+			}
+		}
 		.blog_template-item_selector {
 			display: block;
 			overflow: hidden;
@@ -15,9 +25,6 @@
 			img {
 				@include opacity(5/10);
 			}
-		}
-		&.blog_template-default_item {
-
 		}
 		.theme-previewer-overlay {
 			top: 0;
@@ -88,6 +95,17 @@
 			&:focus,
 			&:hover:focus {
 				display: block;
+				.blog_template-item_selector {
+					img {
+						@include opacity(5/10);
+					}
+				}
+				.theme-previewer-overlay {
+					display: flex;
+				}
+			}
+			&.blog_template-default_item {
+					top: -15px;
 				.blog_template-item_selector {
 					img {
 						@include opacity(5/10);
