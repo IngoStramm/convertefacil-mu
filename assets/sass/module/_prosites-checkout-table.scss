@@ -70,7 +70,7 @@
 							border-right: 6px solid transparent;
 							border-top: 6px solid $branco;
 							position: absolute;
-							bottom: 35px;
+							top: 130px;
 							right: 45px;
 							z-index: 98;								
 						}
@@ -138,7 +138,8 @@
 					@include box-shadow(0, 15px, 30px, 0, $penumbra);
 				}
 				.title {
-					padding-bottom: 10px;
+					padding: 10px;
+					line-height: 30px;
 				}
 				.summary {
 					color: $branco;
@@ -149,6 +150,9 @@
 						padding-top: 10px;
 						padding-bottom: 10px;
 						@include box-shadow(0, 0, 0, 0, transparent);
+						.symbol {
+							margin-right: 5px;
+						}
 						.symbol,
 						.dot,
 						.decimal {
@@ -164,12 +168,14 @@
 							line-height: 72px !important;
 						}
 						.period {
+							margin-top: 10px;
 							font-size: 14px;
 							font-style: normal;
 						}
 					}
 					.level-summary {
 						margin-bottom: 10px;
+						padding: 10px;
 					}
 				}
 			}
@@ -217,8 +223,13 @@
 			}
 		}
 		.icon-cross {
+			display: inline-block !important;
+			font: normal normal normal 14px/1 FontAwesome !important;
+			font-size: 28px !important;
+			text-rendering: auto !important;
+			-webkit-font-smoothing: antialiased !important;
+			-moz-osx-font-smoothing: grayscale !important;
 			color: $cinza-escuro;
-			@extend .icon-tick;
 			&:before {			
 				font: inherit !important;
 				content: "\f00d" !important;
