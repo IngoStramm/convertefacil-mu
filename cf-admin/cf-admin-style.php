@@ -54,8 +54,8 @@ function cf_admin_style_init() {
 	}
 
 	// Adiciona o estilo do ConverteFácil no admin e no admibar
-	add_action( 'wp_head', 'cf_admin_style' );
-	add_action( 'admin_head', 'cf_admin_style' );
+	// add_action( 'wp_head', 'cf_admin_style' );
+	// add_action( 'admin_head', 'cf_admin_style' );
 
 	function cf_admin_style() {
 		?>
@@ -138,7 +138,7 @@ function cf_admin_style_init() {
 	}
 
 	// Estilo do painel de Bem Vindo do ConverteFácil
-	add_action( 'admin_head', 'cf_bem_vindo_style' );
+	// add_action( 'admin_head', 'cf_bem_vindo_style' );
 
 	function cf_bem_vindo_style() {
 		?>

@@ -1,0 +1,381 @@
+#adminmenu {
+	width: 210px;
+	background-color: $adminmenu-bgc;
+	a {
+		&:hover {
+			color: $adminmenu-c-hover;
+		}
+		&.current {
+			&:hover {
+				div {
+					&.wp-menu-image {
+						&:before {
+							color: $adminmenu-c;
+						}
+					}
+				}
+			}
+			.wp-menu-name {
+				font-size: 20px;
+			}
+		}
+	 	&.wp-has-current-submenu {
+	 		&:hover {
+	 			div {
+	 				&.wp-menu-image {
+	 					&:before {
+	 						color: $adminmenu-c;
+	 					}
+	 				}
+	 			}
+	 		}
+	 		&:focus {
+	 			+ .wp-submenu {
+	 				background: $adminmenu-current-bgc;
+	 				color: $adminmenu-current-c;
+	 				li {
+	 					&.current {
+	 						a {
+	 							color: $adminmenu-current-c;
+	 						}
+	 					}
+	 				}
+	 			}
+	 		}
+		 	&.wp-has-current-submenu {
+		 		.wp-menu-name {
+		 			font-size: 20px;
+		 		}
+		 	}
+	 	}
+	 	&.menu-top {
+	 		font-size: 16px;
+	 	}
+	}
+	li {
+		margin-bottom: 10px;
+		a {
+			color: $adminmenu-c;
+			&:focus {
+				div {
+					&.wp-menu-image {
+						&:before {
+							color: $adminmenu-c-hover;
+						}
+					}
+				}
+			}
+		}
+		> a {
+			&.menu-top {
+				&:focus {
+					color: $adminmenu-c-hover;
+					background-color: $adminmenu-bgc-hover;
+				}
+			}
+		}
+		&.current {
+			a {
+				&.menu-top {
+					background: $adminmenu-current-bgc;
+					color: $adminmenu-c;
+					@include radius(5px);
+				}
+			}
+			.wp-has-current-submenu {
+				a {
+					&.wp-has-current-submenu {
+						background: $adminmenu-current-bgc;
+						color: $adminmenu-c;
+					}
+				}
+			}
+			&.menu-top {
+				background-color: $adminmenu-current-bgc;
+				@include radius(5px);
+			}
+		}
+		&.wp-has-current-submenu {
+			a {
+				&:focus {
+					div {
+						&.wp-menu-image {
+							&:before {
+								color: $adminmenu-c;
+							}
+						}
+					}
+				}
+				&.wp-has-current-submenu {
+					background-color: $adminmenu-current-bgc;
+					color: $adminmenu-current-c;
+					@include radius(5px 5px 0 0);
+				}
+			}
+			&.opensub {
+				div {
+					&.wp-menu-image {
+						&:before {
+							color: $adminmenu-c;
+						}
+					}
+				}
+			}
+			&:hover {
+				div {
+					&.wp-menu-image {
+						&:before {
+							color: $adminmenu-c;
+						}
+					}
+				}
+			}
+		}
+		&.menu-top {
+			&:hover,
+			&:focus {
+				background-color: $adminmenu-bgc-hover;
+				color: $adminmenu-c-hover;
+			}
+			> a {
+				&:focus {
+					color: $adminmenu-c-hover;
+				}
+			}
+		}
+		&.opensub {
+			> a {
+				&.menu-top {
+					background-color: $adminmenu-bgc-hover;
+					color: $adminmenu-c-hover;
+				}
+			}
+			div {
+				&.wp-menu-image {
+					&:before {
+						color: $adminmenu-c-hover;
+					}
+				}
+			}
+		}
+		&:hover {
+			div {
+				&.wp-menu-image {
+					&:before {
+						color: $adminmenu-c-hover;
+					}
+				}
+			}
+		}
+		&.wp-has-submenu {
+			&.wp-not-current-submenu {
+				&.opensub {
+					&:hover {
+						&:after {
+							display: none;
+							border-right-color: $cinza-escuro;
+						}
+					}
+				}
+			}
+		}
+		&.wp-menu-separator {
+			border-bottom: 2px solid $adminmenu-current-bgc;
+		}
+	}
+	.current {
+		div {
+			&.wp-menu-image {
+				&:before {
+					color: $adminmenu-icon-current-c;
+				}
+			}
+		}
+	}
+	.wp-has-current-submenu {
+		.wp-submenu {
+			background: $adminmenu-current-bgc;
+			color: $adminmenu-current-c;
+			@include radius(0 0 5px 5px);
+			.wp-submenu-head {
+				background: $adminmenu-current-bgc;
+				color: $adminmenu-current-c;
+			}
+			&.sub-open {
+				background: $adminmenu-current-bgc;
+				color: $adminmenu-current-c;
+			}
+		}
+		div {
+			&.wp-menu-image {
+				&:before {
+					color: $adminmenu-icon-current-c;
+				}
+			}
+		}
+		&.opensub {
+			.wp-submenu {
+				background: $adminmenu-current-bgc;
+				color: $adminmenu-current-c;
+			}
+		}
+		&:focus {
+			+ .wp-submenu {
+				li {
+					&.current {
+						a {
+							color: $adminmenu-current-c;
+						}
+					}
+				}
+			}
+		}
+	}
+	.wp-menu-arrow {
+		background: $adminmenu-current-bgc;
+		color: $adminmenu-current-c;
+		div {
+			background: $adminmenu-current-bgc;
+			color: $adminmenu-current-c;
+		}
+	}
+	div {
+		&.wp-menu-image {
+			margin-right: 10px;
+			&:before {
+				color: $adminmenu-c;
+			}
+		}
+	}
+	.wp-submenu {
+		left: 210px;
+		width: 210px;
+		font-size: 16px;
+		background-color: $adminmenu-bgc-hover;
+		a {
+			color: $adminmenu-c;
+			font-size: 14px;
+			&:focus,
+			&:hover {
+				color: $adminmenu-c-hover;
+			}
+		}
+		li {
+			&.current {
+				color: $adminmenu-current-c;
+				a {
+					color: $adminmenu-current-c;
+					&:hover,
+					&:focus {
+						color: $adminmenu-current-c;
+					}
+				}
+			}
+		}
+		.wp-submenu-head {
+			color: $adminmenu-current-c;
+		}
+	}
+	.opensub {
+		.wp-submenu {
+			li {
+				&.current {
+					a {
+						color: $adminmenu-current-c;
+					}
+				}
+			}
+		}
+	}
+}
+
+ul {
+	&#adminmenu {
+		a {
+			&.wp-has-current-submenu {
+				&:after {
+					display: none;
+				}
+			}
+		}
+		> li {
+			&.current {
+				> a {
+					&.current {
+						&:after {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+div {
+	&.wp-menu-image {
+		&:before {
+			color: $adminmenu-c;
+		}
+	}
+}
+
+.folded {
+	#adminmenu {
+		li {
+			&.current.menu-top {
+				background: $adminmenu-current-bgc;
+				color: $adminmenu-current-c;
+			}
+			&.wp-has-current-submenu {
+				background: $adminmenu-current-bgc;
+				color: $adminmenu-current-c;
+			}
+		}
+		.wp-has-current-submenu {
+			.wp-submenu {
+				background-color: $adminmenu-bgc-hover;
+				color: $adminmenu-c-hover;
+			}
+		}
+		a {
+			&.wp-has-current-submenu {
+				&:focus {
+					+ .wp-submenu {
+						background-color: $adminmenu-bgc-hover;	
+					}
+				}
+			}
+		}
+		div {
+			&.wp-menu-image {
+			}
+		}
+	}
+}
+.no-js {
+	li {
+		&.wp-has-current-submenu {
+			&:hover {
+				&.wp-submenu {
+					background: $adminmenu-current-bgc;
+					color: $adminmenu-current-c;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 782px) {
+
+	.auto-fold {
+		#adminmenu {
+			div {
+				&.wp-menu-name {
+					margin-left: 45px;
+				}
+			}
+		}
+	}
+
+}

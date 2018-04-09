@@ -22,7 +22,7 @@ function cf_register_theme_options_metabox() {
 			 */
 
 			'option_key'      => 'cf_plugin_options', // The option key and admin menu page slug.
-			'icon_url'        => 'dashicons-admin-generic', // Menu icon. Only applicable if 'parent_slug' is left empty.
+			'icon_url'        => 'dashicons-analytics', // Menu icon. Only applicable if 'parent_slug' is left empty.
 			// 'menu_title'      => esc_html__( 'Options', 'cf' ), // Falls back to 'title' (above).
 			// 'parent_slug'     => 'themes.php', // Make options page a submenu item of the themes menu.
 			'capability'      => 'manage_options', // Cap required to view options-page.

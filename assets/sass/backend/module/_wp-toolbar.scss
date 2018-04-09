@@ -1,0 +1,19 @@
+html.wp-toolbar {
+	padding-top: 80px;
+}
+
+@media screen and (max-width: 782px) {
+
+	html.wp-toolbar {
+	    padding-top: 46px;
+	}
+
+}
+
+@media screen and (max-width: 600px) {
+
+	html.wp-toolbar {
+	    padding-top: 0;
+	}
+	
+}

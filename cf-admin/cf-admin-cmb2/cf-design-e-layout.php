@@ -14,7 +14,7 @@ function cf_register_design_e_layout_options_metabox() {
 		 */
 		$cmb_options = new_cmb2_box( array(
 			'id'           => 'cf_design_e-layouts',
-			'title'        => esc_html__( 'Design e Layouts', 'cf' ),
+			'title'        => esc_html__( 'Design', 'cf' ),
 			'object_types' => array( 'options-page' ),
 
 			/*
@@ -23,11 +23,11 @@ function cf_register_design_e_layout_options_metabox() {
 			 */
 
 			'option_key'      => 'cf_logo_options', // The option key and admin menu page slug.
-			'icon_url'        => 'dashicons-palmtree', // Menu icon. Only applicable if 'parent_slug' is left empty.
+			'icon_url'        => 'dashicons-location-alt', // Menu icon. Only applicable if 'parent_slug' is left empty.
 			// 'menu_title'      => esc_html__( 'Options', 'cmb2' ), // Falls back to 'title' (above).
 			// 'parent_slug'     => 'cf-logo', // Make options page a submenu item of the themes menu.
 			'capability'      => 'manage_options', // Cap required to view options-page.
-			'position'        => 6, // Menu position. Only applicable if 'parent_slug' is left empty.
+			'position'        => 8, // Menu position. Only applicable if 'parent_slug' is left empty.
 			// 'admin_menu_hook' => 'network_admin_menu', // 'network_admin_menu' to add network-level options page.
 			// 'display_cb'      => false, // Override the options-page form output (CMB2_Hookup::options_page_output()).
 			// 'save_button'     => esc_html__( 'Save Theme Options', 'cmb2' ), // The text for the options-page save button. Defaults to 'Save'.

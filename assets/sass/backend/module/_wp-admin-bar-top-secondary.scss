@@ -1,0 +1,10 @@
+ul {
+	&#wp-admin-bar-top-secondary {
+		li {
+			margin-right: 15px;
+			&:first-child {
+				margin-right: 0;
+			}
+		}
+	}
+}

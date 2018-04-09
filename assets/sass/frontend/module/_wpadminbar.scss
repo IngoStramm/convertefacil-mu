@@ -1,0 +1,342 @@
+div {
+	&#wpadminbar {
+		height: auto;
+		max-height: 69px;
+		background: $wpadminbar-bgc;
+		color: $wpadminbar-c;
+		/*@include box-shadow(0, 5px, 10px, 0, $sombra);*/
+		.fa {
+			font: normal normal normal 24px/1 FontAwesome !important;
+		}
+		ul {
+			&#wp-admin-bar-root-default {
+				> li {
+					padding-top: 18px;
+					padding-bottom: 18px;
+				}
+			}
+		}
+	 	li {
+	 		#adminbarsearch {
+	 			&.adminbar-focused {
+	 				&:before {
+						background-color: $adminbar-current-c;
+						color: $branco;
+						@include radius(5px);
+	 				}
+	 			}
+	 		}
+	 		.ab-item {
+	 			&:focus {
+	 				.ab-icon {
+	 					&:before {
+							background-color: $adminbar-current-c;
+							color: $branco;
+							@include radius(5px);
+	 					}
+	 				}
+	 				&:before {
+						background-color: $adminbar-current-c;
+						color: $branco;
+						@include radius(5px);
+	 				}
+	 			}
+	 		}
+	 		a {
+	 			&:focus {
+	 				.ab-icon {
+	 					&:before {
+							background-color: $adminbar-current-c;
+							color: $branco;
+							@include radius(5px);
+	 					}
+	 				}
+	 			}
+	 		}
+	 		&.hover {
+	 			.ab-icon {
+	 				&:before {
+						background-color: $adminbar-current-c;
+						color: $branco;
+						@include radius(5px);
+	 				}
+	 			}
+	 			.ab-item {
+	 				&:before {
+						background-color: $adminbar-current-c;
+						color: $branco;
+						@include radius(5px);
+	 				}
+	 			}
+				
+				> .ab-sub-wrapper {
+					top: 100%;
+					margin-top: 10px;
+					padding: 5px 10px;
+					@include radius(5px);
+					/*@include box-shadow(0, 5px, 10px, 0, $sombra);*/
+					&:before {
+						content: '';
+						position: absolute;
+						bottom: 100%;
+						left: 0;
+						width: 100%;
+						height: 60px;
+						z-index: 1;
+					}
+				}
+	 		}
+	 		#adminbarsearch {
+	 			&:before {
+					background-color: $adminbar-current-c;
+					color: $branco;
+					@include radius(5px);
+	 			}
+	 		}
+	 		.ab-icon {
+	 			&:before {
+	 				background-color: $adminbar-current-c;
+	 				color: $branco;
+	 				@include radius(5px);
+	 			}
+	 		}
+	 		.ab-item {
+	 			&:before {
+	 				background-color: $adminbar-current-c;
+	 				color: $branco;
+	 				@include radius(5px);
+	 			}
+	 		}
+	 	}
+
+		.quicklinks {
+			.ab-top-secondary {
+				> li {
+					padding-top: 18px;
+					padding-bottom: 18px;
+				}
+			}
+			.ab-sub-wrapper {
+				.menupop {
+					&.hover {
+						> a {
+							background-color: $adminbar-current-c;
+							color: $branco;
+							@include radius(5px);
+						}
+					}
+				}
+			}
+			.menupop {
+				ul {
+					li {
+						a {
+							&:focus {
+								background-color: $adminbar-current-c;
+	 								color: $branco;
+	 								@include radius(5px);
+								strong {
+									background-color: $adminbar-current-c;
+	 								color: $branco;
+	 								@include radius(5px);
+								}
+							}
+							&:hover {
+								background-color: $adminbar-current-c;
+	 								color: $branco;
+	 								@include radius(5px);
+								strong {
+									background-color: $adminbar-current-c;
+	 								color: $branco;
+	 								@include radius(5px);
+								}
+							}
+						}
+						div[tabindex] {
+							&:focus {
+								background-color: $adminbar-current-c;
+								color: $branco;
+								@include radius(5px);
+							}
+							&:hover {
+								background-color: $adminbar-current-c;
+								color: $branco;
+								@include radius(5px);
+							}
+						}
+					}
+				}
+				&.hover {
+					ul {
+						li {
+							a {
+								&:focus {
+									background-color: $adminbar-current-c;
+	 								color: $branco;
+	 								@include radius(5px);
+								}
+								&:hover {
+									background-color: $adminbar-current-c;
+	 								color: $branco;
+	 								@include radius(5px);
+								}
+							}
+						}
+					}
+				}			
+			}
+
+		}
+
+
+		.ab-top-secondary {
+			.menupop {
+				.ab-sub-wrapper {
+					top: 100%;
+					margin-top: 10px;
+					padding: 5px 10px;
+					@include radius(5px);
+					/*@include box-shadow(0, 5px, 10px, 0, $sombra);*/
+					&:before {
+						content: '';
+						position: absolute;
+						bottom: 100%;
+						left: 0;
+						width: 100%;
+						height: 60px;
+						z-index: 1;
+					}			
+				}
+			}
+		}
+		.ab-top-menu {
+			> li {
+				&.hover {
+					> .ab-item {
+						background-color: $adminbar-current-c;
+						color: $branco;
+						@include radius(5px);
+					}
+				}
+			}
+		}
+		.nojq {
+			.quicklinks {
+				.ab-top-menu
+				 > li {
+				 	> .ab-item {
+				 		&:focus {
+							background-color: $adminbar-current-c;
+							color: $branco;
+							@include radius(5px);
+				 		}
+				 	}
+				 }
+			}
+		}
+
+		:not(.mobile) 
+			.ab-top-menu {
+				> li {
+					&:hover {
+						> .ab-item {
+							background-color: $adminbar-current-bgc;
+							color: $adminbar-current-c;
+						}
+					}
+				}
+			}
+
+		:not(.mobile) {
+			.ab-top-menu {
+				> li {
+					>.ab-item {
+						:focus {
+							background-color: $adminbar-current-bgc;
+							color: $adminbar-current-c;						
+						}
+					}
+				}
+			}
+		}
+
+		.menupop {
+			.ab-sub-wrapper {
+				background-color: $adminbar-current-bgc;
+			}
+		}
+		
+		.shortlink-input {
+			background-color: $adminbar-current-bgc;
+		}
+
+		.nojs {
+			.quicklinks {
+				.menupop {
+					&:hover {
+						ul {
+							li {
+								a {
+									&:focus {
+										background-color: $adminbar-current-bgc;
+										color: $adminbar-current-c;
+									}
+									&:hover {
+										background-color: $adminbar-current-bgc;
+										color: $adminbar-current-c;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			li {
+				&:hover {
+					> .ab-sub-wrapper {
+						top: 100%;
+						margin-top: 10px;
+						padding: 5px 10px;
+						@include radius(5px);
+						/*@include box-shadow(0, 5px, 10px, 0, $sombra);*/
+						&:before {
+							content: '';
+							position: absolute;
+							bottom: 100%;
+							left: 0;
+							width: 100%;
+							height: 60px;
+							z-index: 1;	
+						}				
+					}
+				}
+			}
+		}
+
+	}
+}
+
+@media screen and (max-width: 782px) {
+
+	div {
+		&#wpadminbar {
+			ul {
+				&#wp-admin-bar-root-default {
+					> li {
+						padding-top: 0;
+						padding-bottom: 0;
+					}
+				}
+			}
+			.quicklinks {
+				.ab-top-secondary {
+					> li {
+						padding-top: 0;
+						padding-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+
+}
