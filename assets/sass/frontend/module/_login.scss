@@ -1,0 +1,51 @@
+body {
+	&.login {
+		@include bg-img('bg-login.jpg', no-repeat, center, center, $branco );
+		@include bg-size(cover);
+		h1 {
+			a {
+				width: 230px;
+				height: 51px;
+				@include bg-img('logo-login.png', no-repeat );
+				@include bg-size(contain);
+			}
+		}
+		form {
+			position: relative;
+			background-color: $roxo;
+			color: $branco;
+			@include radius(5px);
+			label {
+				color: inherit;
+			}
+			p {
+				&.submit {
+					margin-top: 40px !important;
+				}
+			}
+			#user_login {
+				@include bg-img('icon-user-login.png', no-repeat, 240px, center, $branco );
+				@include bg-size(20px);				
+			}
+			#user_pass {
+				@include bg-img('icon-pass.png', no-repeat, 240px, center, $branco );
+				@include bg-size(20px);				
+			}
+		}
+		#nav {
+			position: relative;
+			margin-top: 80px;
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				left: 0;
+				top: -50px;
+				width: 100%;
+				height: 26px;
+				@include bg-img('logos-extras.png', no-repeat );
+				@include bg-size(contain);
+			}
+		}
+	}
+}

@@ -211,11 +211,11 @@ function cf_admin_menu_init() {
 	        	// add_submenu_page( 'cf-planejamento-o-que-voce-precisa-saber', __( 'OKR', 'cf' ), __( 'OKR', 'cf' ), 'edit_theme_options', 'cf-planejamento-okr', 'cf_em_breve' );
 
 	        // 2. Financeiro
-	        add_menu_page( __( 'Financeiro', 'cf' ), __( 'Financeiro', 'cf' ), 'edit_theme_options', 'cf-financeiro-calculo-de-investimento-inicial', 'cf_em_breve', 'dashicons-location', 3 );
+	        add_menu_page( __( 'Financeiro', 'cf' ), __( 'Financeiro', 'cf' ), 'edit_theme_options', 'cf-financeiro-calculo-de-investimento-inicial', 'cf_calculo_investimento_inicial', 'dashicons-location', 3 );
 	        	// O que você precisa saber?
 	        	// add_submenu_page( 'cf-financeiro-calculo-de-investimento-inicial', __( 'O que você precisa saber?', 'cf' ), __( 'O que você precisa saber?', 'cf' ), 'edit_theme_options', 'cf-financeiro-calculo-de-investimento-inicial', 'cf_em_breve' );
 	        	// Calculo de Investimento Inicial
-	        	add_submenu_page( 'cf-financeiro-calculo-de-investimento-inicial', __( 'Calculo de Investimento Inicial', 'cf' ), __( 'Calculo de Investimento Inicial', 'cf' ), 'edit_theme_options', 'cf-financeiro-calculo-de-investimento-inicial', 'cf_em_breve' );
+	        	add_submenu_page( 'cf-financeiro-calculo-de-investimento-inicial', __( 'Calculo de Investimento Inicial', 'cf' ), __( 'Calculo de Investimento Inicial', 'cf' ), 'edit_theme_options', 'cf-financeiro-calculo-de-investimento-inicial', 'cf_calculo_investimento_inicial' );
 	        	// Custos Fixos
 	        	add_submenu_page( 'cf-financeiro-calculo-de-investimento-inicial', __( 'Custos Fixos', 'cf' ), __( 'Custos Fixos', 'cf' ), 'edit_theme_options', 'cf-financeiro-custos-fixos', 'cf_em_breve' );
 	        
@@ -400,6 +400,10 @@ function cf_admin_menu_init() {
 
 		function cf_em_breve() {
 			echo '<h3>Em breve!</h3>';
+		}
+
+		function cf_calculo_investimento_inicial() {
+			require_once 'financeiro/calculo-investimento-inicial.php';
 		}
 
 		// Substitui o nome dos menus e submenus

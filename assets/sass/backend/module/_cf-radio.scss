@@ -1,0 +1,35 @@
+.cf-radio-label {
+	display: block;
+	position: relative;
+	padding-left: 24px;
+	cursor: pointer;
+	.cf-radio-image {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 24px;
+		height: 24px;
+		@include bg-img('cf-radio.png', no-repeat, -24px, center);
+	}
+	.cf-radio-title {
+		margin-left: 10px;
+		font-size: 18px;
+		line-height: 18px;
+		color: $cinza-fonte;
+		font-weight: normal;
+	}
+	.cf-radio-input {
+		position: absolute;
+		@include opacity(0);
+		cursor: pointer;
+		&:checked {
+			+ .cf-radio-image {
+				background-position: 0 center;
+				+ .cf-radio-title {
+					font-weight: bold;
+				}
+			}
+		}
+	}
+}

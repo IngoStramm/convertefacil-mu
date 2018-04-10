@@ -1,0 +1,95 @@
+.cf-box {
+	display: block;
+	margin-bottom: 20px;
+	.cf-header-box {
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		justify-content: space-between;
+		-ms-align-items: center;
+		align-items: center;
+		margin: 0 0 20px;
+		padding: 15px 20px;
+		@include radius(5px);
+		.cf-header-box-title {
+			margin: 0;
+			padding: 0;
+			font-size: 30px;
+			line-height: 30px;
+			color: $branco;
+		}
+		.cf-header-box-icon {
+			width: auto;
+			height: auto;
+			max-width: 100%;
+		}
+	}
+	.cf-box-content {
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		justify-content: space-between;
+		-ms-align-items: start-flex;
+		align-items: start-flex;
+	}
+	.cf-box-content-main,
+	.cf-box-content-sidebar {
+		padding: 10px 20px;
+		background: $branco;
+		@include radius(5px);
+		@include box-shadow(0, 0, 10px, 0, $penumbra);
+	}
+	.cf-box-content-main {
+		width: 100%;
+	}
+	.cf-box-content-sidebar {
+		width: 100px;
+		margin-left: 20px;
+	}
+	.cf-radio-list {
+		.cf-radio-list-item {
+			display: block;
+			margin: 0 0 20px;
+			padding: 0 0 20px;
+			border-bottom: 1px solid $cinza;
+			&:last-child {
+				margin-bottom: 0;
+				border-bottom: none;
+			}
+			.cf-radio-list-item-input {
+				display: block;
+				margin: auto;
+				padding: 0 5px;
+				width: auto;
+				max-width: 100%;
+				text-align: right;
+				font-size: 18px;
+				font-weight: lighter;
+				border: none;
+				background-color: transparent;
+				@include box-shadow(0, 0, 0, 0, transparent);
+				&:focus {
+					border: solid 1px $cinza;
+				}
+				&[readonly] {
+					border: none;
+					@include box-shadow(0, 0, 0, 0, transparent);
+
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+
+	.cf-box {
+		.cf-header-box {
+			min-height: 90px;
+		}
+	}
+}

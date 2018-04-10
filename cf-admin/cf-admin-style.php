@@ -1,6 +1,6 @@
 <?php
 
-add_action( 'init', 'cf_admin_style_init' );
+// add_action( 'init', 'cf_admin_style_init' );
 
 function cf_admin_style_init() {
 

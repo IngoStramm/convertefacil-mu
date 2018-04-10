@@ -1,15 +1,5 @@
 html {
 	&.js {
-		margin-top: 68px !important;
+		margin-top: 0 !important;
 	}
-}
-
-@media screen and (max-width: 849px) {
-
-	html {
-		&.js {
-	    	margin-top: 0 !important;
-		}
-	}
-
 }

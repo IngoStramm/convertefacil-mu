@@ -1,0 +1,33 @@
+.cf-img-responsive {
+	max-width: 100%;
+}
+
+.cf-center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.cf-col-12 {
+	width: 100%;
+}
+
+.cf-col-6 {
+	width: 100%;
+}
+
+
+@media (min-width: 992px) {
+	
+	.cf-col-6 {
+		flex-basis: 47%;
+		flex-grow: 1;
+		margin-right: 10px;
+		max-width: 50%;
+		&:nth-child(even) {
+			margin-left: 10px;
+			margin-right: 0;
+		}
+	}
+
+}

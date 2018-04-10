@@ -1,0 +1,16 @@
+.cf-banner {
+	display: block;
+	margin: 0 auto 40px;
+	padding: 20px 30px;
+	background: $cinza-escuro;
+	text-align: center;
+	@include radius(5px);
+	.cf-banner-texto {
+		color: $cinza-fonte;
+		font-size: 18px;
+		p {
+			font: inherit;
+			color: inherit;
+		}
+	}
+}

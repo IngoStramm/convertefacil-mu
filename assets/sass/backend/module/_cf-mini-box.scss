@@ -1,0 +1,47 @@
+.cf-mini-box {
+	padding: 10px 20px;
+	background: $verde;
+	color: $branco;
+	border: none;
+	@include radius(5px);
+	@include box-shadow(0, 0, 10px, 0, $penumbra);
+	.cf-mini-box-header {
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.cf-mini-box-header-icon {
+		margin: 0;
+		max-width: 100%;
+	}
+	.cf-mini-box-header-title {
+		margin-right: 10px;
+		color: inherit;
+		font-size: 16px;
+	}
+	.cf-total-value-input {
+		display: block;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		background-color: transparent;
+		border: none;
+		text-align: right;
+		font-size: 40px;
+		font-weight: lighter;
+		color: $branco;
+	}
+}
+
+@media (min-width: 1200px) {
+
+	.cf-mini-box {
+		position: fixed;
+		right: 15px;
+		max-width: 175px;
+	}
+}

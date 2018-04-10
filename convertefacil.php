@@ -16,6 +16,8 @@ define( 'CF_URL', plugin_dir_url( __FILE__ ) );
 
 require_once 'required-plugins.php';
 require_once 'core.php';
+require_once 'cf-classes/cf-classes.php';
+require_once 'cf-admin/cf-admin-post-type/cf-admin-post-type.php';
 require_once 'registration.php';
 require_once 'scripts.php';
 require_once 'cf-admin/cf-admin.php';
