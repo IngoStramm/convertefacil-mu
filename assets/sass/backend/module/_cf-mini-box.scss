@@ -26,7 +26,7 @@
 	.cf-total-value-input {
 		display: block;
 		width: 100%;
-		margin: 0;
+		margin: 0 0 20px;
 		padding: 0;
 		background-color: transparent;
 		border: none;
@@ -34,6 +34,20 @@
 		font-size: 40px;
 		font-weight: lighter;
 		color: $branco;
+	}
+	.cf-save-itens-calc {
+		display: block;
+		width: 100%;
+		margin: 0 0 20px;
+	}
+	.cf-save-return-message {
+		display: none;
+		margin: 0 0 10px;
+		padding: 5px 10px;
+		background: $cinza-claro;
+		color: $cinza-fonte;
+		font-weight: bold;
+		@include radius(5px);
 	}
 }
 

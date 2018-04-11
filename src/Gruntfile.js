@@ -25,7 +25,8 @@ module.exports = function( grunt ) {
 			},
 			all: [
 				'Gruntfile.js',
-				'<%= dirs.js %>/cf-script.js'
+				'<%= dirs.js %>/cf-script.js',
+				'<%= dirs.js %>/cf-plugin-backend-script.js'
 			]
 		},
 
@@ -36,6 +37,9 @@ module.exports = function( grunt ) {
 					'<%= dirs.js %>/cf-script.min.js': [
 						'<%= dirs.js %>/libs/*.js', // External libs/plugins
 						'<%= dirs.js %>/cf-script.js'    // Custom JavaScript
+					],
+					'<%= dirs.js %>/cf-plugin-backend-script.min.js': [
+						'<%= dirs.js %>/cf-plugin-backend-script.js'    // Custom JavaScript
 					]
 				}
 			}
@@ -160,6 +164,7 @@ module.exports = function( grunt ) {
 					'../assets/js/**libs',
 					'../assets/js/plugins.js',
 					'../assets/js/cf-script.js',
+					'../assets/js/cf-plugin-backend-script.js',
 					'../*.zip',
 					'../*.sublime-project',
 					'../*.sublime-workspace',
@@ -180,7 +185,8 @@ module.exports = function( grunt ) {
 					'!<%= dirs.sass %>/**',
 					'!<%= dirs.js %>/libs/**',
 					'!../**.zip',
-					'<%= dirs.js %>/cf-script.min.js'
+					'<%= dirs.js %>/cf-script.min.js',
+					'<%= dirs.js %>/cf-plugin-backend-script.min.js'
 				],
 				dest: '../<%= pkg.name %>.zip'
 			}

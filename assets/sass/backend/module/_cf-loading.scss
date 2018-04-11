@@ -1,0 +1,169 @@
+.cf-loading {
+	position: absolute;
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #fffefe;
+	background: rgba( 255, 254, 254, 0.7 );
+	z-index: 100;
+	.cssload-container{
+		display: block;
+		margin: auto;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		width:49px;
+		@include translate(-50%, -50%);
+		z-index: 200;
+		.cssload-loading{
+			width: 44px;
+			height: 44px;
+			text-align: left;
+			animation:cssload-loading-ani1 2.3s ease-in-out infinite;
+			-o-animation:cssload-loading-ani1 2.3s ease-in-out infinite;
+			-ms-animation:cssload-loading-ani1 2.3s ease-in-out infinite;
+			-webkit-animation:cssload-loading-ani1 2.3s ease-in-out infinite;
+			-moz-animation:cssload-loading-ani1 2.3s ease-in-out infinite;
+			i{
+				content: "";
+				width: 44px;
+				height: 44px;
+				position: absolute;
+				border-radius: 50%; 
+				overflow: hidden;
+				&:before {
+					content: "";
+					width: 44px;
+					height: 44px;
+					position: absolute;					
+				}
+				&:nth-child(1){
+					background: $verde;
+					transform:translate(0,-24px);
+						-o-transform:translate(0,-24px);
+						-ms-transform:translate(0,-24px);
+						-webkit-transform:translate(0,-24px);
+						-moz-transform:translate(0,-24px);
+				}
+				&:nth-child(1):before{
+					background: $roxo;
+					bottom: 0;
+					animation:cssload-loading-ani2 2.3s ease-in-out infinite;
+						-o-animation:cssload-loading-ani2 2.3s ease-in-out infinite;
+						-ms-animation:cssload-loading-ani2 2.3s ease-in-out infinite;
+						-webkit-animation:cssload-loading-ani2 2.3s ease-in-out infinite;
+						-moz-animation:cssload-loading-ani2 2.3s ease-in-out infinite;
+				}
+				&:nth-child(2){
+					background: $roxo;
+					transform:translate(0,24px);
+						-o-transform:translate(0,24px);
+						-ms-transform:translate(0,24px);
+						-webkit-transform:translate(0,24px);
+						-moz-transform:translate(0,24px);
+				}
+				&:nth-child(2):before{
+					animation:cssload-loading-ani2 2.3s ease-in-out infinite;
+						-o-animation:cssload-loading-ani2 2.3s ease-in-out infinite;
+						-ms-animation:cssload-loading-ani2 2.3s ease-in-out infinite;
+						-webkit-animation:cssload-loading-ani2 2.3s ease-in-out infinite;
+						-moz-animation:cssload-loading-ani2 2.3s ease-in-out infinite;
+					background: $verde;
+				}			
+			}			
+		}
+	}
+
+	@keyframes cssload-loading-ani1{
+		40%,50%{
+			transform:rotate(180deg);
+		}
+		90%,100%{
+			transform:rotate(360deg);
+		}
+	}
+
+	@-o-keyframes cssload-loading-ani1{
+		40%,50%{
+			-o-transform:rotate(180deg);
+		}
+		90%,100%{
+			-o-transform:rotate(360deg);
+		}
+	}
+
+	@-ms-keyframes cssload-loading-ani1{
+		40%,50%{
+			-ms-transform:rotate(180deg);
+		}
+		90%,100%{
+			-ms-transform:rotate(360deg);
+		}
+	}
+
+	@-webkit-keyframes cssload-loading-ani1{
+		40%,50%{
+			-webkit-transform:rotate(180deg);
+		}
+		90%,100%{
+			-webkit-transform:rotate(360deg);
+		}
+	}
+
+	@-moz-keyframes cssload-loading-ani1{
+		40%,50%{
+			-moz-transform:rotate(180deg);
+		}
+		90%,100%{
+			-moz-transform:rotate(360deg);
+		}
+	}
+
+	@keyframes cssload-loading-ani2{
+		40%,100%{
+			height:100%;
+		}
+		50%,90%{
+			height:0;
+		}
+	}
+
+	@-o-keyframes cssload-loading-ani2{
+		40%,100%{
+			height:100%;
+		}
+		50%,90%{
+			height:0;
+		}
+	}
+
+	@-ms-keyframes cssload-loading-ani2{
+		40%,100%{
+			height:100%;
+		}
+		50%,90%{
+			height:0;
+		}
+	}
+
+	@-webkit-keyframes cssload-loading-ani2{
+		40%,100%{
+			height:100%;
+		}
+		50%,90%{
+			height:0;
+		}
+	}
+
+	@-moz-keyframes cssload-loading-ani2{
+		40%,100%{
+			height:100%;
+		}
+		50%,90%{
+			height:0;
+		}
+	}
+}

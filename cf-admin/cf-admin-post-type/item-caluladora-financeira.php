@@ -14,7 +14,7 @@ function item_calculadora_financeira() {
 	$labels = array(
 		'name'               => _x( 'Itens', 'post type general name', 'cf' ),
 		'singular_name'      => _x( 'Item', 'post type singular name', 'cf' ),
-		'menu_name'          => _x( 'Itens', 'admin menu', 'cf' ),
+		'menu_name'          => _x( 'Calculadora', 'admin menu', 'cf' ),
 		'name_admin_bar'     => _x( 'Item', 'add new on admin bar', 'cf' ),
 		'add_new'            => _x( 'Adicionar novo', 'item', 'cf' ),
 		'add_new_item'       => __( 'Adicionar novo item', 'cf' ),
