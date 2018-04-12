@@ -81,7 +81,7 @@ function cf_admin_dashboard_init() {
 		}
 
 		function cf_feed_widget() {
-		     $rss = fetch_feed( 'https://lawyerist.com/feed/' );
+		     $rss = fetch_feed( 'https://convertefacil.com.br/feed/' );
 
 		     if ( is_wp_error($rss) ) {
 		          if ( is_admin() || current_user_can( 'manage_options' ) ) {
