@@ -324,6 +324,8 @@ function cf_admin_menu_init() {
 	        	// add_submenu_page( 'edit.php', __( 'E-goi', 'cf' ), __( 'E-goi', 'cf' ), 'edit_theme_options', 'admin.php?page=egoi-mail-list-builder-contact-form-7-info', null );
 	        	// SendinBlue
 	        	// add_submenu_page( 'edit.php', __( 'SendinBlue', 'cf' ), __( 'SendinBlue', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=sendinblue', null );
+	        	// Cupons
+	        	add_submenu_page( 'edit.php', __( 'Cupons', 'cf' ), __( 'Cupons', 'cf' ), 'edit_theme_options', 'edit.php?post_type=shop_coupon', null );
 	        	// Base de Contatos
 	        	add_submenu_page( 'edit.php', __( 'Envios de Contatos', 'cf' ), __( 'Envios de Contatos', 'cf' ), 'edit_theme_options', 'admin.php?page=flamingo_inbound', null );
 	        	// Envios de Contatos
@@ -345,8 +347,6 @@ function cf_admin_menu_init() {
 	        	// add_submenu_page( 'admin.php?page=wc-settings&tab=checkout', __( 'Intermediadores', 'cf' ), __( 'Intermediadores', 'cf' ), 'edit_theme_options', 'cf-vendas-e-pagamentos-intermediadores', 'cf_em_breve' );
 	        	// Facilitadores Subadquirentes
 	        	// add_submenu_page( 'admin.php?page=wc-settings&tab=checkout', __( 'Facilitadores Subadquirentes', 'cf' ), __( 'Facilitadores Subadquirentes', 'cf' ), 'edit_theme_options', 'cf-vendas-e-pagamentos-facilitadores-subadquirentes', 'cf_em_breve' );
-	        	// Cupons
-	        	add_submenu_page( 'admin.php?page=wc-settings&tab=checkout', __( 'Cupons', 'cf' ), __( 'Cupons', 'cf' ), 'edit_theme_options', 'edit.php?post_type=shop_coupon', null );
 	        	// Marketplaces
 	        	// add_submenu_page( 'admin.php?page=wc-settings&tab=checkout', __( 'Marketplaces', 'cf' ), __( 'Marketplaces', 'cf' ), 'edit_theme_options', 'cf-vendas-e-pagamentos-marketplaces', 'cf_em_breve' );
 	        	// Relatórios
