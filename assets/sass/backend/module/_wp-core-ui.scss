@@ -1,0 +1,9 @@
+.wp-core-ui {
+	.button-primary {
+		background-color: $verde;
+		border-color: $verde-lima;
+		text-shadow: none;
+		@include box-shadow( 0, 0, 0, 0, transparent );
+		@include bgc-hover( $verde-destaque );
+	}
+}
