@@ -52,7 +52,28 @@ function cf_admin_bar_init() {
 
 			// Adiciona os itens salvos
 			$wp_admin_bar->add_node( $my_account );
-			$wp_admin_bar->add_node( $comments );
+			// $wp_admin_bar->add_node( $comments );
+			$wp_admin_bar->add_node( array(
+				'id' => 'go_to_site',
+				'parent' => 'top-secondary',
+				// 'title' => __( 'Ver Site', 'cf' ),
+				'title' => '<i class="fa fa-eye" title="' . __( 'Ver Site', 'cf' ) . '"></i>',
+				'href' => $home_url
+			));
+			$wp_admin_bar->add_node( array(
+				'id' => 'go_to_site_submenu',
+				'parent' => 'go_to_site',
+				'title' => __( 'Ver Site', 'cf' ),
+				'href' => $home_url
+			));
+			$wp_admin_bar->add_node( array(
+				'id' => 'go_to_admin',
+				'parent' => 'go_to_site',
+				'title' => __( 'Gerenciar Site', 'cf' ),
+				'href' => $admin_url
+			));
+
+
 			$wp_admin_bar->add_node( $new_content );
 			$wp_admin_bar->add_node( $new_content_node );
 
@@ -80,20 +101,6 @@ function cf_admin_bar_init() {
 			$wp_admin_bar->add_node( array(
 				'id' => 'fl-mini-logo',
 				'title' => '<span class="fl-mini-logo"></span>'
-			));
-
-			$wp_admin_bar->add_node( array(
-				'id' => 'go_to_site',
-				'parent' => 'cf_panel',
-				'title' => __( 'Ver Site', 'cf' ),
-				'href' => $home_url
-			));
-
-			$wp_admin_bar->add_node( array(
-				'id' => 'go_to_admin',
-				'parent' => 'cf_panel',
-				'title' => __( 'Gerenciar Site', 'cf' ),
-				'href' => $admin_url
 			));
 
 			if( $post_id ) :
