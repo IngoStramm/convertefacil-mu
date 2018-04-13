@@ -11,31 +11,38 @@ function cf_admin_bar_init() {
 
 		function cf_remove_bar_menu_items( $wp_admin_bar ) {
 
-			// cf_debug( $wp_admin_bar );
 
 			global $post;
 			$post_id = $post->ID;
 			$home_url = get_home_url();
 			$admin_url = get_admin_url();
 			$edit_uxbuilder = get_admin_url().'edit.php?page=uxbuilder&post_id=' . $post_id;
+			$settings = get_site_option( 'psts_settings' );
+			$checkout_url = $settings[ 'checkout_url' ];
 
 			// Salva os itens
 			$my_account = $wp_admin_bar->get_node( 'my-account' );
 			$comments = $wp_admin_bar->get_node( 'comments' );
 			$new_content = $wp_admin_bar->get_node( 'new-content' );
 			$new_content_node = $wp_admin_bar->get_node( 'new-post' );
+			$logout = $wp_admin_bar->get_node( 'logout' );
+
 			// Edita os itens salvos
 			$comments->parent = 'top-secondary';
 			$comments->title = '<i class="fa fa-eye"></i>';
 			$new_content->parent = 'top-secondary';
-			$new_content->title = '<i class="fa fa-plus-circle"></i>';
+			$new_content->title = '<i class="fa fa-plus-circle" title="' . __( 'Adicionar novo', 'cf' ) . '"></i>';
 			$my_account->title = '<i class="fa fa-user"></i>';
 			$new_content_node->title = __( 'BlogPost', 'cf' );
+			$logout->parent = 'user-actions';
 			
 
 			// Remove itens
 			$wp_admin_bar->remove_node( 'wp-logo' );
 			$wp_admin_bar->remove_node( 'my-account' );
+			$wp_admin_bar->remove_node( 'user-info' );
+			// $wp_admin_bar->remove_node( 'edit-profile' );
+			$wp_admin_bar->remove_node( 'logout' );
 			$wp_admin_bar->remove_node( 'site-name' );
 			$wp_admin_bar->remove_node( 'search' );
 			$wp_admin_bar->remove_node( 'wpseo-menu' );
@@ -102,6 +109,15 @@ function cf_admin_bar_init() {
 				'id' => 'fl-mini-logo',
 				'title' => '<span class="fl-mini-logo"></span>'
 			));
+
+			$wp_admin_bar->add_node( array(
+				'id' => 'pro-sites-checkout',
+				'title' => __( 'Seu plano', 'cf' ),
+				'parent' => 'user-actions',
+				'href' => $checkout_url,
+			));
+
+			$wp_admin_bar->add_node( $logout );
 
 			if( $post_id ) :
 

@@ -1,3 +1,4 @@
+/* #wpadminbar #wp-admin-bar-my-account.with-avatar #wp-admin-bar-user-actions>li */
 #wpadminbar {
 	height: auto;
 	max-height: 69px;
@@ -80,7 +81,7 @@
 					bottom: 100%;
 					left: 0;
 					width: 100%;
-					height: 60px;
+					height: 20px;
 					z-index: 1;
 				}
 			}
@@ -202,7 +203,7 @@
 					bottom: 100%;
 					left: 0;
 					width: 100%;
-					height: 60px;
+					height: 20px;
 					z-index: 1;
 				}			
 			}
@@ -304,9 +305,19 @@
 						bottom: 100%;
 						left: 0;
 						width: 100%;
-						height: 60px;
+						height: 20px;
 						z-index: 1;	
 					}				
+				}
+			}
+		}
+	}
+
+	#wp-admin-bar-my-account {
+		&.with-avatar {
+			#wp-admin-bar-user-actions {
+				> li {
+					margin-left: 0;
 				}
 			}
 		}
