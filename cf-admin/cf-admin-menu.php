@@ -83,7 +83,7 @@ function cf_admin_menu_init() {
 	        // remove_submenu_page( 'edit.php?post_type=product', 'product_attributes' );
 
 	        // Renomeia o menu 'Produtos'
-	        $menu[27][0] = __( 'Conteúdo', 'cf' );
+	        $menu[27][0] = __( 'Conteúdo do Site', 'cf' );
 	        $submenu['edit.php?post_type=product'][5][0] = __( 'Produtos', 'cf' );
 	        $submenu['edit.php?post_type=product'][15][0] = __( 'Categorias de Produto', 'cf' );
 	        $submenu['edit.php?post_type=product'][16][0] = __( 'Tags de Produtos', 'cf' );
@@ -267,12 +267,12 @@ function cf_admin_menu_init() {
 	        	// add_submenu_page( 'edit.php?post_type=product', __( 'Tag de produto', 'cf' ), __( 'Tag de produto', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=product_tag&post_type=product', null );
 	        	// Atributos de Produto
 	        	// add_submenu_page( 'edit.php?post_type=product', __( 'Atributos de produto', 'cf' ), __( 'Atributos de produto', 'cf' ), 'edit_theme_options', 'edit.php?post_type=product&page=product_attributes', null );
-	        	// Todas as Páginas
-	        	add_submenu_page( 'edit.php?post_type=product', __( 'Páginas', 'cf' ), __( 'Páginas', 'cf' ), 'edit_theme_options', 'edit.php?post_type=page', null );
+	        	// Páginas do Site
+	        	add_submenu_page( 'edit.php?post_type=product', __( 'Páginas do Site', 'cf' ), __( 'Páginas do Site', 'cf' ), 'edit_theme_options', 'edit.php?post_type=page', null );
 	        	// Adicionar página
 	        	// add_submenu_page( 'cf-conteudo-o-que-voce-precisa-saber', __( 'Adicionar nova Página', 'cf' ), __( 'Adicionar nova Página', 'cf' ), 'edit_theme_options', 'post-new.php?post_type=page', null );
-	        	// Todas as Mídia
-	        	add_submenu_page( 'edit.php?post_type=product', __( 'Mídia', 'cf' ), __( 'Mídia', 'cf' ), 'edit_theme_options', 'upload.php', null );
+	        	// Imagens e Vídeos
+	        	add_submenu_page( 'edit.php?post_type=product', __( 'Imagens e Vídeos', 'cf' ), __( 'Imagens e Vídeos', 'cf' ), 'edit_theme_options', 'upload.php', null );
 	        	// Adicionar nova mídia
 	        	// add_submenu_page( 'cf-conteudo-o-que-voce-precisa-saber', __( 'Adicionar nova mídia', 'cf' ), __( 'Adicionar nova mídia', 'cf' ), 'edit_theme_options', 'media-new.php', null );
 
