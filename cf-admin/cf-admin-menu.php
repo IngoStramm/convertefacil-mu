@@ -318,8 +318,8 @@ function cf_admin_menu_init() {
 	        	// add_submenu_page( 'edit.php', __( 'Social', 'cf' ), __( 'Social', 'cf' ), 'edit_theme_options', 'cf-marketing-social', 'cf_em_breve' );
 	        	// Popup
 	        	add_submenu_page( 'edit.php', __( 'Popup', 'cf' ), __( 'Popup', 'cf' ), 'edit_theme_options', 'edit.php?post_type=inc_popup', null );
-	        	// MailChimp
-	        	add_submenu_page( 'edit.php', __( 'MailChimp', 'cf' ), __( 'MailChimp', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=mailchimp', null );
+	        	// E-mail Marketing
+	        	add_submenu_page( 'edit.php', __( 'E-mail Marketing', 'cf' ), __( 'E-mail Marketing', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=mailchimp', null );
 	        	// E-goi
 	        	// add_submenu_page( 'edit.php', __( 'E-goi', 'cf' ), __( 'E-goi', 'cf' ), 'edit_theme_options', 'admin.php?page=egoi-mail-list-builder-contact-form-7-info', null );
 	        	// SendinBlue
