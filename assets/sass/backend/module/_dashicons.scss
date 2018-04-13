@@ -3,13 +3,15 @@
 	font-size: 26px !important;
 }
 .dashicons-before {
-	font-family: Fontawesome !important;
-	font-size: 26px !important;
-	line-height: 19px;
-	&:before {
+	&.wp-menu-image {
 		font-family: Fontawesome !important;
 		font-size: 26px !important;
 		line-height: 19px;
+		&:before {
+			font-family: Fontawesome !important;
+			font-size: 26px !important;
+			line-height: 19px;
+		}
 	}
 }
 /* Woocommerce Fix */
@@ -20,67 +22,89 @@
 }
 
 .dashicons-dashboard {
-	&:before {
-		content: '\f015';
+	&.wp-menu-image {
+		&:before {
+			content: '\f015';
+		}
 	}
 }
 
 .dashicons-location {
-	&:before {
-		content: '\f155';
+	&.wp-menu-image {
+		&:before {
+			content: '\f155';
+		}
 	}
 }
 
 .dashicons-location-alt {
-	&:before {
-		content: '\f005';
+	&.wp-menu-image {
+		&:before {
+			content: '\f005';
+		}
 	}
 }
 
 .dashicons-vault {
-	&:before {
-		content: '\f15c' !important;
+	&.wp-menu-image {
+		&:before {
+			content: '\f15c' !important;
+		}
 	}
 }
 
 .dashicons-shield {
-	&:before {
-		content: '\f110';
+	&.wp-menu-image {
+		&:before {
+			content: '\f110';
+		}
 	}
 }
 
 .dashicons-shield-alt {
-	&:before {
-		content: '\f140';
+	&.wp-menu-image {
+		&:before {
+			content: '\f140';
+		}
 	}
 }
 
 .dashicons-sos {
-	&:before {
-		content: '\f201';
+	&.wp-menu-image {
+		&:before {
+			content: '\f201';
+		}
 	}
 }
 
 .dashicons-search {
-	&:before {
-		content: '\f1b2';
+	&.wp-menu-image {
+		&:before {
+			content: '\f1b2';
+		}
 	}
 }
 
 .dashicons-slides {
-	&:before {
-		content: '\f0c0';
+	&.wp-menu-image {
+		&:before {
+			content: '\f0c0';
+		}
 	}
 }
 
 .dashicons-admin-users {
-	&:before {
-		content: '\f007';
+	&.wp-menu-image {
+		&:before {
+			content: '\f007';
+		}
 	}
 }
 
 .dashicons-analytics {
-	&:before {
-		content: '\f013';
+	&.wp-menu-image {
+		&:before {
+			content: '\f013';
+		}
 	}
 }
