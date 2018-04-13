@@ -218,6 +218,8 @@ function cf_admin_menu_init() {
 	        	add_submenu_page( 'cf-financeiro-calculo-de-investimento-inicial', __( 'Calculo de Investimento Inicial', 'cf' ), __( 'Calculo de Investimento Inicial', 'cf' ), 'edit_theme_options', 'cf-financeiro-calculo-de-investimento-inicial', 'cf_calculo_investimento_inicial' );
 	        	// Custos Fixos
 	        	add_submenu_page( 'cf-financeiro-calculo-de-investimento-inicial', __( 'Custos Fixos', 'cf' ), __( 'Custos Fixos', 'cf' ), 'edit_theme_options', 'cf-financeiro-custos-fixos', 'cf_calculo_fixo_mensal' );
+	        	// Metas
+	        	add_submenu_page( 'cf-financeiro-calculo-de-investimento-inicial', __( 'Metas', 'cf' ), __( 'Metas', 'cf' ), 'edit_theme_options', 'cf-financeiro-metas', 'cf_metas' );
 	        
 	        // 3. Contabilidade e Jurídico
 	        // add_menu_page( __( 'Contabilidade e Jurídico', 'cf' ), __( 'Contabilidade e Jurídico', 'cf' ), 'edit_theme_options', 'cf-juridico-o-que-voce-precisa-saber', 'cf_em_breve', null, 4 );
@@ -408,6 +410,10 @@ function cf_admin_menu_init() {
 
 		function cf_calculo_fixo_mensal() {
 			require_once 'financeiro/calculo-fixo-mensal.php';
+		}
+
+		function cf_metas() {
+			require_once 'financeiro/metas.php';
 		}
 
 		// Substitui o nome dos menus e submenus
