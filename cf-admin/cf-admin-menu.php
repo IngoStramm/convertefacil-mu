@@ -244,8 +244,8 @@ function cf_admin_menu_init() {
 	        	// Encontre o profissional
 	        	// add_submenu_page( 'cf-equipe-o-que-voce-precisa-saber', __( 'Encontre o profissional', 'cf' ), __( 'Encontre o profissional', 'cf' ), 'edit_theme_options', 'cf-encontre-o-profissional', 'cf_em_breve' );
 
-	        // 7. ERP (Omnichannel)
-	        add_menu_page( __( 'Omnichannel', 'cf' ), __( 'Omnichannel', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=integration', null, 'dashicons-shield', 6 );
+	        // 7. ERP | Omnichannel
+	        add_menu_page( __( 'ERP | Omnichannel', 'cf' ), __( 'ERP | Omnichannel', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=integration', null, 'dashicons-shield', 6 );
 
 	        	// O que você precisa saber?
 	        	// add_submenu_page( 'admin.php?page=wc-settings&tab=integration', __( 'O que você precisa saber?', 'cf' ), __( 'O que você precisa saber?', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=integration', 'cf_em_breve' );
