@@ -211,15 +211,15 @@ function cf_admin_menu_init() {
 	        	// add_submenu_page( 'cf-planejamento-o-que-voce-precisa-saber', __( 'OKR', 'cf' ), __( 'OKR', 'cf' ), 'edit_theme_options', 'cf-planejamento-okr', 'cf_em_breve' );
 
 	        // 2. Financeiro
-	        add_menu_page( __( 'Financeiro', 'cf' ), __( 'Financeiro', 'cf' ), 'edit_theme_options', 'cf-financeiro-calculo-de-investimento-inicial', 'cf_calculo_investimento_inicial', 'dashicons-location', 3 );
+	        add_menu_page( __( 'Financeiro', 'cf' ), __( 'Financeiro', 'cf' ), 'edit_theme_options', 'cf-financeiro-investimento-inicial', 'cf_calculo_investimento_inicial', 'dashicons-location', 3 );
 	        	// O que você precisa saber?
-	        	// add_submenu_page( 'cf-financeiro-calculo-de-investimento-inicial', __( 'O que você precisa saber?', 'cf' ), __( 'O que você precisa saber?', 'cf' ), 'edit_theme_options', 'cf-financeiro-calculo-de-investimento-inicial', 'cf_em_breve' );
-	        	// Calculo de Investimento Inicial
-	        	add_submenu_page( 'cf-financeiro-calculo-de-investimento-inicial', __( 'Calculo de Investimento Inicial', 'cf' ), __( 'Calculo de Investimento Inicial', 'cf' ), 'edit_theme_options', 'cf-financeiro-calculo-de-investimento-inicial', 'cf_calculo_investimento_inicial' );
+	        	// add_submenu_page( 'cf-financeiro-investimento-inicial', __( 'O que você precisa saber?', 'cf' ), __( 'O que você precisa saber?', 'cf' ), 'edit_theme_options', 'cf-financeiro-investimento-inicial', 'cf_em_breve' );
+	        	// Investimento Inicial
+	        	add_submenu_page( 'cf-financeiro-investimento-inicial', __( 'Investimento Inicial', 'cf' ), __( 'Investimento Inicial', 'cf' ), 'edit_theme_options', 'cf-financeiro-investimento-inicial', 'cf_calculo_investimento_inicial' );
 	        	// Custos Fixos
-	        	add_submenu_page( 'cf-financeiro-calculo-de-investimento-inicial', __( 'Custos Fixos', 'cf' ), __( 'Custos Fixos', 'cf' ), 'edit_theme_options', 'cf-financeiro-custos-fixos', 'cf_calculo_fixo_mensal' );
-	        	// Metas
-	        	add_submenu_page( 'cf-financeiro-calculo-de-investimento-inicial', __( 'Metas', 'cf' ), __( 'Metas', 'cf' ), 'edit_theme_options', 'cf-financeiro-metas', 'cf_metas' );
+	        	add_submenu_page( 'cf-financeiro-investimento-inicial', __( 'Custos Fixos', 'cf' ), __( 'Custos Fixos', 'cf' ), 'edit_theme_options', 'cf-financeiro-custos-fixos', 'cf_calculo_fixo_mensal' );
+	        	// Converte Metas
+	        	add_submenu_page( 'cf-financeiro-investimento-inicial', __( 'Converte Metas', 'cf' ), __( 'Converte Metas', 'cf' ), 'edit_theme_options', 'cf-financeiro-converte-metas', 'cf_metas' );
 	        
 	        // 3. Contabilidade e Jurídico
 	        // add_menu_page( __( 'Contabilidade e Jurídico', 'cf' ), __( 'Contabilidade e Jurídico', 'cf' ), 'edit_theme_options', 'cf-juridico-o-que-voce-precisa-saber', 'cf_em_breve', null, 4 );
@@ -447,7 +447,7 @@ function cf_admin_menu_init() {
 		    // [0]=>
 		    // string(9) "index.php"
 		    // [1]=>
-		    // string(45) "cf-financeiro-calculo-de-investimento-inicial"
+		    // string(45) "cf-calculo-de-investimento-inicial"
 		    // [2]=>
 		    // string(10) "separator1"
 		    // [3]=>
