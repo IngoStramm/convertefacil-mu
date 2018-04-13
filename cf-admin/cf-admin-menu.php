@@ -310,10 +310,10 @@ function cf_admin_menu_init() {
 	        	// add_submenu_page( 'edit.php', __( 'O que você precisa saber?', 'cf' ), __( 'O que você precisa saber?', 'cf' ), 'edit_theme_options', 'edit.php', 'cf_em_breve' );
 	        	// BlogPosts
 	        	add_submenu_page( 'edit.php', __( 'BlogPosts', 'cf' ), __( 'BlogPosts', 'cf' ), 'edit_theme_options', 'edit.php', null );
-	        	// Categorias
-	        	add_submenu_page( 'edit.php', __( 'Categorias', 'cf' ), __( 'Categorias', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=category', null );
-	        	// Tags
-	        	add_submenu_page( 'edit.php', __( 'Tags', 'cf' ), __( 'Tags', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=post_tag', null );
+	        	// Categorias de BlogPost
+	        	add_submenu_page( 'edit.php', __( 'Categorias de BlogPost', 'cf' ), __( 'Categorias de BlogPost', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=category', null );
+	        	// Tags de BlogPost
+	        	add_submenu_page( 'edit.php', __( 'Tags de BlogPost', 'cf' ), __( 'Tags de BlogPost', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=post_tag', null );
 	        	// // Social
 	        	// add_submenu_page( 'edit.php', __( 'Social', 'cf' ), __( 'Social', 'cf' ), 'edit_theme_options', 'cf-marketing-social', 'cf_em_breve' );
 	        	// Popup

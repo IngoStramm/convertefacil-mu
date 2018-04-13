@@ -1,11 +1,11 @@
 <?php
 
-// add_action( 'init', 'cf_admin_style_init' );
+add_action( 'init', 'cf_admin_style_init' );
 
 function cf_admin_style_init() {
 
 	// Customiza tela de Login do WP
-	add_action( 'login_enqueue_scripts', 'wptutsplus_login_logo' );
+	// add_action( 'login_enqueue_scripts', 'wptutsplus_login_logo' );
 
 	function wptutsplus_login_logo() { ?>
 	    <style type="text/css">
@@ -154,12 +154,12 @@ function cf_admin_style_init() {
 
 	// Esconde algumas opções nas telas de menu e usuários
 	// Verificar se iremos manter isso
-	// add_action( 'admin_head', 'cf_menus_edit_style' );
+	add_action( 'admin_head', 'cf_menus_edit_style' );
 
 	function cf_menus_edit_style() {
 		$screen = get_current_screen();
+		// cf_debug( $screen->id );
 		if( $screen->id == 'nav-menus' ) : ?>
-			<?php /* ?>
 			<style>
 				a.page-title-action.hide-if-no-customize,
 				h2.nav-tab-wrapper.wp-clearfix,
@@ -179,7 +179,6 @@ function cf_admin_style_init() {
 					display: block !important;
 				}
 			</style>
-			<?php */ ?>
 		<?php elseif( $screen->id == 'users' ) : ?>
 			<?php /* ?>
 			<style>
