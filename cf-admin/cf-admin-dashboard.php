@@ -77,7 +77,7 @@ function cf_admin_dashboard_init() {
 		add_action( 'wp_dashboard_setup', 'cf_add_feed_widget' );
 
 		function cf_add_feed_widget() {
-		     wp_add_dashboard_widget( 'cf_feed_widget', __( 'Últimas notícias do ConverteFacil', 'cf' ), 'cf_feed_widget', 'dashboard', 'side', 'high' );
+		     wp_add_dashboard_widget( 'cf_feed_widget', __( 'NEWS | ConverteFacil', 'cf' ), 'cf_feed_widget', 'dashboard', 'side', 'high' );
 		}
 
 		function cf_feed_widget() {
