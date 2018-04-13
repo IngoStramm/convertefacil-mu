@@ -245,12 +245,12 @@ function cf_admin_menu_init() {
 	        	// add_submenu_page( 'cf-equipe-o-que-voce-precisa-saber', __( 'Encontre o profissional', 'cf' ), __( 'Encontre o profissional', 'cf' ), 'edit_theme_options', 'cf-encontre-o-profissional', 'cf_em_breve' );
 
 	        // 7. ERP | Omnichannel
-	        add_menu_page( __( 'ERP | Omnichannel', 'cf' ), __( 'ERP | Omnichannel', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=integration', null, 'dashicons-shield', 6 );
+	        add_menu_page( __( 'ERP | Omnichannel', 'cf' ), __( 'ERP | Omnichannel', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=integration&section=bling', null, 'dashicons-shield', 6 );
 
 	        	// O que você precisa saber?
-	        	// add_submenu_page( 'admin.php?page=wc-settings&tab=integration', __( 'O que você precisa saber?', 'cf' ), __( 'O que você precisa saber?', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=integration', 'cf_em_breve' );
+	        	// add_submenu_page( 'admin.php?page=wc-settings&tab=integration&section=bling', __( 'O que você precisa saber?', 'cf' ), __( 'O que você precisa saber?', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=integration&section=bling', 'cf_em_breve' );
 	        	// Bling
-	        	add_submenu_page( 'admin.php?page=wc-settings&tab=integration', __( 'Bling', 'cf' ), __( 'Bling', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=integration', null );
+	        	add_submenu_page( 'admin.php?page=wc-settings&tab=integration&section=bling', __( 'Bling', 'cf' ), __( 'Bling', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=integration&section=bling', null );
 
 	        // 6. Conteúdos
 	        // add_menu_page( __( 'Conteúdos', 'cf' ), __( 'Conteúdos', 'cf' ), 'edit_theme_options', 'edit.php?post_type=product', null, null, 7 );
@@ -453,7 +453,7 @@ function cf_admin_menu_init() {
 		    // [3]=>
 		    // string(15) "cf_logo_options"
 		    // [4]=>
-		    // string(42) "admin.php?page=wc-settings&tab=integration"
+		    // string(42) "admin.php?page=wc-settings&tab=integration&section=bling"
 		    // [5]=>
 		    // string(8) "edit.php"
 		    // [6]=>

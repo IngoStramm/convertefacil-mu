@@ -92,6 +92,7 @@ function cf_admin_general_init() {
 		    exit;
 		}
 
+
 		// Destaca o parent menu correto dos submenus reorganizados
 		add_action( 'parent_file', 'cf_submenu_show_fix' );
 
@@ -119,8 +120,8 @@ function cf_admin_general_init() {
 				        $submenu_file = 'admin.php?page=wc-settings&tab=email';
 		    			break;
 		    		case 'integration':
-				        $plugin_page = 'admin.php?page=wc-settings&tab=integration';
-				        $submenu_file = 'admin.php?page=wc-settings&tab=integration';
+				        $plugin_page = 'admin.php?page=wc-settings&tab=integration&section=bling';
+				        $submenu_file = 'admin.php?page=wc-settings&tab=integration&section=bling';
 		    			break;
 		    		case 'mailchimp':
 				        $plugin_page = 'edit.php';
@@ -253,6 +254,35 @@ function cf_admin_general_init() {
 				}
 			endforeach;
 			return $settings;
+		}
+
+		// Esconde as seções na aba Integração do WC_Settings
+		// WC_Settings_Integrations->get_sections
+		// arquivo woocommerce\includes\admin\settings\class-wc-settings-integrations.php
+		add_filter( 'woocommerce_get_sections_integration', 'cf_filtra_sections', 10, 1 );
+
+		function cf_filtra_sections() {
+			return;
+		}	
+
+		// woocommerce_settings_api_form_fields_bling
+		add_filter( 'woocommerce_settings_api_form_fields_bling', 'cf_filtra_bling_settings', 10, 1 );
+		function cf_filtra_bling_settings( $form_fields ) {
+			// cf_debug( $form_fields );
+			$bling_html = '<a href="http://bling.com.br/configuracoes.api.web.services.php" target="_BLANK">Bling</a></strong>';
+			$new_field = array(
+				'title'			=> __( 'Atenção!', 'cf' ),
+				'type'			=> 'title',
+				'description'	=> __( 'É necessário possuir uma conta ativa no <strong>' . $bling_html . '</strong> para que a integração funcione.' ),
+				'default'		=> ''
+			);
+			$access_key = $form_fields[ 'access_key' ];
+			unset( $form_fields[ 'testing' ] );
+			unset( $form_fields[ 'debug' ] );
+			// unset( $form_fields[ 'access_key' ] );
+			$form_fields[ 'cf_bling_custom_text' ] = $new_field;
+			// $form_fields[ 'access_key' ] = $access_key;
+			return $form_fields;
 		}
 
 	endif; //is_super_admin
