@@ -78,7 +78,7 @@ jQuery( function( $ ) {
 			var val = parseFloat( $( 'input[name="' + data_input + '"' ).val() );
 			total += val;
 		});
-		$( '.cf-total-value-input' ).val( total );
+		$( '.cf-total-value-input' ).val( cf_formata_real( total ) );
 		// console.log('total: ' + total);
 	};
 
@@ -224,45 +224,65 @@ jQuery( function( $ ) {
 		// console.log('valor_medio_por_venda : ' + valor_medio_por_venda );
 
 		var pc_custo_embalagem = valor_medio_embalagem / valor_medio_por_venda;
+		pc_custo_embalagem = arredonda_casas_decimais( pc_custo_embalagem );
+		pc_custo_embalagem *= 100;
 
-		// console.log('pc_custo_embalagem: ' + pc_custo_embalagem);
+		console.log('pc_custo_embalagem: ' + pc_custo_embalagem);
 
 		var pc_imposto_renda = parseFloat( $( '.cf-porcentagem-imposto-renda' ).val() );
 		var pc_intermediadores = parseFloat( $( '.cf-porcentagem-intermediadores' ).val() );
 
 		pc_custos_total = pc_intermediadores + pc_imposto_renda + pc_custo_embalagem;
+		pc_custos_total = arredonda_casas_decimais( pc_custos_total );
 		pc_lucro_total = 100 - pc_custos_total;
+		pc_lucro_total =  arredonda_casas_decimais( pc_lucro_total );
 
-		// console.log('pc_lucro_total: ' + pc_lucro_total);
+		console.log('pc_custos_total: ' + pc_custos_total);
+		console.log('pc_lucro_total: ' + pc_lucro_total);
 
 		var lucro_desejado_mes = parseFloat( $( '.cf-lucro-desejado-mes' ).val() );
 
 		valor_lucro_total = lucro_desejado_mes + total_custo_fixo_mensal;
+		valor_lucro_total = arredonda_casas_decimais( valor_lucro_total );
 		valor_pc_total = valor_lucro_total * 100 / pc_lucro_total;
+		valor_pc_total = arredonda_casas_decimais( valor_pc_total );
+		valor_pc_custos_total = valor_pc_total - valor_lucro_total;
+		valor_pc_custos_total = arredonda_casas_decimais( valor_pc_custos_total );
 
-		// console.log('valor_lucro_total: ' + valor_lucro_total);
-		// console.log('valor_pc_total: ' + valor_pc_total);
+		console.log('valor_lucro_total: ' + valor_lucro_total);
+		console.log('valor_pc_total: ' + valor_pc_total);
+		console.log('valor_pc_custos_total: ' + valor_pc_custos_total);
 
 		// Salvar resultados nestes inputs
 		var cf_meta_venda = $( '.cf-meta-venda' ); // = valor_pc_total * ( lucro_desejado_mes + total_custo_fixo_mensal ) / ( valor_pc_total - pc_custos_total )
-		var resultado_meta_venda =  valor_pc_total * ( lucro_desejado_mes + total_custo_fixo_mensal ) / ( valor_pc_total - pc_custos_total );
+		var resultado_meta_venda =  valor_pc_total * ( lucro_desejado_mes + total_custo_fixo_mensal ) / ( valor_pc_total - valor_pc_custos_total );
+		resultado_meta_venda = arredonda_casas_decimais( resultado_meta_venda )
+		console.log('resultado_meta_venda: ' + resultado_meta_venda);
 		resultado_meta_venda = isNaN( resultado_meta_venda ) ? 0 : resultado_meta_venda;
-		cf_meta_venda.val( cf_arredonda_dinheiro( resultado_meta_venda ) );
+		cf_meta_venda.val( resultado_meta_venda );
 
 		// console.log('lucro_desejado_mes: ' + lucro_desejado_mes);
 		// console.log('cf_meta_venda: ' + cf_meta_venda.val());
 
 		var cf_indice_lucratividade = $( '.cf-indice-lucratividade' ); // = lucro_desejado_mes / cf_meta_venda
-		var resultado_indice_lucratividade = lucro_desejado_mes / cf_meta_venda.val();
+		var resultado_indice_lucratividade = lucro_desejado_mes / resultado_meta_venda;
+		resultado_indice_lucratividade = arredonda_casas_decimais( resultado_indice_lucratividade );
+		resultado_indice_lucratividade *= 100;
+		console.log( 'resultado_indice_lucratividade: ' + resultado_indice_lucratividade );
 		resultado_indice_lucratividade = isNaN( resultado_indice_lucratividade ) ? 0 : resultado_indice_lucratividade;
-		cf_indice_lucratividade.val( cf_arredonda_porcentagem( resultado_indice_lucratividade ) );
+		cf_indice_lucratividade.val( arredonda_casas_decimais( resultado_indice_lucratividade ) );
 
-		var margem_contribuicao = cf_meta_venda.val() - ( cf_meta_venda.val() * pc_custos_total ); // cf_meta_venda.val() - ( cf_meta_venda.val() * pc_custos_total );
-		var imc = margem_contribuicao - cf_meta_venda.val(); // margem_contribuicao - cf_meta_venda.val();
+		var margem_contribuicao = resultado_meta_venda - valor_pc_custos_total; // resultado_meta_venda - ( resultado_meta_venda * pc_custos_total );
+		console.log('margem_contribuicao: ' + margem_contribuicao);
+
+		var imc = margem_contribuicao / resultado_meta_venda * 100; // margem_contribuicao - cf_meta_venda.val();
+		imc = arredonda_casas_decimais( imc );
+		console.log('imc: ' + imc);
 		var cf_meta_minima = $( '.cf-meta-minima' ); // total_custo_fixo_mensal - imc;
-		var resultado_meta_minima = total_custo_fixo_mensal - imc;
+		var resultado_meta_minima = total_custo_fixo_mensal / ( imc / 100 );
+		resultado_meta_minima = arredonda_casas_decimais( resultado_meta_minima );
 		resultado_meta_minima = isNaN( resultado_meta_minima ) ? 0 : resultado_meta_minima;
-		cf_meta_minima.val( cf_arredonda_dinheiro( resultado_meta_minima ) );
+		cf_meta_minima.val( resultado_meta_minima );
 	};
 
 	var cf_arredonda_dinheiro = function( valor ) {
@@ -272,6 +292,22 @@ jQuery( function( $ ) {
 	var cf_arredonda_porcentagem = function( valor ) {
 		return Math.ceil(valor);
 		// return valor.toFixed( 2 );
+	};
+
+	var arredonda_casas_decimais = function( valor ) {
+		return Math.round( ( valor + 0.00001 ) * 100) / 100;
+	};
+
+	var cf_formata_real = function( valor ) {
+		// valor = valor.toString();
+		// valor = valor.replace( '.', ',' );
+		// return 'R$ ' + valor;
+		valor = valor.toFixed( 2 );
+	    valor = valor.toString().replace(/\D/g,'');
+	    valor = valor.toString().replace(/(\d)(\d{8})$/,'$1.$2');
+	    valor = valor.toString().replace(/(\d)(\d{5})$/,'$1.$2');
+	    valor = valor.toString().replace(/(\d)(\d{2})$/,'$1,$2');
+	    return 'R$ ' + valor;                  
 	};
 
 	$(document).ready(function(){

@@ -7,6 +7,7 @@ class Calculadora_Financeira
 	private $tela;
 	private $class_wrapper = false;
 	private $titulo_banner;
+	private $subtitulo_banner;
 	function __construct()
 	{
 		add_action( 'wp_ajax_save_itens_calc', array( $this, 'save_itens_calc') );
@@ -18,6 +19,11 @@ class Calculadora_Financeira
 	public function set_titulo_banner( $titulo_banner )
 	{
 		$this->titulo_banner = $titulo_banner;
+	}
+
+	public function set_subtitulo_banner( $subtitulo_banner )
+	{
+		$this->subtitulo_banner = $subtitulo_banner;
 	}
 
 	public function set_tela( $tela )
@@ -263,6 +269,11 @@ class Calculadora_Financeira
 
 	}
 
+	public function formata_moeda( $value )
+	{
+		return 'R$ ' . number_format( $value, 2, ',', '.' );
+	}
+
 	public function itens_metas()
 	{
 		global $blog_id;
@@ -308,21 +319,21 @@ class Calculadora_Financeira
 									<li class="cf-meta-list-item">
 										<span class="cf-meta-number"><?php _e( '1.', 'cf' ); ?></span>
 										<span class="cf-meta-text">
-											<?php _e( 'Qual seu custo médio de embalagem por venda?', 'cf' ); ?>
+											<?php _e( 'Qual valor médio por venda?', 'cf' ); ?>
 										</span>
 									</li>
 
 									<li class="cf-meta-list-item">
 										<span class="cf-meta-number"><?php _e( '2.', 'cf' ); ?></span>
 										<span class="cf-meta-text">
-											<?php _e( 'Qual valor médio por venda?', 'cf' ); ?>
+											<?php _e( 'Qual seu custo médio de embalagem por venda?', 'cf' ); ?>
 										</span>
 									</li>
 
 									<li class="cf-meta-list-item">
 										<span class="cf-meta-number"><?php _e( '3.', 'cf' ); ?></span>
 										<span class="cf-meta-text">
-											<?php _e( 'Qual seu custo médio de embalagem por venda?', 'cf' ); ?>
+											<?php _e( 'Qual a porcetagem de imposto por venda?', 'cf' ); ?>
 										</span>
 									</li>
 
@@ -502,7 +513,7 @@ class Calculadora_Financeira
 						<img src="<?php echo CF_URL . 'assets/images/icon-prancheta.png' ?>" alt="<?php echo $this->titulo_banner; ?>" class="cf-img-responsive cf-center-block">
 						<h2 class="cf-title"><?php echo $this->titulo_banner; ?></h2>
 						<div class="cf-banner-texto">
-							<p><?php _e( 'Nas colunas abaixo escolha entre uma das 3 opções para montar o cálculo de seu investimento.', 'cf' ); ?></p>
+							<p><?php echo $this->subtitulo_banner; ?></p>
 						</div>
 						<!-- /.cf-banner-texto -->
 					</div>
@@ -572,9 +583,24 @@ class Calculadora_Financeira
 						<?php
 							$total = $this->get_itens_total();
 						?>
-						<div class="cf-total-value"><input type="text" value="<?php echo $total; ?>" class="cf-total-value-input" readonly="readonly"></div>
+						<div class="cf-total-value"><input type="text" value="<?php echo $this->formata_moeda( $total ); ?>" class="cf-total-value-input" readonly="readonly"></div>
 						<a href="#" class="button button-primary button-large cf-save-itens-calc"><?php _e( 'Salvar', 'cf' ); ?></a>
 						<div class="cf-save-return-message"></div>
+						<?php
+							switch ( $this->tela ) {
+								case 'custo_inicial': ?>
+									<a href="admin.php?page=cf-financeiro-custos-fixos" class="cf-mini-box-link"><?php _e( 'Calcule a estimativa dos seus custos fixos mensais', 'cf' ); ?></a>
+									<?php break;
+
+								case 'custo_fixo_mensal' : ?>
+									<a href="admin.php?page=cf-financeiro-converte-metas" class="cf-mini-box-link"><?php _e( 'Saiba quanto seu negócio precisa faturar por mês', 'cf' ); ?></a>
+									<?php break;
+
+								default:
+									# code...
+									break;
+							}
+						?>
 
 					</div>
 					<!-- /.cf-mini-box-content -->

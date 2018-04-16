@@ -31,7 +31,7 @@
 		background-color: transparent;
 		border: none;
 		text-align: right;
-		font-size: 40px;
+		font-size: 30px;
 		font-weight: lighter;
 		color: $branco;
 	}
@@ -48,6 +48,10 @@
 		color: $cinza-fonte;
 		font-weight: bold;
 		@include radius(5px);
+	}
+	.cf-mini-box-link {
+		color: $branco;
+		text-align: center;
 	}
 }
 
