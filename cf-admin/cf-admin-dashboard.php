@@ -6,7 +6,7 @@ add_action( 'init', 'cf_admin_dashboard_init' );
 function cf_admin_dashboard_init() {
 
 	$user_id = get_current_user_id();
-
+	
 	if( !is_super_admin( $user_id ) ) :
 
 		// Dashboard: Customiza os Widgets
@@ -14,6 +14,8 @@ function cf_admin_dashboard_init() {
 
 		function cf_dashboard_widgets() {
 			global $wp_meta_boxes;
+			$current_theme = wp_get_theme();
+			$is_free_theme = $current_theme->get_stylesheet() == 'flatsome-free';
 
 			// cf_debug( $wp_meta_boxes['dashboard']['normal'] );
 			
@@ -26,12 +28,14 @@ function cf_admin_dashboard_init() {
 			unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_primary'] );
 			// Woocommerce Avaliações Recentes
 			remove_meta_box( 'woocommerce_dashboard_recent_reviews', 'dashboard', 'normal' );
-			// remove_meta_box( 'woocommerce_dashboard_status', 'dashboard', 'normal' );
+			if( $is_free_theme )
+				remove_meta_box( 'woocommerce_dashboard_status', 'dashboard', 'normal' );
 
 			// Yoast SEO
 			remove_meta_box( 'wpseo-dashboard-overview', 'dashboard', 'normal' );
 			// Google Analytics
-			// remove_meta_box( 'gadwp-widget', 'dashboard', 'normal' );
+			if( $is_free_theme )
+				remove_meta_box( 'gadwp-widget', 'dashboard', 'normal' );
 
 			// Atividades
 			remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' );

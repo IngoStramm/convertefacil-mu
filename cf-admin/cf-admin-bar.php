@@ -4,6 +4,7 @@ add_action( 'init', 'cf_admin_bar_init' );
 function cf_admin_bar_init() {
 
 	$user_id = get_current_user_id();
+	
 	if( !is_super_admin( $user_id ) ) :
 
 		// Remove itens do topbar
@@ -13,6 +14,8 @@ function cf_admin_bar_init() {
 
 
 			global $post;
+			$current_theme = wp_get_theme();
+			$is_free_theme = $current_theme->get_stylesheet() == 'flatsome-free';
 			$post_id = $post->ID;
 			$home_url = get_home_url();
 			$admin_url = get_admin_url();
@@ -80,11 +83,14 @@ function cf_admin_bar_init() {
 				'href' => $admin_url
 			));
 
+			if( !$is_free_theme ) :
 
-			$wp_admin_bar->add_node( $new_content );
-			$wp_admin_bar->add_node( $new_content_node );
+				$wp_admin_bar->add_node( $new_content );
+				$wp_admin_bar->add_node( $new_content_node );
 
-			// Novos itens
+				// Novos itens
+			endif;
+
 			$wp_admin_bar->add_node( array(
 				'id' => 'cf_panel',
 				'title' => '<span class="cf-mini-logo"></span>'
@@ -119,7 +125,7 @@ function cf_admin_bar_init() {
 
 			$wp_admin_bar->add_node( $logout );
 
-			if( $post_id ) :
+			if( $post_id && !$is_free_theme ) :
 
 				$wp_admin_bar->add_node( array(
 				 'id' => 'cf_edit_ux_builder',
@@ -130,6 +136,7 @@ function cf_admin_bar_init() {
 				));
 
 			endif;
+			
 		}
 	
 	endif; // is_super_admin	

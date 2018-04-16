@@ -139,7 +139,7 @@ function cf_admin_general_init() {
 		    	}
 		    // Relatórios WC
 		    elseif( $current_screen->id == 'woocommerce_page_wc-reports' ) :
-		    	$plugin_page = 'admin.php?page=wc-settings&tab=checkout';
+		    	$plugin_page = 'admin.php?page=wc-reports';
 		        $submenu_file = 'admin.php?page=wc-reports';
 		    // Parcelas
 		    elseif( $current_screen->id == 'edit-parcela' ) :

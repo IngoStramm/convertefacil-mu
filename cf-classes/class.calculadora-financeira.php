@@ -46,6 +46,7 @@ class Calculadora_Financeira
 			    	'order'			=> 'ASC',
 			    	'orderby'		=> 'menu_order',
 			    	'meta_key'   => 'position_item_calc_tela',
+			    	'posts_per_page' => -1,
 		    		'meta_value' => $this->tela
 			    );
 			    $the_query = new WP_Query( $args );

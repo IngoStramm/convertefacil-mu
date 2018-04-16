@@ -1,8 +1,8 @@
-.dashicons {
+/*.dashicons {
 	font-family: Fontawesome !important;
 	font-size: 26px !important;
 }
-.dashicons-before {
+*/.dashicons-before {
 	&.wp-menu-image {
 		font-family: Fontawesome !important;
 		font-size: 26px !important;
@@ -105,6 +105,13 @@
 	&.wp-menu-image {
 		&:before {
 			content: '\f013';
+		}
+	}
+}
+.dashicons-chart-pie {
+	&.wp-menu-image {
+		&:before {
+			content: '\f201';
 		}
 	}
 }

@@ -5,7 +5,90 @@ add_action( 'init', 'cf_admin_menu_init' );
 function cf_admin_menu_init() {
 
 	$user_id = get_current_user_id();
-	if( !is_super_admin( $user_id ) ) :
+	$current_theme = wp_get_theme();
+	$is_free_theme = $current_theme->get_stylesheet() == 'flatsome-free';
+
+	if( $is_free_theme && !is_super_admin( $user_id ) ) :
+
+		add_action( 'admin_menu', 'cf_remove_free_theme_menus', 110, 0 );
+
+		function cf_remove_free_theme_menus() {
+			global $menu, $submenu;
+			// Remove os itens do menu
+			remove_menu_page( 'separator1' );
+			remove_menu_page( 'upload.php' );
+			remove_menu_page( 'edit-tags.php?taxonomy=link_category' );
+			remove_menu_page( 'edit-comments.php' );
+			remove_menu_page( 'edit.php' );
+			remove_menu_page( 'edit.php?post_type=page' );
+			remove_menu_page( 'edit.php?post_type=blocks' );
+			remove_menu_page( 'edit.php?post_type=product' );
+			remove_menu_page( 'edit.php?post_type=rdcf7_integrations' );
+			remove_menu_page( 'edit.php?post_type=featured_item' );
+			remove_menu_page( 'edit.php?post_type=inc_popup' );
+			remove_menu_page( 'separator2' );
+			remove_menu_page( 'themes.php' );
+			remove_menu_page( 'plugins.php' );
+			remove_menu_page( 'users.php' );
+			remove_menu_page( 'tools.php' );
+			remove_menu_page( 'options-general.php' );
+			remove_menu_page( 'separator-last' );
+			remove_menu_page( 'egoi-mail-list-builder-contact-form-7-info' );
+			remove_menu_page( 'yit_plugin_panel' );
+			remove_menu_page( 'wpseo_dashboard' );
+			remove_menu_page( 'flamingo' );
+			remove_menu_page( 'wpcf7' );
+			remove_menu_page( 'separator-woocommerce' );
+			remove_menu_page( 'woocommerce' );
+			remove_menu_page( 'webappick-product-feed-for-woocommerce/admin/class-woo-feed-admin.php' );
+			remove_menu_page( 'forminator' );
+			remove_menu_page( 'flatsome-panel' );
+			remove_menu_page( 'gadwp_settings' );
+			remove_menu_page( 'cf_logo_options' );
+			remove_menu_page( 'cf_plugin_options' );
+			remove_menu_page( 'soi_setting' );
+			remove_menu_page( 'pmxe-admin-home' );
+			remove_menu_page( 'pmxi-admin-home' );
+			remove_menu_page( 'loco' );
+			remove_submenu_page( 'index.php', 'my-sites.php' );
+			remove_submenu_page( 'edit.php', 'edit.php' );
+			remove_submenu_page( 'edit.php', 'edit.php?taxonomy=category' );
+			remove_submenu_page( 'edit.php', 'edit.php?taxonomy=post_tag' );
+			// remove_menu_page( 'trocar' );
+			// remove_menu_page( 'trocar' );
+			 // cf_debug( $submenu );
+
+			//Adiciona os novos itens do menu
+
+			add_menu_page( __( 'Financeiro', 'cf' ), __( 'Financeiro', 'cf' ), 'edit_theme_options', 'cf-financeiro-investimento-inicial', 'cf_calculo_investimento_inicial', 'dashicons-location', 3 );
+				// O que você precisa saber?
+				// add_submenu_page( 'cf-financeiro-investimento-inicial', __( 'O que você precisa saber?', 'cf' ), __( 'O que você precisa saber?', 'cf' ), 'edit_theme_options', 'cf-financeiro-investimento-inicial', 'cf_em_breve' );
+				// Investimento Inicial
+				add_submenu_page( 'cf-financeiro-investimento-inicial', __( 'Investimento Inicial', 'cf' ), __( 'Investimento Inicial', 'cf' ), 'edit_theme_options', 'cf-financeiro-investimento-inicial', 'cf_calculo_investimento_inicial' );
+				// Custos Fixos
+				add_submenu_page( 'cf-financeiro-investimento-inicial', __( 'Custos Fixos', 'cf' ), __( 'Custos Fixos', 'cf' ), 'edit_theme_options', 'cf-financeiro-custos-fixos', 'cf_calculo_fixo_mensal' );
+				// Converte Metas
+				add_submenu_page( 'cf-financeiro-investimento-inicial', __( 'Converte Metas', 'cf' ), __( 'Converte Metas', 'cf' ), 'edit_theme_options', 'cf-financeiro-converte-metas', 'cf_metas' );
+
+			add_menu_page( __( 'ERP | Omnichannel', 'cf' ), __( 'ERP | Omnichannel', 'cf' ), 'edit_theme_options', 'omnichannel', 'redirect_to_checkout', 'dashicons-shield', 6 );
+			add_menu_page( __( 'Design', 'cf' ), __( 'Design', 'cf' ), 'edit_theme_options', 'omnichannel', 'redirect_to_checkout', 'dashicons-location-alt', 7 );
+			add_menu_page( __( 'Marketing', 'cf' ), __( 'Marketing', 'cf' ), 'edit_theme_options', 'marketing', 'redirect_to_checkout', 'dashicons-shield-alt', 9 );
+			add_menu_page( __( 'Vendas e Pagamentos', 'cf' ), __( 'Vendas e Pagamentos', 'cf' ), 'edit_theme_options', 'vendas-e-pagamentos', 'redirect_to_checkout', 'dashicons-sos', 10 );
+			add_menu_page( __( 'Conteúdo do Site', 'cf' ), __( 'Conteúdo do Site', 'cf' ), 'edit_theme_options', 'conteudo-do-site', 'redirect_to_checkout', 'dashicons-vault', 11 );
+			add_menu_page( __( 'Operações e Logística', 'cf' ), __( 'Operações e Logística', 'cf' ), 'edit_theme_options', 'operacoes-logisticas', 'redirect_to_checkout', 'dashicons-search', 12 );
+			add_menu_page( __( 'Atendimento ao Cliente', 'cf' ), __( 'Atendimento ao Cliente', 'cf' ), 'edit_theme_options', 'atendimento-ao-cliente', 'redirect_to_checkout', 'dashicons-slides', 13 );
+				add_menu_page( __( 'Relatórios', 'cf' ), __( 'Relatórios', 'cf' ), 'edit_theme_options', 'relatorios', 'redirect_to_checkout', 'dashicons-chart-pie', 13 );
+
+			function redirect_to_checkout() {
+				$settings = get_site_option( 'psts_settings' );
+				$checkout_url = $settings[ 'checkout_url' ];
+				if( wp_redirect( $checkout_url ) )
+					exit;
+			}
+
+		}
+
+	elseif( !is_super_admin( $user_id ) ) :
 
 		// Remove Menus do sidebar
 		add_action( 'admin_menu', 'cf_remove_menus', 110, 0 );
@@ -350,7 +433,7 @@ function cf_admin_menu_init() {
 	        	// Marketplaces
 	        	// add_submenu_page( 'admin.php?page=wc-settings&tab=checkout', __( 'Marketplaces', 'cf' ), __( 'Marketplaces', 'cf' ), 'edit_theme_options', 'cf-vendas-e-pagamentos-marketplaces', 'cf_em_breve' );
 	        	// Relatórios
-	        	add_submenu_page( 'admin.php?page=wc-settings&tab=checkout', __( 'Relatórios', 'cf' ), __( 'Relatórios', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-reports', null ); // admin.php?page=wc-reports      	
+	        	// add_submenu_page( 'admin.php?page=wc-settings&tab=checkout', __( 'Relatórios', 'cf' ), __( 'Relatórios', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-reports', null ); // admin.php?page=wc-reports      	
 
 	        // 11. Operações e Logística
 	        add_menu_page( __( 'Operações e Logística', 'cf' ), __( 'Operações e Logística', 'cf' ), 'edit_theme_options', 'edit.php?post_type=shop_order', null, 'dashicons-search', 11 );
@@ -388,7 +471,18 @@ function cf_admin_menu_init() {
 	        	// Mensagem
 	        	// add_submenu_page( 'edit-comments.php', __( 'Mensagem', 'cf' ), __( 'Mensagem', 'cf' ), 'edit_theme_options', 'cf-atendimento-ao-cliente-mensagem', 'cf_em_breve' );	    
 
-	        // 13. Configurações
+	        // 13. Relatórios
+	        	add_menu_page( __( 'Relatórios', 'cf' ), __( 'Relatórios', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-reports', '', 'dashicons-chart-pie', 13 );
+      //   	add_menu_page( 
+      //   		__( 'Relatórios', 'cf' ), 
+      //   		__( 'Relatórios', 'cf' ), 
+      //   		'edit_theme_options', 
+      //   		'admin.php?page=wc-reports', 
+      //   		'admin.php?page=wc-reports', 
+      //   		'dashicons-chart-pie', 
+      //   		15 
+    		// ); // admin.php?page=wc-reports      	
+	        // 14. Configurações
 
 	        	// Domínio
 	        	add_submenu_page( 'cf_plugin_options', __( 'Domínio', 'cf' ), __( 'Domínio', 'cf' ), 'edit_theme_options', 'tools.php?page=domainmapping', null );
@@ -402,18 +496,6 @@ function cf_admin_menu_init() {
 
 		function cf_em_breve() {
 			echo '<h3>Em breve!</h3>';
-		}
-
-		function cf_calculo_investimento_inicial() {
-			require_once 'financeiro/calculo-investimento-inicial.php';
-		}
-
-		function cf_calculo_fixo_mensal() {
-			require_once 'financeiro/calculo-fixo-mensal.php';
-		}
-
-		function cf_metas() {
-			require_once 'financeiro/metas.php';
 		}
 
 		// Substitui o nome dos menus e submenus
@@ -477,6 +559,7 @@ function cf_admin_menu_init() {
 		    // }
 		    // cf_debug( $menu_ord );
 		    $new_menu_order = array( 0, 1, 3, 9, 4, 2, 5, 6, 10, 7, 8, 11, 12, 13, 14 );
+		    // index, cf-calculo-de-investimento-inicial, cf_logo_options, edit.php?post_type=product
 		    $new_menu = [];
 		    foreach( $new_menu_order as $i ) :
 		    	$new_menu[ $i ] = $menu_ord[ $i ];
@@ -485,6 +568,18 @@ function cf_admin_menu_init() {
 		}
 
 	endif; // is_super_admin	
+}
+
+function cf_calculo_investimento_inicial() {
+	require_once 'financeiro/calculo-investimento-inicial.php';
+}
+
+function cf_calculo_fixo_mensal() {
+	require_once 'financeiro/calculo-fixo-mensal.php';
+}
+
+function cf_metas() {
+	require_once 'financeiro/metas.php';
 }
 
 /*
