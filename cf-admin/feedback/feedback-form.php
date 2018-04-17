@@ -197,17 +197,17 @@
 	<p>
 		<label for="name"><?php _e( 'Nome', 'laf' ); ?></label>
 		<br />
-		<input type="text" name="name" class="regular-text" required />
+		<input type="text" name="name" class="regular-text max-w-100" required />
 	</p>
 	<p>
 		<label for="email"><?php _e( 'Email', 'laf' ); ?></label>
 		<br />
-		<input type="email" name="email" class="regular-text" required />
+		<input type="email" name="email" class="regular-text max-w-100" required />
 	</p>
 	<p>
 		<label for="msg"><?php _e( 'Mensagem', 'laf' ); ?></label>
 		<br />
-		<textarea name="msg" cols="30" rows="5" class="regular-text" required></textarea>
+		<textarea name="msg" cols="30" rows="5" class="regular-text max-w-100" required></textarea>
 	</p>
 	<p>
 		<button class="button button-primary button-large">
