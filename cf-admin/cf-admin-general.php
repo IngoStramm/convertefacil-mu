@@ -141,6 +141,10 @@ function cf_admin_general_init() {
 		    elseif( $current_screen->id == 'woocommerce_page_wc-reports' ) :
 		    	$plugin_page = 'admin.php?page=wc-reports';
 		        $submenu_file = 'admin.php?page=wc-reports';
+		    // Pedidos WC
+		    elseif( $current_screen->id == 'shop_order' ) :
+		    	$plugin_page = 'edit.php?post_type=shop_order';
+		        $submenu_file = 'edit.php?post_type=shop_order';
 		    // Parcelas
 		    elseif( $current_screen->id == 'edit-parcela' ) :
 		    	$plugin_page = 'cf-vendas-e-pagamentos-tudo-o-que-voce-precisa-saber';

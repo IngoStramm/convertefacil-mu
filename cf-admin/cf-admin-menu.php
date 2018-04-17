@@ -95,7 +95,7 @@ function cf_admin_menu_init() {
 
 		function cf_remove_menus(){
 	        global $menu, $submenu;
-	        // cf_debug( $submenu['forminator'] );
+	        // cf_debug( $submenu );
 	        // $edit_menu = $submenu['themes.php'][10];
 	        // add_menu_page( __( 'Editar Menus' ), __( ' Menus '), 'edit_theme_options', 'nav-menus.php', null, null, 60 );
 	        // remove_menu_page( 'index.php' );                  //Dashboard
@@ -180,6 +180,7 @@ function cf_admin_menu_init() {
 	        // Woocommerce
 	        remove_menu_page( 'woocommerce' );               							//WC
 	        remove_submenu_page( 'woocommerce', 'edit.php?post_type=shop_order' );		// pedidos
+	        remove_submenu_page( 'woocommerce', 'post-new.php?post_type=shop_order' );		// pedidos
 	        remove_submenu_page( 'woocommerce', 'edit.php?post_type=shop_coupon' );		// coupons
 	        // remove_submenu_page( 'woocommerce', 'wc-reports' );							// relatórios // admin.php?page=wc-reports
 	        // remove_submenu_page( 'woocommerce', 'wc-settings' );						// Configurações
