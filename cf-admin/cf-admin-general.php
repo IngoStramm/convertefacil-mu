@@ -219,6 +219,10 @@ function cf_admin_general_init() {
 		    elseif( $current_screen->id == 'toplevel_page_gadwp_settings' ) :
 		    	$plugin_page = 'cf_plugin_options';
 		        $submenu_file = 'admin.php?page=gadwp_settings';
+		    // Forminator
+		    elseif( $current_screen->id == 'toplevel_page_forminator' ) :
+		    	$plugin_page = 'edit-comments.php';
+		        $submenu_file = 'admin.php?page=forminator';
 			endif;
 		    return $parent_file;
 

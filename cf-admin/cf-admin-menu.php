@@ -95,7 +95,7 @@ function cf_admin_menu_init() {
 
 		function cf_remove_menus(){
 	        global $menu, $submenu;
-	        // cf_debug( $submenu );
+	        // cf_debug( $submenu['forminator'] );
 	        // $edit_menu = $submenu['themes.php'][10];
 	        // add_menu_page( __( 'Editar Menus' ), __( ' Menus '), 'edit_theme_options', 'nav-menus.php', null, null, 60 );
 	        // remove_menu_page( 'index.php' );                  //Dashboard
@@ -274,6 +274,21 @@ function cf_admin_menu_init() {
 	        remove_menu_page( 'gadwp_settings' );
 	        // remove_submenu_page( 'gadwp_settings', 'admin.php?page=gadwp_settings' );
 	        // remove_menu_page( 'admin.php?page=gadwp_settings' );
+
+	        // Forminator
+	        remove_menu_page( 'forminator' );
+	        remove_submenu_page( 'forminator', 'forminator' );
+	        // remove_submenu_page( 'forminator', 'forminator' );
+	        remove_submenu_page( 'forminator', 'forminator-cform' );
+	        remove_submenu_page( 'forminator', 'forminator-cform-wizard' );
+	        remove_submenu_page( 'forminator', 'forminator-poll' );
+	        remove_submenu_page( 'forminator', 'forminator-poll-wizard' );
+	        remove_submenu_page( 'forminator', 'forminator-poll-view' );
+	        remove_submenu_page( 'forminator', 'forminator-quiz' );
+	        remove_submenu_page( 'forminator', 'forminator-nowrong-wizard' );
+	        remove_submenu_page( 'forminator', 'forminator-knowledge-wizard' );
+	        remove_submenu_page( 'forminator', 'forminator-quiz-view' );
+	        remove_submenu_page( 'forminator', 'forminator-settings' );
 
 	    }
 
@@ -464,6 +479,8 @@ function cf_admin_menu_init() {
 	        	add_submenu_page( 'edit-comments.php', __( 'Tawk', 'cf' ), __( 'Tawk', 'cf' ), 'edit_theme_options', 'options-general.php?page=tawkto_plugin', null );
 	        	// Chat
 	        	// add_submenu_page( 'edit-comments.php', __( 'Chat', 'cf' ), __( 'Chat', 'cf' ), 'edit_theme_options', 'cf-atendimento-ao-cliente-chat', 'cf_em_breve' );	        	
+	        	// Formulário dos Sites
+	        	add_submenu_page( 'edit-comments.php', __( 'Formulário dos Sites', 'cf' ), __( 'Formulário dos Sites', 'cf' ), 'edit_theme_options', 'admin.php?page=forminator', null );	        	
 	        	// Avaliação dos Clientes
 	        	add_submenu_page( 'edit-comments.php', __( 'Avaliação dos Clientes', 'cf' ), __( 'Avaliação dos Clientes', 'cf' ), 'edit_theme_options', 'options-general.php?page=trustvox', null );	        	
 	        	// E-mail
@@ -560,7 +577,7 @@ function cf_admin_menu_init() {
 		    // }
 		    // cf_debug( $menu_ord );
 		    // $new_menu_order = array( 0, 1, 3, 9, 4, 2, 5, 6, 10, 7, 8, 11, 12, 13, 14 );
-		    $new_menu_order = array( 0, 1, 4, 10, 3, 2, 5, 6, 11, 7, 8, 12, 9, 13, 14, 15, 16 );
+		    $new_menu_order = array( 0, 1, 4, 10, 3, 2, 5, 6, 11, 7, 8, 12, 9, 13, 14, 15 );
 		    // [0] index
 		    // [1] cf-calculo-de-investimento-inicial
 		    // [4] cf_logo_options
@@ -576,8 +593,7 @@ function cf_admin_menu_init() {
 		    // [9] admin.php?page=wc-reports
 		    // [13] separator-last
 		    // [14] separator-woocommerce
-		    // [15] forminator
-		    // [16] cf_plugin_options
+		    // [15] cf_plugin_options
 		    $new_menu = [];
 		    foreach( $new_menu_order as $i ) :
 		    	$new_menu[ $i ] = $menu_ord[ $i ];
