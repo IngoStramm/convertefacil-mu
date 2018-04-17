@@ -1,10 +1,21 @@
-/* #wpadminbar #wp-admin-bar-my-account.with-avatar #wp-admin-bar-user-actions>li */
 #wpadminbar {
 	height: auto;
 	max-height: 69px;
 	background: $wpadminbar-bgc;
 	color: $wpadminbar-c;
 	@include box-shadow(0, 5px, 10px, 0, $sombra);
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		left: 0;
+		right: 0;
+		@include bg-img( 'logo-small.png', no-repeat );
+		@include bg-size( 'auto 30px' );
+	}
 	.fa {
 		font: normal normal normal 24px/1 FontAwesome !important;
 	}
@@ -30,9 +41,7 @@
  			&:focus {
  				.ab-icon {
  					&:before {
-						background-color: $adminbar-current-c;
-						color: $branco;
-						@include radius(5px);
+						color: $adminbar-ab-icon;
  					}
  				}
  				&:before {
@@ -46,9 +55,7 @@
  			&:focus {
  				.ab-icon {
  					&:before {
-						background-color: $adminbar-current-c;
-						color: $branco;
-						@include radius(5px);
+						color: $adminbar-ab-icon;
  					}
  				}
  			}
@@ -56,9 +63,7 @@
  		&.hover {
  			.ab-icon {
  				&:before {
-					background-color: $adminbar-current-c;
-					color: $branco;
-					@include radius(5px);
+					color: $adminbar-ab-icon;
  				}
  			}
  			.ab-item {
@@ -95,9 +100,7 @@
  		}
  		.ab-icon {
  			&:before {
- 				background-color: $adminbar-current-c;
- 				color: $branco;
- 				@include radius(5px);
+ 				color: $adminbar-ab-icon;
  			}
  		}
  		.ab-item {
@@ -320,6 +323,16 @@
 					margin-left: 0;
 				}
 			}
+		}
+	}
+
+}
+
+@media screen and (min-width: 768px) {
+
+	#wpadminbar {
+		&:before {
+			display: none;
 		}
 	}
 
