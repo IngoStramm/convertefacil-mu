@@ -149,14 +149,15 @@ function cf_admin_dashboard_init() {
 		add_action( 'admin_init', 'cf_set_dashboard_meta_order' );
 
 		function cf_set_dashboard_meta_order() {
-		  $id = get_current_user_id(); //we need to know who we're updating
-		  $meta_value = array(
-		    'normal'  => '', //first key/value pair from the above serialized array
-		    'side'    => 'cf_feed_widget', //second key/value pair from the above serialized array
-		    'column3' => 'woocommerce_dashboard_status', //last key/value pair from the above serialized array
-		    'column4' => 'gadwp-widget', //third key/value pair from the above serialized array
-		  );
-		  update_user_meta( $id, 'meta-box-order_dashboard', $meta_value ); //update the user meta with the user's ID, the meta_key meta-box-order_dashboard, and the new meta_value
+			$id = get_current_user_id(); //we need to know who we're updating
+			$meta_value = array(
+				'normal'  => '', //first key/value pair from the above serialized array
+				'side'    => 'cf_feed_widget', //second key/value pair from the above serialized array
+				'column3' => 'woocommerce_dashboard_status', //last key/value pair from the above serialized array
+				'column4' => 'gadwp-widget', //third key/value pair from the above serialized array
+			);
+			update_user_meta( $id, 'meta-box-order_dashboard', $meta_value ); //update the user meta with the user's ID, the meta_key meta-box-order_dashboard, and the new meta_value
+
 		}
 
 	endif; // is_super_admin

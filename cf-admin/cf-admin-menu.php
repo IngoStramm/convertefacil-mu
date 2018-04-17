@@ -601,6 +601,20 @@ function cf_admin_menu_init() {
 		    return $new_menu;
 		}
 
+		// Esconde o box de campos customizados da tela de pedido
+		add_action( 'admin_init', 'cf_hide_custom_field_shop_order' );
+
+		function cf_hide_custom_field_shop_order() {
+			$id = get_current_user_id();
+			$meta_key['hidden'] = 'metaboxhidden_shop_order';
+
+			if ( ! get_user_meta( $id, $meta_key['hidden'], true ) ) {
+				$meta_value = array( 'postcustom' );
+				update_user_meta( $id, $meta_key['hidden'], $meta_value );
+			}
+		}
+
+
 	endif; // is_super_admin	
 }
 
