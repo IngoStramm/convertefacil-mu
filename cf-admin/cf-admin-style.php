@@ -190,12 +190,20 @@ function cf_admin_style_init() {
 				<?php */ ?>
 			</style>
 		<?php elseif( $screen->id == 'woocommerce_page_wc-settings' ) : ?>
-			<style>
-				h2:nth-child(2) {
-					/*display: none;*/
-					
-				}
-			</style>
+			<?php $current_tab = isset( $_GET['tab'] ) && !empty( $_GET['tab'] ) ? $_GET['tab'] : false; ?>
+			<?php if( $current_tab == 'shipping') : ?>
+				<style>
+					.woocommerce_page_wc-settings .subsubsub,
+					.woocommerce_page_wc-settings h2,
+					.woocommerce_page_wc-settings .subsubsub li:nth-child(2),
+					.woocommerce_page_wc-settings .subsubsub li:nth-child(3),
+					.woocommerce_page_wc-settings .form-table.wc-shipping-zone-settings .titledesc,
+					.woocommerce_page_wc-settings .form-table.wc-shipping-zone-settings .forminp
+					{
+							display: none;
+					}
+				</style>
+			<?php endif; ?>
 		<?php endif;
 	}
 

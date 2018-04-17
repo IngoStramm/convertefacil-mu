@@ -113,7 +113,7 @@ function cf_admin_general_init() {
 		    			break;
 		    		case 'shipping':
 				        $plugin_page = 'edit.php?post_type=shop_order';
-				        $submenu_file = 'admin.php?page=wc-settings&tab=shipping';
+				        $submenu_file = 'admin.php?page=wc-settings&tab=shipping&zone_id=1';
 		    			break;
 		    		case 'email':
 				        $plugin_page = 'edit-comments.php';
