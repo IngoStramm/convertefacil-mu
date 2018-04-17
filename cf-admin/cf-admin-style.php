@@ -203,6 +203,30 @@ function cf_admin_style_init() {
 							display: none;
 					}
 				</style>
+			<?php elseif( $current_tab == 'checkout') : ?>
+				<style>
+					.woocommerce_page_wc-settings #mainform .subsubsub,
+					.woocommerce_page_wc-settings #mainform h2:nth-child(1),
+					.woocommerce_page_wc-settings #mainform h2:nth-child(2),
+					.woocommerce_page_wc-settings #mainform h2:nth-child(3),
+					.woocommerce_page_wc-settings #mainform h2:nth-child(4),
+					.woocommerce_page_wc-settings #mainform h2:nth-child(5),
+					.woocommerce_page_wc-settings #mainform h2:nth-child(6),
+					.woocommerce_page_wc-settings #mainform h2:nth-child(7),
+					.woocommerce_page_wc-settings #mainform h2:nth-child(8),
+					.woocommerce_page_wc-settings #mainform h2:nth-child(1) + .form-table,
+					.woocommerce_page_wc-settings #mainform h2:nth-child(2) + .form-table,
+					.woocommerce_page_wc-settings #mainform h2:nth-child(3) + .form-table,
+					.woocommerce_page_wc-settings #mainform h2:nth-child(4) + .form-table,
+					.woocommerce_page_wc-settings #mainform h2:nth-child(5) + .form-table,
+					.woocommerce_page_wc-settings #mainform h2:nth-child(6) + .form-table,
+					.woocommerce_page_wc-settings #mainform h2:nth-child(7) + .form-table,
+					.woocommerce_page_wc-settings #mainform h2:nth-child(8) + .form-table
+					
+					{
+							display: none;
+					}
+				</style>
 			<?php endif; ?>
 		<?php elseif( $screen->id == 'settings_page_tawkto_plugin' ) : ?>
 			<style>
