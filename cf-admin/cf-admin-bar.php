@@ -61,8 +61,6 @@ function cf_admin_bar_init() {
 			$wp_admin_bar->remove_node( 'view' );
 			$wp_admin_bar->remove_node( 'archive' );
 
-			// cf_debug( $wp_admin_bar );
-
 			// Adiciona os itens salvos
 			$wp_admin_bar->add_node( $my_account );
 			// $wp_admin_bar->add_node( $comments );

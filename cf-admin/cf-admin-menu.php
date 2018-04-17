@@ -523,7 +523,8 @@ function cf_admin_menu_init() {
 		add_filter( 'menu_order', 'cf_custom_menu_order', 10, 1 );
 
 		function cf_custom_menu_order( $menu_ord ) {
-		    if ( !$menu_ord ) return true;
+		    if ( !$menu_ord )
+		    	return true;
 			// cf_debug( $menu_ord );
 		    // array(15) {
 		    // [0]=>
@@ -558,8 +559,25 @@ function cf_admin_menu_init() {
 		    // string(17) "cf_plugin_options"
 		    // }
 		    // cf_debug( $menu_ord );
-		    $new_menu_order = array( 0, 1, 3, 9, 4, 2, 5, 6, 10, 7, 8, 11, 12, 13, 14 );
-		    // index, cf-calculo-de-investimento-inicial, cf_logo_options, edit.php?post_type=product
+		    // $new_menu_order = array( 0, 1, 3, 9, 4, 2, 5, 6, 10, 7, 8, 11, 12, 13, 14 );
+		    $new_menu_order = array( 0, 1, 4, 10, 3, 2, 5, 6, 11, 7, 8, 12, 9, 13, 14, 15, 16 );
+		    // [0] index
+		    // [1] cf-calculo-de-investimento-inicial
+		    // [4] cf_logo_options
+		    // [10] edit.php?post_type=product
+		    // [3] admin.php?page=wc-settings&tab=integration&section=bling
+		    // [2] separator1
+		    // [5]  edit.php
+		    // [6] admin.php?page=wc-settings&tab=checkout
+		    // [11] separator2
+		    // [7] edit.php?post_type=shop_order
+		    // [8] edit-comments.php
+		    // [12] users.php
+		    // [9] admin.php?page=wc-reports
+		    // [13] separator-last
+		    // [14] separator-woocommerce
+		    // [15] forminator
+		    // [16] cf_plugin_options
 		    $new_menu = [];
 		    foreach( $new_menu_order as $i ) :
 		    	$new_menu[ $i ] = $menu_ord[ $i ];
