@@ -15,6 +15,7 @@ function cf_admin_menu_init() {
 		function cf_remove_free_theme_menus() {
 			global $menu, $submenu;
 			// Remove os itens do menu
+			// cf_debug( $menu );
 			remove_menu_page( 'separator1' );
 			remove_menu_page( 'upload.php' );
 			remove_menu_page( 'edit-tags.php?taxonomy=link_category' );
@@ -56,7 +57,6 @@ function cf_admin_menu_init() {
 			remove_submenu_page( 'edit.php', 'edit.php?taxonomy=post_tag' );
 			// remove_menu_page( 'trocar' );
 			// remove_menu_page( 'trocar' );
-			 // cf_debug( $submenu );
 
 			//Adiciona os novos itens do menu
 
@@ -476,8 +476,8 @@ function cf_admin_menu_init() {
 	        	// add_submenu_page( 'edit-comments.php', __( 'O que você precisa saber?', 'cf' ), __( 'O que você precisa saber?', 'cf' ), 'edit_theme_options', 'edit-comments.php', 'cf_em_breve' );
 	        	// Comentários
 	        	add_submenu_page( 'edit-comments.php', __( 'Comentários', 'cf' ), __( 'Comentários', 'cf' ), 'edit_theme_options', 'edit-comments.php', null );
-	        	// Tawk
-	        	add_submenu_page( 'edit-comments.php', __( 'Tawk', 'cf' ), __( 'Tawk', 'cf' ), 'edit_theme_options', 'options-general.php?page=tawkto_plugin', null );
+	        	// Chat
+	        	add_submenu_page( 'edit-comments.php', __( 'Chat', 'cf' ), __( 'Chat', 'cf' ), 'edit_theme_options', 'options-general.php?page=tawkto_plugin', null );
 	        	// Chat
 	        	// add_submenu_page( 'edit-comments.php', __( 'Chat', 'cf' ), __( 'Chat', 'cf' ), 'edit_theme_options', 'cf-atendimento-ao-cliente-chat', 'cf_em_breve' );	        	
 	        	// Formulário dos Sites

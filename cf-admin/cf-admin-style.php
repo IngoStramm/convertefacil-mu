@@ -204,6 +204,13 @@ function cf_admin_style_init() {
 					}
 				</style>
 			<?php endif; ?>
+		<?php elseif( $screen->id == 'settings_page_tawkto_plugin' ) : ?>
+			<style>
+				.tawksettingsbody .tawktabs .tawktablinks:nth-child(2),
+				.tawksettingsbody .tawktabs .tawktablinks:nth-child(3) {
+					display: none;
+				}
+			</style>
 		<?php endif;
 	}
 
