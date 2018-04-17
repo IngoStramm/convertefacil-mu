@@ -211,6 +211,17 @@ function cf_admin_style_init() {
 					display: none;
 				}
 			</style>
+		<?php elseif( $screen->id == 'settings_page_trustvox' ) : ?>
+			<style>
+				.settings_page_trustvox .nav-tab-wrapper .nav-tab:nth-child(2),
+				.settings_page_trustvox .nav-tab-wrapper .nav-tab:nth-child(3),
+				.settings_page_trustvox .nav-tab-wrapper .nav-tab:nth-child(4),
+				.settings_page_trustvox .nav-tab-wrapper .nav-tab:nth-child(5),
+				.settings_page_trustvox .form-table tr:nth-child(3)
+				{
+					display: none;
+				}
+			</style>
 		<?php endif;
 	}
 
