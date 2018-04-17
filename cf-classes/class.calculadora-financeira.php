@@ -144,17 +144,29 @@ class Calculadora_Financeira
 
 										<li class="cf-radio-list-item">
 
-											<input type="text" name="value-item-<?php echo $item_count; ?>-option-1" value="<?php echo ( 1 == $saved_option[ 'data_index' ] ) ? $saved_option[ 'val' ] : $value_option_1; ?>" data-index="1" <?php echo ( $edit_option_1 != 'on' ) ? 'readonly="readonly"' : ''; ?> class="cf-radio-list-item-input number" data-default-value="<?php echo $value_option_1; ?>">
+											<div class="addon-wrapper">
+												<span class="addon">R$</span>
+												<input type="text" name="value-item-<?php echo $item_count; ?>-option-1" value="<?php echo ( 1 == $saved_option[ 'data_index' ] ) ? $saved_option[ 'val' ] : $value_option_1; ?>" data-index="1" <?php echo ( $edit_option_1 != 'on' ) ? 'readonly="readonly"' : ''; ?> class="cf-radio-list-item-input number addon-input" data-default-value="<?php echo $value_option_1; ?>">
+											</div>
+											<!-- /.addon-wrapper -->
 										</li>
 										
 										<li class="cf-radio-list-item">
 
-											<input type="text" name="value-item-<?php echo $item_count; ?>-option-2" value="<?php echo ( 2 == $saved_option[ 'data_index' ] ) ? $saved_option[ 'val' ] : $value_option_2; ?>" data-index="2" <?php echo ( $edit_option_2 != 'on' ) ? 'readonly="readonly"' : ''; ?> class="cf-radio-list-item-input number" data-default-value="<?php echo $value_option_2; ?>">
+											<div class="addon-wrapper">
+												<span class="addon">R$</span>
+												<input type="text" name="value-item-<?php echo $item_count; ?>-option-2" value="<?php echo ( 2 == $saved_option[ 'data_index' ] ) ? $saved_option[ 'val' ] : $value_option_2; ?>" data-index="2" <?php echo ( $edit_option_2 != 'on' ) ? 'readonly="readonly"' : ''; ?> class="cf-radio-list-item-input number addon-input" data-default-value="<?php echo $value_option_2; ?>">
+											</div>
+											<!-- /.addon-wrapper -->
 										</li>
 
 										<li class="cf-radio-list-item">
 
-											<input type="text" name="value-item-<?php echo $item_count; ?>-option-3" value="<?php echo ( 3 == $saved_option[ 'data_index' ] ) ? $saved_option[ 'val' ] : $value_option_3; ?>" data-index="3" <?php echo ( $edit_option_3 != 'on' ) ? 'readonly="readonly"' : ''; ?> class="cf-radio-list-item-input number" data-default-value="<?php echo $value_option_3; ?>">
+											<div class="addon-wrapper">
+												<span class="addon">R$</span>
+												<input type="text" name="value-item-<?php echo $item_count; ?>-option-3" value="<?php echo ( 3 == $saved_option[ 'data_index' ] ) ? $saved_option[ 'val' ] : $value_option_3; ?>" data-index="3" <?php echo ( $edit_option_3 != 'on' ) ? 'readonly="readonly"' : ''; ?> class="cf-radio-list-item-input number addon-input" data-default-value="<?php echo $value_option_3; ?>">
+											</div>
+											<!-- /.addon-wrapper -->
 										</li>
 
 									</ul>
@@ -367,25 +379,41 @@ class Calculadora_Financeira
 
 									<li class="cf-meta-list-item">
 
-										<input type="text" name="valor-medio-por-venda" value="<?php echo $valor_medio_por_venda ? $valor_medio_por_venda : '0'; ?>" class="cf-meta-list-item-input cf-valor-medio-por-venda number" data-default-value="0">
+										<div class="addon-wrapper">
+											<span class="addon">R$</span>
+											<input type="text" name="valor-medio-por-venda" value="<?php echo $valor_medio_por_venda ? $valor_medio_por_venda : '0'; ?>" class="cf-meta-list-item-input cf-valor-medio-por-venda number addon-input addon-input-small" data-default-value="0">
+										</div>
+										<!-- /.addon-wrapper -->
 
 									</li>
 									
 									<li class="cf-meta-list-item">
 
-										<input type="text" name="valor-medio-embalagem" value="<?php echo $valor_medio_embalagem ? $valor_medio_embalagem : '0'; ?>" class="cf-meta-list-item-input cf-valor-medio-embalagem number" data-default-value="0">
+										<div class="addon-wrapper">
+											<span class="addon">R$</span>
+											<input type="text" name="valor-medio-embalagem" value="<?php echo $valor_medio_embalagem ? $valor_medio_embalagem : '0'; ?>" class="cf-meta-list-item-input cf-valor-medio-embalagem number addon-input addon-input-small" data-default-value="0">
+										</div>
+										<!-- /.addon-wrapper -->
 
 									</li>
 
 									<li class="cf-meta-list-item">
 
-										<input type="text" name="porcentagem-imposto-renda" value="<?php echo $pc_imposto_renda ? $pc_imposto_renda : '0'; ?>" class="cf-meta-list-item-input cf-porcentagem-imposto-renda number" data-default-value="0">
+										<div class="addon-wrapper">
+											<input type="text" name="porcentagem-imposto-renda" value="<?php echo $pc_imposto_renda ? $pc_imposto_renda : '0'; ?>" class="cf-meta-list-item-input cf-porcentagem-imposto-renda number addon-input addon-input-small" data-default-value="0">
+											<span class="addon m-l-5">%</span>
+										</div>
+										<!-- /.addon-wrapper -->
 										
 									</li>
 
 									<li class="cf-meta-list-item">
 
-										<input type="text" name="porcentagem-intermediadores" value="<?php echo $pc_intermediadores ? $pc_intermediadores : '0'; ?>" class="cf-meta-list-item-input cf-porcentagem-intermediadores number" data-default-value="0">
+										<div class="addon-wrapper">
+											<input type="text" name="porcentagem-intermediadores" value="<?php echo $pc_intermediadores ? $pc_intermediadores : '0'; ?>" class="cf-meta-list-item-input cf-porcentagem-intermediadores number addon-input addon-input-small" data-default-value="0">
+											<span class="addon m-l-5">%</span>
+										</div>
+										<!-- /.addon-wrapper -->
 
 									</li>
 
@@ -473,7 +501,11 @@ class Calculadora_Financeira
 								<?php _e( 'Quanto deseja de lucro por mês em Reais', 'cf' ); ?>
 							</h4>
 							<div class="cf-footer-box-total">
-								<input type="text" name="lucro-desejado-mes" value="<?php echo $lucro_desejado_mes ? $lucro_desejado_mes : '0'; ?>" class="cf-total-value-input cf-lucro-desejado-mes number">
+								<div class="addon-wrapper">
+									<span class="addon m-r-5">R$</span>
+									<input type="text" name="lucro-desejado-mes" value="<?php echo $lucro_desejado_mes ? $lucro_desejado_mes : '0'; ?>" class="cf-total-value-input cf-lucro-desejado-mes number addon-input addon-input-big">
+								</div>
+								<!-- /.addon-wrapper -->
 							</div>
 
 						</div>

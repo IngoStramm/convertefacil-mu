@@ -180,7 +180,6 @@ jQuery( function( $ ) {
 				type: 'POST',
 				url: ajaxurl,
 				data: {
-					teste : 'Opa',
 					action : 'save_itens_metas',
 					options: options
 				},
@@ -256,10 +255,10 @@ jQuery( function( $ ) {
 		// Salvar resultados nestes inputs
 		var cf_meta_venda = $( '.cf-meta-venda' ); // = valor_pc_total * ( lucro_desejado_mes + total_custo_fixo_mensal ) / ( valor_pc_total - pc_custos_total )
 		var resultado_meta_venda =  valor_pc_total * ( lucro_desejado_mes + total_custo_fixo_mensal ) / ( valor_pc_total - valor_pc_custos_total );
-		resultado_meta_venda = arredonda_casas_decimais( resultado_meta_venda )
+		resultado_meta_venda = arredonda_casas_decimais( resultado_meta_venda );
 		console.log('resultado_meta_venda: ' + resultado_meta_venda);
 		resultado_meta_venda = isNaN( resultado_meta_venda ) ? 0 : resultado_meta_venda;
-		cf_meta_venda.val( resultado_meta_venda );
+		cf_meta_venda.val( cf_formata_real( resultado_meta_venda ) );
 
 		// console.log('lucro_desejado_mes: ' + lucro_desejado_mes);
 		// console.log('cf_meta_venda: ' + cf_meta_venda.val());
@@ -270,7 +269,7 @@ jQuery( function( $ ) {
 		resultado_indice_lucratividade *= 100;
 		console.log( 'resultado_indice_lucratividade: ' + resultado_indice_lucratividade );
 		resultado_indice_lucratividade = isNaN( resultado_indice_lucratividade ) ? 0 : resultado_indice_lucratividade;
-		cf_indice_lucratividade.val( arredonda_casas_decimais( resultado_indice_lucratividade ) );
+		cf_indice_lucratividade.val( cf_formata_porcentagem( resultado_indice_lucratividade ) );
 
 		var margem_contribuicao = resultado_meta_venda - valor_pc_custos_total; // resultado_meta_venda - ( resultado_meta_venda * pc_custos_total );
 		console.log('margem_contribuicao: ' + margem_contribuicao);
@@ -282,16 +281,7 @@ jQuery( function( $ ) {
 		var resultado_meta_minima = total_custo_fixo_mensal / ( imc / 100 );
 		resultado_meta_minima = arredonda_casas_decimais( resultado_meta_minima );
 		resultado_meta_minima = isNaN( resultado_meta_minima ) ? 0 : resultado_meta_minima;
-		cf_meta_minima.val( resultado_meta_minima );
-	};
-
-	var cf_arredonda_dinheiro = function( valor ) {
-		return ( Math.round( valor * Math.pow( 10, 2 ) ) / Math.pow( 10, 2 ) ).toFixed( 2 );
-	};
-
-	var cf_arredonda_porcentagem = function( valor ) {
-		return Math.ceil(valor);
-		// return valor.toFixed( 2 );
+		cf_meta_minima.val( cf_formata_real( resultado_meta_minima ) );
 	};
 
 	var arredonda_casas_decimais = function( valor ) {
@@ -299,15 +289,19 @@ jQuery( function( $ ) {
 	};
 
 	var cf_formata_real = function( valor ) {
-		// valor = valor.toString();
-		// valor = valor.replace( '.', ',' );
-		// return 'R$ ' + valor;
 		valor = valor.toFixed( 2 );
 	    valor = valor.toString().replace(/\D/g,'');
 	    valor = valor.toString().replace(/(\d)(\d{8})$/,'$1.$2');
 	    valor = valor.toString().replace(/(\d)(\d{5})$/,'$1.$2');
 	    valor = valor.toString().replace(/(\d)(\d{2})$/,'$1,$2');
 	    return 'R$ ' + valor;                  
+	};
+
+	var cf_formata_porcentagem = function( valor ) {
+		valor = valor.toFixed( 2 );
+	    valor = valor.toString().replace(/\D/g,'');
+	    valor = valor.toString().replace(/(\d)(\d{2})$/,'$1,$2');
+	    return valor + ' %';
 	};
 
 	$(document).ready(function(){
