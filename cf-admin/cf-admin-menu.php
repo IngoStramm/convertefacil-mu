@@ -468,8 +468,8 @@ function cf_admin_menu_init() {
 	        	// add_submenu_page( 'edit.php?post_type=shop_order', __( 'Tag de produto', 'cf' ), __( 'Tag de produto', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=product_tag&post_type=product', null );
 	        	// Atributos de Produto
 	        	// add_submenu_page( 'edit.php?post_type=shop_order', __( 'Atributos de produto', 'cf' ), __( 'Atributos de produto', 'cf' ), 'edit_theme_options', 'edit.php?post_type=product&page=product_attributes', null );
-	        	// Gestão de Transportes e Tabela de Fretes
-	        	add_submenu_page( 'edit.php?post_type=shop_order', __( 'Gestão de Transportes e Tabela de Fretes', 'cf' ), __( 'Gestão de Transportes e Tabela de Fretes', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=shipping', null );	        	
+	        	// Gestão de Entregas
+	        	add_submenu_page( 'edit.php?post_type=shop_order', __( 'Gestão de Entregas', 'cf' ), __( 'Gestão de Entregas', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=shipping', null );	        	
 	        // 12. Atendimento ao Cliente
 	        add_menu_page( __( 'Atendimento ao Cliente', 'cf' ), __( 'Atendimento ao Cliente', 'cf' ), 'edit_theme_options', 'edit-comments.php', null, 'dashicons-slides', 12 );
 	        	// O que você precisa saber?
