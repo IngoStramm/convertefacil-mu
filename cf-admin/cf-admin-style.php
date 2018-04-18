@@ -157,6 +157,11 @@ function cf_admin_style_init() {
 	add_action( 'admin_head', 'cf_menus_edit_style' );
 
 	function cf_menus_edit_style() {
+		$user_id = get_current_user_id();
+
+		if( is_super_admin( $user_id ) )
+			return;
+
 		$screen = get_current_screen();
 		// cf_debug( $screen->id );
 		if( $screen->id == 'nav-menus' ) : ?>
@@ -180,14 +185,22 @@ function cf_admin_style_init() {
 				}
 			</style>
 		<?php elseif( $screen->id == 'users' ) : ?>
-			<?php /* ?>
 			<style>
+			<?php /* ?>
 				#new_role,
 				#changeit,
 				#ure_grant_roles {
 					display: none;
 				}
-				<?php */ ?>
+			</style>
+			<?php */ ?>
+		<?php elseif( $screen->id == 'user' ) : ?>
+			<style>
+				#add-existing-user,
+				#add-existing-user + p,
+				#adduser {
+					display: none;
+				}
 			</style>
 		<?php elseif( $screen->id == 'woocommerce_page_wc-settings' ) : ?>
 			<?php $current_tab = isset( $_GET['tab'] ) && !empty( $_GET['tab'] ) ? $_GET['tab'] : false; ?>

@@ -143,6 +143,10 @@ function cf_admin_menu_init() {
 	        // unset($submenu['edit.php'][15]); // Categorias
 	        // unset($submenu['edit.php'][16]); // Tags
 
+	        // Usuários
+	        // Remove o submenu para adicionar novo usuário
+	        remove_submenu_page( 'users.php', 'user-new.php' );
+	        
 	        // Aparência
 	        remove_menu_page( 'themes.php' );                 //Appearance
 	        remove_submenu_page( 'themes.php', 'customize.php' );   

@@ -137,6 +137,10 @@ function cf_admin_general_init() {
 				        // $submenu_file = 'admin.php?page=wc-settings&tab=shipping';
 		    			break;
 		    	}
+		    // user
+		    elseif( $current_screen->id == 'user' ) :
+		    	$plugin_page = 'users.php';
+		        $submenu_file = 'users.php';
 		    // Relatórios WC
 		    elseif( $current_screen->id == 'woocommerce_page_wc-reports' ) :
 		    	$plugin_page = 'admin.php?page=wc-reports';
