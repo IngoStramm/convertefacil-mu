@@ -484,8 +484,8 @@ function cf_admin_menu_init() {
 	        	add_submenu_page( 'edit-comments.php', __( 'Chat', 'cf' ), __( 'Chat', 'cf' ), 'edit_theme_options', 'options-general.php?page=tawkto_plugin', null );
 	        	// Chat
 	        	// add_submenu_page( 'edit-comments.php', __( 'Chat', 'cf' ), __( 'Chat', 'cf' ), 'edit_theme_options', 'cf-atendimento-ao-cliente-chat', 'cf_em_breve' );	        	
-	        	// Formulário dos Sites
-	        	add_submenu_page( 'edit-comments.php', __( 'Formulário dos Sites', 'cf' ), __( 'Formulário dos Sites', 'cf' ), 'edit_theme_options', 'admin.php?page=forminator', null );	        	
+	        	// Formulários dos Sites
+	        	add_submenu_page( 'edit-comments.php', __( 'Formulários dos Sites', 'cf' ), __( 'Formulários dos Sites', 'cf' ), 'edit_theme_options', 'admin.php?page=forminator', null );	        	
 	        	// Avaliação dos Clientes
 	        	add_submenu_page( 'edit-comments.php', __( 'Avaliação dos Clientes', 'cf' ), __( 'Avaliação dos Clientes', 'cf' ), 'edit_theme_options', 'options-general.php?page=trustvox', null );	        	
 	        	// E-mail
@@ -509,7 +509,7 @@ function cf_admin_menu_init() {
 	        	// Domínio
 	        	add_submenu_page( 'cf_plugin_options', __( 'Domínio', 'cf' ), __( 'Domínio', 'cf' ), 'edit_theme_options', 'tools.php?page=domainmapping', null );
 	        	// RD Station
-	        	add_submenu_page( 'cf_plugin_options', __( 'RD Station', 'cf' ), __( 'RD Station', 'cf' ), 'edit_theme_options', 'edit.php?post_type=rdcf7_integrations', null );
+	        	// add_submenu_page( 'cf_plugin_options', __( 'RD Station', 'cf' ), __( 'RD Station', 'cf' ), 'edit_theme_options', 'edit.php?post_type=rdcf7_integrations', null );
 	        	// Google Analytics
 	        	add_submenu_page( 'cf_plugin_options', __( 'Google Analytics', 'cf' ), __( 'Google Analytics', 'cf' ), 'edit_theme_options', 'admin.php?page=gadwp_settings', null );
 

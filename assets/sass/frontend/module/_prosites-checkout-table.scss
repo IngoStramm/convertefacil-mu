@@ -53,27 +53,6 @@
 								@include bg-size(contain);
 							}
 						}
-						.chosen {
-							padding-left: 10px;
-							padding-right: 10px;
-							border: none;
-							background: $verde;
-							color: $branco;
-							@include radius(10px);
-							cursor: pointer;
-						}
-						&:after {
-							content: '';
-							width: 0; 
-							height: 0; 
-							border-left: 6px solid transparent;
-							border-right: 6px solid transparent;
-							border-top: 6px solid $branco;
-							position: absolute;
-							top: 130px;
-							right: 45px;
-							z-index: 98;								
-						}
 					}
 				}
 				.sub-title {

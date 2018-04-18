@@ -1,0 +1,25 @@
+.pro-sites-selector-wrapper {
+	display: block;
+	position: relative;
+	.chosen {
+		padding-left: 10px;
+		padding-right: 10px;
+		border: none;
+		background: $verde;
+		color: $branco;
+		@include radius(10px);
+		cursor: pointer;
+	}
+	&:after {
+		content: '';
+		width: 0; 
+		height: 0; 
+		border-left: 6px solid transparent;
+		border-right: 6px solid transparent;
+		border-top: 6px solid $branco;
+		position: absolute;
+		top: 20px;
+		right: 10px;
+		z-index: 98;								
+	}
+}

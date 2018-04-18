@@ -73,6 +73,32 @@ jQuery( function( $ ) {
 		});
 	};
 
+	var wrap_pro_sites_checkout_select = function() {
+		$( '#prosites-checkout-table ul.pricing-column.psts-level-0 .summary .period-selector .chosen' ).wrap( '<div class="pro-sites-selector-wrapper"></div>' );
+	};
+
+	var cf_troca_precos_de_lugar = function() {
+		if( $( '#prosites-checkout-table' ).length ) {
+			var table = $( '#prosites-checkout-table' );
+
+			table.find( '.pricing-column' ).each( function() {
+				var column = $( this );
+				var preco_total_3 = column.find( '.price.price_3 .plan-price' );
+				var preco_total_3_html = column.find( '.price.price_3 .plan-price' ).html();
+				var preco_mensal_3 = column.find( '.level-summary.price_3 .monthly-price' );
+				var preco_mensal_3_html = column.find( '.level-summary.price_3 .monthly-price' ).html();
+				var preco_total_12 = column.find( '.price.price_12 .plan-price' );
+				var preco_total_12_html = column.find( '.price.price_12 .plan-price' ).html();
+				var preco_mensal_12 = column.find( '.level-summary.price_12 .monthly-price' );
+				var preco_mensal_12_html = column.find( '.level-summary.price_12 .monthly-price' ).html();
+				preco_total_3.html( preco_mensal_3_html );
+				preco_mensal_3.html( preco_total_3_html );
+				preco_total_12.html( preco_mensal_12_html );
+				preco_mensal_12.html( preco_total_12_html );
+			});
+		}
+	};
+
 	$(document).ready(function(){
 		// Máscaras
 		$( '.cpf' ).mask( '000.000.000-00', {clearIfNotMatch: true} );
@@ -81,5 +107,7 @@ jQuery( function( $ ) {
 		$( '.cep' ).mask( '00000-000', {clearIfNotMatch: true} );
 
 		cep_onchange();
+		cf_troca_precos_de_lugar();
+		wrap_pro_sites_checkout_select();
 	}); // $(document).ready
 });

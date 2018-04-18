@@ -92,3 +92,13 @@ function cf_add_checkout_title() {
 	<h2><?php _e( 'Escolha um dos planos', 'cf' ); ?></h2>
 	<?php
 }
+
+// apply_filters( 'prosite_currency_symbol', $symbol, $currency );
+
+// add_filter( 'prosite_currency_symbol', 'cf_troca_precos', 10, 2 );
+
+function cf_troca_precos( $symbol, $currency ) {
+	cf_debug( $symbol );
+	cf_debug( $currency );
+	return $symbol;
+}
