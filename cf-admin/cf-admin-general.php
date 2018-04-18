@@ -231,6 +231,12 @@ function cf_admin_general_init() {
 		    elseif( $current_screen->id == 'toplevel_page_forminator' ) :
 		    	$plugin_page = 'edit-comments.php';
 		        $submenu_file = 'admin.php?page=forminator';
+		    elseif( $current_screen->id == 'forminator_page_forminator-cform-wizard' ) :
+		    	$plugin_page = 'edit-comments.php';
+		        $submenu_file = 'admin.php?page=forminator-cform-wizard';
+		    elseif( $current_screen->id == 'woo-feed_page_woo_feed_manage_feed' ) :
+		    	$plugin_page = 'admin.php?page=wc-settings&tab=checkout';
+		        $submenu_file = 'admin.php?page=woo_feed_manage_feed';
 			endif;
 		    return $parent_file;
 

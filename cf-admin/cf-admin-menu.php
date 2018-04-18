@@ -257,6 +257,10 @@ function cf_admin_menu_init() {
 
 	        // Woo Feed
 	        remove_menu_page( 'webappick-product-feed-for-woocommerce/admin/class-woo-feed-admin.php' );
+	        remove_submenu_page( 'webappick-product-feed-for-woocommerce/admin/class-woo-feed-admin.php', 'webappick-product-feed-for-woocommerce/admin/class-woo-feed-admin.php' );
+	        // remove_submenu_page( 'webappick-product-feed-for-woocommerce/admin/class-woo-feed-admin.php', 'woo_feed_manage_feed' );
+	        remove_submenu_page( 'webappick-product-feed-for-woocommerce/admin/class-woo-feed-admin.php', 'woo_feed_config_feed' );
+	        remove_submenu_page( 'webappick-product-feed-for-woocommerce/admin/class-woo-feed-admin.php', 'woo_feed_pro_vs_free' );
 
 	        // WP All Export
 	        remove_menu_page( 'pmxe-admin-home' );
@@ -282,18 +286,19 @@ function cf_admin_menu_init() {
 
 	        // Forminator
 	        remove_menu_page( 'forminator' );
-	        remove_submenu_page( 'forminator', 'forminator' );
 	        // remove_submenu_page( 'forminator', 'forminator' );
-	        remove_submenu_page( 'forminator', 'forminator-cform' );
-	        remove_submenu_page( 'forminator', 'forminator-cform-wizard' );
-	        remove_submenu_page( 'forminator', 'forminator-poll' );
-	        remove_submenu_page( 'forminator', 'forminator-poll-wizard' );
-	        remove_submenu_page( 'forminator', 'forminator-poll-view' );
-	        remove_submenu_page( 'forminator', 'forminator-quiz' );
-	        remove_submenu_page( 'forminator', 'forminator-nowrong-wizard' );
-	        remove_submenu_page( 'forminator', 'forminator-knowledge-wizard' );
-	        remove_submenu_page( 'forminator', 'forminator-quiz-view' );
-	        remove_submenu_page( 'forminator', 'forminator-settings' );
+	        // remove_submenu_page( 'forminator', 'forminator' );
+	        // remove_submenu_page( 'forminator', 'forminator-cform' );
+	        // remove_submenu_page( 'forminator', 'forminator-cform-wizard' );
+	        // remove_submenu_page( 'forminator', 'forminator-poll' );
+	        // remove_submenu_page( 'forminator', 'forminator-poll-wizard' );
+	        // remove_submenu_page( 'forminator', 'forminator-poll-view' );
+	        // remove_submenu_page( 'forminator', 'forminator-quiz' );
+	        // remove_submenu_page( 'forminator', 'forminator-nowrong-wizard' );
+	        // remove_submenu_page( 'forminator', 'forminator-knowledge-wizard' );
+	        // remove_submenu_page( 'forminator', 'forminator-quiz-view' );
+	        // remove_submenu_page( 'forminator', 'forminator-settings' );
+	        // unset( $submenu[ 'forminator' ][2] );
 
 	    }
 
@@ -446,6 +451,8 @@ function cf_admin_menu_init() {
 	        	// add_submenu_page( 'admin.php?page=wc-settings&tab=checkout', __( 'Antifraudes', 'cf' ), __( 'Antifraudes', 'cf' ), 'edit_theme_options', 'cf-vendas-e-pagamentos-antifraudes', 'cf_em_breve' );
 	        	// Parcelas
 	        	add_submenu_page( 'admin.php?page=wc-settings&tab=checkout', __( 'Parcelas', 'cf' ), __( 'Parcelas', 'cf' ), 'edit_theme_options', 'edit.php?post_type=parcela', null );
+	        	// Marketplace I
+	        	add_submenu_page( 'admin.php?page=wc-settings&tab=checkout', __( 'Marketplace I', 'cf' ), __( 'Marketplace I', 'cf' ), 'edit_theme_options', 'admin.php?page=woo_feed_manage_feed', null );
 	        	// Intermediadores
 	        	// add_submenu_page( 'admin.php?page=wc-settings&tab=checkout', __( 'Intermediadores', 'cf' ), __( 'Intermediadores', 'cf' ), 'edit_theme_options', 'cf-vendas-e-pagamentos-intermediadores', 'cf_em_breve' );
 	        	// Facilitadores Subadquirentes
@@ -484,8 +491,8 @@ function cf_admin_menu_init() {
 	        	add_submenu_page( 'edit-comments.php', __( 'Chat', 'cf' ), __( 'Chat', 'cf' ), 'edit_theme_options', 'options-general.php?page=tawkto_plugin', null );
 	        	// Chat
 	        	// add_submenu_page( 'edit-comments.php', __( 'Chat', 'cf' ), __( 'Chat', 'cf' ), 'edit_theme_options', 'cf-atendimento-ao-cliente-chat', 'cf_em_breve' );	        	
-	        	// Formulários dos Sites
-	        	add_submenu_page( 'edit-comments.php', __( 'Formulários dos Sites', 'cf' ), __( 'Formulários dos Sites', 'cf' ), 'edit_theme_options', 'admin.php?page=forminator', null );	        	
+	        	// Formulários do Site
+	        	add_submenu_page( 'edit-comments.php', __( 'Formulários do Site', 'cf' ), __( 'Formulários do Site', 'cf' ), 'edit_theme_options', 'admin.php?page=forminator', null );	        	
 	        	// Avaliação dos Clientes
 	        	add_submenu_page( 'edit-comments.php', __( 'Avaliação dos Clientes', 'cf' ), __( 'Avaliação dos Clientes', 'cf' ), 'edit_theme_options', 'options-general.php?page=trustvox', null );	        	
 	        	// E-mail

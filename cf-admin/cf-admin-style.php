@@ -163,6 +163,32 @@ function cf_admin_style_init() {
 			return;
 
 		$screen = get_current_screen();
+		$form_screens_ids = array( 
+			'toplevel_page_forminator',
+			'toplevel_page_forminator-network',
+			'forminator_page_forminator-cform',
+			'forminator_page_forminator-cform-network',
+			'forminator_page_forminator-poll',
+			'forminator_page_forminator-poll-network',
+			'forminator_page_forminator-quiz',
+			'forminator_page_forminator-quiz-network',
+			'forminator_page_forminator-settings',
+			'forminator_page_forminator-settings-network',
+			'forminator_page_forminator-cform-wizard',
+			'forminator_page_forminator-cform-wizard-network',
+			'forminator_page_forminator-cform-view',
+			'forminator_page_forminator-cform-view-network',
+			'forminator_page_forminator-poll-wizard',
+			'forminator_page_forminator-poll-wizard-network',
+			'forminator_page_forminator-poll-view',
+			'forminator_page_forminator-poll-view-network',
+			'forminator_page_forminator-nowrong-wizard',
+			'forminator_page_forminator-nowrong-wizard-network',
+			'forminator_page_forminator-knowledge-wizard',
+			'forminator_page_forminator-knowledge-wizard-network',
+			'forminator_page_forminator-quiz-view',
+			'forminator_page_forminator-quiz-view-network'
+		);
 		// cf_debug( $screen->id );
 		if( $screen->id == 'nav-menus' ) : ?>
 			<style>
@@ -255,6 +281,21 @@ function cf_admin_style_init() {
 				.settings_page_trustvox .nav-tab-wrapper .nav-tab:nth-child(4),
 				.settings_page_trustvox .nav-tab-wrapper .nav-tab:nth-child(5),
 				.settings_page_trustvox .form-table tr:nth-child(3)
+				{
+					display: none;
+				}
+			</style>
+		<?php elseif( $screen->id == 'woo-feed_page_woo_feed_manage_feed' ) : // woo-feed_page_woo_feed_manage_feed ?>
+			<style>
+				.woo-feed_page_woo_feed_manage_feed #wpbody-content .wrap table.widefat.fixed:nth-child(3),
+				.woo-feed_page_woo_feed_manage_feed #wpbody-content .wrap table.widefat.fixed:nth-child(4)
+				{
+					display: none;
+				}
+			</style>
+		<?php elseif( in_array( $screen->id, $form_screens_ids )  ) : ?>
+			<style>
+				.wpmudev-ui #wpmudev-header .wpmudev-header--sub .wpmudev-button.wpmudev-button-sm.wpmudev-button-ghost
 				{
 					display: none;
 				}
