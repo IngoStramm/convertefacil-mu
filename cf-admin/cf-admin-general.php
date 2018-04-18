@@ -297,6 +297,16 @@ function cf_admin_general_init() {
 			return $form_fields;
 		}
 
+		add_filter( 'woocommerce_email_settings', 'cf_change_email_settings' );
+
+		function cf_change_email_settings( $settings ) {
+			// cf_debug( $settings[8] );
+			// unset( $settings[8] );
+			$settings[8]['title'] = __( 'Atenção!', 'cf' );
+			$settings[8]['desc'] = __( 'O e-mail usado no campo <strong>"De"</strong> deve usar o mesmo domínio do site. Por ex: se o domínio do site for <code>"www.<strong>rards.com.br</strong></code>", o endereço de e-mail usado no campo <strong>"De"</strong> deverá ser <code>"alguma-coisa@<strong>rards.com.br</strong>"</code>. Não importa se esse endereço de e-mail não existe e nem o que vem antes do <strong>"@"</strong>. O importante é que o domínio usado após o <strong>"@"</strong> seja exatamente igual ao domínio do site.' );
+			return $settings;
+		}
+
 	endif; //is_super_admin
 
 }
