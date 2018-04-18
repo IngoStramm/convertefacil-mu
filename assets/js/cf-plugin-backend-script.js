@@ -226,7 +226,7 @@ jQuery( function( $ ) {
 		pc_custo_embalagem = arredonda_casas_decimais( pc_custo_embalagem );
 		pc_custo_embalagem *= 100;
 
-		console.log('pc_custo_embalagem: ' + pc_custo_embalagem);
+		// console.log('pc_custo_embalagem: ' + pc_custo_embalagem);
 
 		var pc_imposto_renda = parseFloat( $( '.cf-porcentagem-imposto-renda' ).val() );
 		var pc_intermediadores = parseFloat( $( '.cf-porcentagem-intermediadores' ).val() );
@@ -236,8 +236,8 @@ jQuery( function( $ ) {
 		pc_lucro_total = 100 - pc_custos_total;
 		pc_lucro_total =  arredonda_casas_decimais( pc_lucro_total );
 
-		console.log('pc_custos_total: ' + pc_custos_total);
-		console.log('pc_lucro_total: ' + pc_lucro_total);
+		// console.log('pc_custos_total: ' + pc_custos_total);
+		// console.log('pc_lucro_total: ' + pc_lucro_total);
 
 		var lucro_desejado_mes = parseFloat( $( '.cf-lucro-desejado-mes' ).val() );
 
@@ -248,15 +248,15 @@ jQuery( function( $ ) {
 		valor_pc_custos_total = valor_pc_total - valor_lucro_total;
 		valor_pc_custos_total = arredonda_casas_decimais( valor_pc_custos_total );
 
-		console.log('valor_lucro_total: ' + valor_lucro_total);
-		console.log('valor_pc_total: ' + valor_pc_total);
-		console.log('valor_pc_custos_total: ' + valor_pc_custos_total);
+		// console.log('valor_lucro_total: ' + valor_lucro_total);
+		// console.log('valor_pc_total: ' + valor_pc_total);
+		// console.log('valor_pc_custos_total: ' + valor_pc_custos_total);
 
 		// Salvar resultados nestes inputs
 		var cf_meta_venda = $( '.cf-meta-venda' ); // = valor_pc_total * ( lucro_desejado_mes + total_custo_fixo_mensal ) / ( valor_pc_total - pc_custos_total )
 		var resultado_meta_venda =  valor_pc_total * ( lucro_desejado_mes + total_custo_fixo_mensal ) / ( valor_pc_total - valor_pc_custos_total );
 		resultado_meta_venda = arredonda_casas_decimais( resultado_meta_venda );
-		console.log('resultado_meta_venda: ' + resultado_meta_venda);
+		// console.log('resultado_meta_venda: ' + resultado_meta_venda);
 		resultado_meta_venda = isNaN( resultado_meta_venda ) ? 0 : resultado_meta_venda;
 		cf_meta_venda.val( cf_formata_real( resultado_meta_venda ) );
 
@@ -267,16 +267,16 @@ jQuery( function( $ ) {
 		var resultado_indice_lucratividade = lucro_desejado_mes / resultado_meta_venda;
 		resultado_indice_lucratividade = arredonda_casas_decimais( resultado_indice_lucratividade );
 		resultado_indice_lucratividade *= 100;
-		console.log( 'resultado_indice_lucratividade: ' + resultado_indice_lucratividade );
+		// console.log( 'resultado_indice_lucratividade: ' + resultado_indice_lucratividade );
 		resultado_indice_lucratividade = isNaN( resultado_indice_lucratividade ) ? 0 : resultado_indice_lucratividade;
 		cf_indice_lucratividade.val( cf_formata_porcentagem( resultado_indice_lucratividade ) );
 
 		var margem_contribuicao = resultado_meta_venda - valor_pc_custos_total; // resultado_meta_venda - ( resultado_meta_venda * pc_custos_total );
-		console.log('margem_contribuicao: ' + margem_contribuicao);
+		// console.log('margem_contribuicao: ' + margem_contribuicao);
 
 		var imc = margem_contribuicao / resultado_meta_venda * 100; // margem_contribuicao - cf_meta_venda.val();
 		imc = arredonda_casas_decimais( imc );
-		console.log('imc: ' + imc);
+		// console.log('imc: ' + imc);
 		var cf_meta_minima = $( '.cf-meta-minima' ); // total_custo_fixo_mensal - imc;
 		var resultado_meta_minima = total_custo_fixo_mensal / ( imc / 100 );
 		resultado_meta_minima = arredonda_casas_decimais( resultado_meta_minima );
@@ -304,6 +304,16 @@ jQuery( function( $ ) {
 	    return valor + ' %';
 	};
 
+	var cf_altera_texto = function() {
+		$( '.page-title-action' ).each( function(){
+			var curr = $( this );
+			// console.log('curr.text(): ' + curr.text());
+			if( curr.text() === 'Adicionar existente' ) {
+				curr.text( 'Adicionar novo' );
+			}
+		});
+	};
+
 	$(document).ready(function(){
 
 		cf_normalize_list();
@@ -314,6 +324,7 @@ jQuery( function( $ ) {
 		cf_save_itens_calc();
 		cf_save_metas();
 		cf_calc_result_metas();
+		cf_altera_texto();
 		
 	}); // $(document).ready
 
