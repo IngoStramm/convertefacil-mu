@@ -31,7 +31,7 @@ function cf_register_theme_options_metabox() {
 			// 'display_cb'      => false, // Override the options-page form output (CMB2_Hookup::options_page_output()).
 			// 'save_button'     => esc_html__( 'Save Theme Options', 'cf' ), // The text for the options-page save button. Defaults to 'Save'.
 			// 'disable_settings_errors' => true, // On settings pages (not options-general.php sub-pages), allows disabling.
-			// 'message_cb'      => 'cf_plugin_message_callback',
+			'message_cb'      => 'cf_plugin_message_callback',
 		) );
 
 		/**
@@ -40,12 +40,13 @@ function cf_register_theme_options_metabox() {
 		 * Prefix is not needed.
 		 */
 		$cmb_options->add_field( array(
-			'name'    => esc_html__( 'Tírulo do Site', 'cf' ),
+			'name'				=> esc_html__( 'Tírulo do Site', 'cf' ),
 			// 'desc'    => esc_html__( 'field description (optional)', 'cf' ),
-			'id'      => 'blogname',
-			'type'    => 'text',
-			'default' => 'cf_get_blogname',
-			// 'message_cb'      => 'cf_plugin_message_callback',
+			'id'				=> 'blogname',
+			'type'				=> 'text',
+			'default'			=> 'cf_get_blogname',
+			'message_cb'		=> 'cf_plugin_message_callback',
+			// 'before_row'		=> 'cf_debug_blogname'
 		) );
 
 	endif;
@@ -59,18 +60,22 @@ function cf_get_blogname() {
 }
 
 function cf_plugin_message_callback( $cmb, $args ) {
-	cf_debug( 'teste1' );
 	if ( ! empty( $args['should_notify'] ) ) :
+		// cf_debug( 'Not Empty' );
 		
 		if ( $args['is_updated'] ) :
+			// cf_debug( 'Atualizou' );
 
 			$blog_id = get_current_blog_id();		
 			$cf_options = get_option( 'cf_plugin_options' );
+			$new_blogname = $cf_options['blogname'];
+			$old_blogname = get_option( 'blogname' );
 			// cf_debug( $cf_options['blogname'] );
-			set_theme_mod( 'blogname', $cf_options['blogname'] );
-			update_blog_details( $blog_id, array( 'blogname' => $cf_options['blogname'] ) );
-			update_option( 'blogname', $cf_options['blogname'] );
-			update_blog_status( $blog_id, 'blogname', $cf_options['blogname'] );
+			// set_theme_mod( 'blogname', $new_blogname );
+			// $updated = update_blog_details( $blog_id, array( 'blogname' => $new_blogname ) );
+			update_option( 'blogname', $new_blogname );
+			// update_blog_status( $blog_id, 'blogname', $cf_options['blogname'] );
+			// cf_debug( $updated );
 			$args['message'] = sprintf( esc_html__( '%s &mdash; Atualizado: ' . $cf_options['blogname'], 'cf' ), $cmb->prop( 'title' ) );
 		
 		endif;
@@ -94,7 +99,7 @@ function cf_update_blogname() {
 	    if ( !empty( $new_blogname ) && $old_blogname  !== $new_blogname ) {
 	    	// set_theme_mod( 'blogname', $new_blogname );
 	    	// update_blog_details( $blog_id, array( 'blogname' => $new_blogname ) );
-	    	update_option( 'blogname', $new_blogname );
+	    	// update_option( 'blogname', $new_blogname );
 	    	// update_blog_status( $blog_id, 'blogname', $new_blogname );
 	    }
     endif;
@@ -108,3 +113,10 @@ function cf_update_blogname() {
 // 	cf_debug( $cf_options['blogname'] );
 // 	cf_debug( $blogname );
 // }
+
+function cf_debug_blogname( $field_args, $field ) {
+	$cf_options = get_option( 'cf_plugin_options' );
+	$new_blogname = $cf_options['blogname'];
+	$old_blogname = get_option( 'blogname' );
+	cf_debug( $old_blogname );
+}
