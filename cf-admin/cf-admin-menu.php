@@ -435,9 +435,9 @@ function cf_admin_menu_init() {
 	        	// Cupons
 	        	add_submenu_page( 'edit.php', __( 'Cupons', 'cf' ), __( 'Cupons', 'cf' ), 'edit_theme_options', 'edit.php?post_type=shop_coupon', null );
 	        	// Base de Contatos
-	        	add_submenu_page( 'edit.php', __( 'Envios de Contatos', 'cf' ), __( 'Envios de Contatos', 'cf' ), 'edit_theme_options', 'admin.php?page=flamingo_inbound', null );
+	        	// add_submenu_page( 'edit.php', __( 'Envios de Contatos', 'cf' ), __( 'Envios de Contatos', 'cf' ), 'edit_theme_options', 'admin.php?page=flamingo_inbound', null );
 	        	// Envios de Contatos
-	        	add_submenu_page( 'edit.php', __( 'Base de Contatos', 'cf' ), __( 'Base de Contatos', 'cf' ), 'edit_theme_options', 'admin.php?page=flamingo', null );
+	        	// add_submenu_page( 'edit.php', __( 'Base de Contatos', 'cf' ), __( 'Base de Contatos', 'cf' ), 'edit_theme_options', 'admin.php?page=flamingo', null );
 	        	// relatórios
 	        	// add_submenu_page( 'cf-marketing-atrair', __( 'relatórios', 'cf' ), __( 'relatórios', 'cf' ), 'edit_theme_options', 'cf-marketing-relatorios', 'cf_em_breve' );
 	        
