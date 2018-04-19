@@ -153,7 +153,6 @@ function cf_admin_style_init() {
 	}
 
 	// Esconde algumas opções nas telas de menu e usuários
-	// Verificar se iremos manter isso
 	add_action( 'admin_head', 'cf_menus_edit_style' );
 
 	function cf_menus_edit_style() {
@@ -237,7 +236,8 @@ function cf_admin_style_init() {
 					.woocommerce_page_wc-settings .subsubsub li:nth-child(2),
 					.woocommerce_page_wc-settings .subsubsub li:nth-child(3),
 					.woocommerce_page_wc-settings .form-table.wc-shipping-zone-settings .titledesc,
-					.woocommerce_page_wc-settings .form-table.wc-shipping-zone-settings .forminp
+					.woocommerce_page_wc-settings .form-table.wc-shipping-zone-settings .forminp,
+					.woocommerce_page_wc-settings .form-table.wc-shipping-zone-settings .button.wc-shipping-zone-add-method
 					{
 							display: none;
 					}
