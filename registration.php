@@ -274,8 +274,11 @@ add_action( 'edit_user_profile_update', 'cf_save_fields' );
 
 // Exibe os campos na tela de perfil
 function cf_extra_fields( $user ) {
+	$utils = new Cf_Utils;
+	if( !$utils->is_not_super_admin_and_is_admin_and_is_not_your_own_profile() || $utils->is_not_super_admin_and_admin() )
+		return; // Não exibe os campos das Informações Pessoais do ConverteFácil
 ?>
-<h3><?php _e( 'Informações Pessoais', 'cf' ); /*DOMAIN = Lang domain for l10n (optional)*/ ?></h3>
+<h3><?php _e( 'Informações Pessoais (ConverteFácil)', 'cf' ); /*DOMAIN = Lang domain for l10n (optional)*/ ?></h3>
 <table class="form-table">
 	<tbody>
 		<tr>

@@ -5,6 +5,7 @@ add_action( 'init', 'cf_admin_wc_init' );
 function cf_admin_wc_init() {
 
 	$user_id = get_current_user_id();
+	
 	if( is_super_admin( $user_id ) )
 		return;
 

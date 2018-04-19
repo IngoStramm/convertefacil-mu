@@ -162,6 +162,7 @@ function cf_admin_style_init() {
 			return;
 
 		$screen = get_current_screen();
+		// cf_debug( $screen->id );
 		$form_screens_ids = array( 
 			'toplevel_page_forminator',
 			'toplevel_page_forminator-network',
@@ -188,7 +189,6 @@ function cf_admin_style_init() {
 			'forminator_page_forminator-quiz-view',
 			'forminator_page_forminator-quiz-view-network'
 		);
-		// cf_debug( $screen->id );
 		if( $screen->id == 'nav-menus' ) : ?>
 			<style>
 				a.page-title-action.hide-if-no-customize,
@@ -300,6 +300,14 @@ function cf_admin_style_init() {
 					display: none;
 				}
 			</style>
+		<?php elseif( $screen->id == 'profile' ) : ?>
+			<style>
+/*				.woo-feed_page_woo_feed_manage_feed #wpbody-content .wrap table.widefat.fixed:nth-child(3),
+				.woo-feed_page_woo_feed_manage_feed #wpbody-content .wrap table.widefat.fixed:nth-child(4)
+				{
+					display: none;
+				}
+*/			</style>
 		<?php endif;
 	}
 
