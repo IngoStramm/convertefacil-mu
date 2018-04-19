@@ -246,4 +246,6 @@ function cf_admin_general_init() {
 
 	}
 
+	remove_action('admin_notices', 'trustvox_missing_token');
+
 }
