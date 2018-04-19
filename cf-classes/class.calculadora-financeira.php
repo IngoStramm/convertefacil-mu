@@ -48,12 +48,12 @@ class Calculadora_Financeira
 
 			    switch_to_blog(1);
 			    $args = array(
-			    	'post_type' 	=> 'item-calculadora',
-			    	'order'			=> 'ASC',
-			    	'orderby'		=> 'menu_order',
-			    	'meta_key'   => 'position_item_calc_tela',
-			    	'posts_per_page' => -1,
-		    		'meta_value' => $this->tela
+			    	'post_type' 		=> 'item-calculadora',
+			    	'order'				=> 'ASC',
+			    	'orderby'			=> 'menu_order',
+			    	'meta_key'			=> 'position_item_calc_tela',
+			    	'posts_per_page' 	=> -1,
+		    		'meta_value'		=> $this->tela
 			    );
 			    $the_query = new WP_Query( $args );
 
@@ -242,11 +242,12 @@ class Calculadora_Financeira
 		    switch_to_blog(1);
 			$total = 0;
 		    $args = array(
-		    	'post_type' 	=> 'item-calculadora',
-		    	'order'			=> 'ASC',
-		    	'orderby'		=> 'menu_order',
-		    	'meta_key'   => 'position_item_calc_tela',
-	    		'meta_value' => $tela
+		    	'post_type' 		=> 'item-calculadora',
+		    	'order'				=> 'ASC',
+		    	'orderby'			=> 'menu_order',
+		    	'meta_key'   		=> 'position_item_calc_tela',
+		    	'posts_per_page' 	=> -1,
+	    		'meta_value' 		=> $tela
 		    );
 		    $the_query = new WP_Query( $args );
 
@@ -338,19 +339,26 @@ class Calculadora_Financeira
 									<li class="cf-meta-list-item">
 										<span class="cf-meta-number"><?php _e( '2.', 'cf' ); ?></span>
 										<span class="cf-meta-text">
-											<?php _e( 'Qual seu custo médio de embalagem por venda?', 'cf' ); ?>
+											<?php _e( 'Qual seu custo médio de produtos?', 'cf' ); ?>
 										</span>
 									</li>
 
 									<li class="cf-meta-list-item">
 										<span class="cf-meta-number"><?php _e( '3.', 'cf' ); ?></span>
 										<span class="cf-meta-text">
-											<?php _e( 'Qual a porcetagem de imposto por venda?', 'cf' ); ?>
+											<?php _e( 'Qual seu custo médio de embalagem por venda?', 'cf' ); ?>
 										</span>
 									</li>
 
 									<li class="cf-meta-list-item">
 										<span class="cf-meta-number"><?php _e( '4.', 'cf' ); ?></span>
+										<span class="cf-meta-text">
+											<?php _e( 'Qual a porcetagem de imposto por venda?', 'cf' ); ?>
+										</span>
+									</li>
+
+									<li class="cf-meta-list-item">
+										<span class="cf-meta-number"><?php _e( '5.', 'cf' ); ?></span>
 										<span class="cf-meta-text">
 											<?php _e( 'Qual a porcentagem dos intermediadores de vendas?', 'cf' ); ?>
 											<span class="cf-meta-text-small"><?php _e( 'Market places, Empresas de pagamentos, etc.', 'cf' ); ?></span>
@@ -366,6 +374,7 @@ class Calculadora_Financeira
 
 							<?php
 								$valor_medio_por_venda = get_blog_option( $blog_id, 'valor_medio_por_venda' );
+								$custo_medio_produtos = get_blog_option( $blog_id, 'custo_medio_produtos' );
 								$valor_medio_embalagem = get_blog_option( $blog_id, 'valor_medio_embalagem' );
 								$pc_imposto_renda = get_blog_option( $blog_id, 'pc_imposto_renda' );
 								$pc_intermediadores = get_blog_option( $blog_id, 'pc_intermediadores' );
@@ -382,6 +391,16 @@ class Calculadora_Financeira
 										<div class="addon-wrapper">
 											<span class="addon">R$</span>
 											<input type="text" name="valor-medio-por-venda" value="<?php echo $valor_medio_por_venda ? $valor_medio_por_venda : '0'; ?>" class="cf-meta-list-item-input cf-valor-medio-por-venda number addon-input addon-input-small" data-default-value="0">
+										</div>
+										<!-- /.addon-wrapper -->
+
+									</li>
+									
+									<li class="cf-meta-list-item">
+
+										<div class="addon-wrapper">
+											<span class="addon">R$</span>
+											<input type="text" name="custo-medio-produtos" value="<?php echo $custo_medio_produtos ? $custo_medio_produtos : '0'; ?>" class="cf-meta-list-item-input cf-custo-medio-produtos number addon-input addon-input-small" data-default-value="0">
 										</div>
 										<!-- /.addon-wrapper -->
 
