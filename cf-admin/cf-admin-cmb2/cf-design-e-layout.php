@@ -47,6 +47,14 @@ function cf_register_design_e_layout_options_metabox() {
 			'type'    => 'file',
 		) );
 
+		$cmb_options->add_field( array(
+			'name'    => esc_html__( 'Favicon', 'cf' ),
+			'desc'    => esc_html__( 'Faça o upload da imagem', 'cf' ),
+			'id'      => 'cf_site_icon',
+			'type'    => 'file',
+			// 'before_row'		=> 'cf_debug_site_icon'
+		) );
+
 	endif;
 }
 
@@ -60,10 +68,16 @@ function cf_options_page_message_callback( $cmb, $args ) {
 		
 		if ( $args['is_updated'] ) :
 		
-			$cf_logo = get_option( 'cf_logo_options' );
-			set_theme_mod( 'site_logo', $cf_logo['cf_site_logo'] );
+			$cf_options = get_option( 'cf_logo_options' );
+			$cf_icon = $cf_options['cf_site_icon'];
+			$cf_icon_id = $cf_options['cf_site_icon_id'];
+			$cf_logo = $cf_options['cf_site_logo'];
+			$site_icon = get_option( 'site_icon' );
+			set_theme_mod( 'site_logo', $cf_options['cf_site_logo'] );
+			// set_theme_mod( 'site_icon', $cf_icon_id );
+			$updated = update_option( 'site_icon', $cf_icon_id );
 			$args['message'] = sprintf( esc_html__( '%s &mdash; Atualizado!', 'cf' ), $cmb->prop( 'title' ) );
-			// cf_debug( $cf_logo['cf_site_logo'] );
+			// cf_debug( $cf_options['cf_site_logo'] );
 		
 		endif;
 		
@@ -71,4 +85,13 @@ function cf_options_page_message_callback( $cmb, $args ) {
 
 	endif;
 
+}
+
+function cf_debug_site_icon( $field_args, $field ) {
+	$site_icon = get_option( 'site_icon' );
+	$cf_options = get_option( 'cf_logo_options' );
+	$cf_icon = $cf_options['cf_site_icon'];
+	$cf_icon_id = $cf_options['cf_site_icon_id'];
+	cf_debug( $site_icon );
+	cf_debug( $cf_icon_id );
 }
