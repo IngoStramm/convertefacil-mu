@@ -33,8 +33,6 @@
  * 
  */
 
-$users_to_activate;
-
 // add_filter( 'prosites_render_checkout_page', 'test_filter', 10, 3 );
 
 function test_filter( $att1, $att2, $att3 ) {
@@ -107,14 +105,14 @@ function cf_troca_precos( $symbol, $currency ) {
 
 // Envia E-mail com link de ativação
 //  Fix para o pro Sites que não está enviando o e-mail
-add_filter( 'prosites_render_checkout_page', 'cf_checkout_complete', 10, 3 );
+add_filter( 'prosites_render_checkout_page', 'cf_checkout_complete_send_email', 10, 3 );
 
-function cf_checkout_complete( $content, $blog_id, $domain ) {
+function cf_checkout_complete_send_email( $content, $blog_id, $domain ) {
 	$get_domain = isset( $_GET[ 'domain' ] ) ? $_GET[ 'domain' ] : false;
 	$get_action = isset( $_GET[ 'action' ] ) ? $_GET[ 'action' ] : false;
 	$get_token = isset( $_GET[ 'token' ] ) ? $_GET[ 'token' ] : false;
 	if( $get_domain && $get_action && $get_token ) :
-		global $wpdb, $users_to_activate;
+		global $wpdb;
 		$user = wp_get_current_user();
 		$inactive_user = $wpdb->get_row( "SELECT * FROM $wpdb->signups WHERE active = 0 AND user_login = '$user->user_login'" );
 		if( $inactive_user ) :
@@ -132,6 +130,25 @@ function cf_checkout_complete( $content, $blog_id, $domain ) {
 			$message .= '<h4><a href="' . $activation_url . '" target="_blank">' . __( 'Ativar conta!', 'cf' ) . '</a></h4>';
 			$message .= '<p>' . __( '--Equipe  ConverteFácil', 'cf' ) . '</p>';
 			$send_mail = wp_mail( $to, $subject, $message, $headers );
+		endif;
+	endif;
+	return $content;
+}
+
+add_filter( 'prosites_render_checkout_page', 'cf_checkout_complete_change_site_url', 11, 3 );
+
+function cf_checkout_complete_change_site_url( $content, $blog_id, $domain ) {
+	// cf_debug( $blog_id );
+	// cf_debug( $domain );
+	if( empty( $blog_id )) :
+		global $wpdb;
+		$user = wp_get_current_user();
+		$inactive_user = $wpdb->get_row( "SELECT * FROM $wpdb->signups WHERE active = 0 AND user_login = '$user->user_login'" );
+		if( $inactive_user ) :
+			$network_url = network_site_url( '/wp-admin/' );
+			$new_site_url = network_site_url( $inactive_user->path . 'wp-admin/', 'https' );
+			// cf_debug( '<a href="' . $new_site_url . '">' . $new_site_url . '</a>' );
+			$content = preg_replace( '#<a href="' . $network_url . '">' . $network_url . '</a>#s', '<a href="' . $new_site_url . '">' . $new_site_url . '</a>', $content, 1 );
 		endif;
 	endif;
 	return $content;
