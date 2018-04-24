@@ -33,6 +33,8 @@
  * 
  */
 
+$users_to_activate;
+
 // add_filter( 'prosites_render_checkout_page', 'test_filter', 10, 3 );
 
 function test_filter( $att1, $att2, $att3 ) {
@@ -101,4 +103,36 @@ function cf_troca_precos( $symbol, $currency ) {
 	cf_debug( $symbol );
 	cf_debug( $currency );
 	return $symbol;
+}
+
+// Envia E-mail com link de ativação
+//  Fix para o pro Sites que não está enviando o e-mail
+add_filter( 'prosites_render_checkout_page', 'cf_checkout_complete', 10, 3 );
+
+function cf_checkout_complete( $content, $blog_id, $domain ) {
+	$get_domain = isset( $_GET[ 'domain' ] ) ? $_GET[ 'domain' ] : false;
+	$get_action = isset( $_GET[ 'action' ] ) ? $_GET[ 'action' ] : false;
+	$get_token = isset( $_GET[ 'token' ] ) ? $_GET[ 'token' ] : false;
+	if( $get_domain && $get_action && $get_token ) :
+		global $wpdb, $users_to_activate;
+		$user = wp_get_current_user();
+		$inactive_user = $wpdb->get_row( "SELECT * FROM $wpdb->signups WHERE active = 0 AND user_login = '$user->user_login'" );
+		if( $inactive_user ) :
+			$activation_url = network_site_url( 'wp-activate.php?key=' . $inactive_user->activation_key, 'https' );
+			$to = $inactive_user->user_email;
+			// cf_debug( $inactive_user->activation_key );
+			// cf_debug( $inactive_user->domain );
+			// cf_debug( $inactive_user->path );
+			// cf_debug( $inactive_user->title );
+			// cf_debug( $inactive_user->user_email );
+			$subject = __( 'ConverteFácil - Ativação de Conta:' . ' ' . $inactive_user->title, 'cf' );
+			$headers = array( 'Content-Type: text/html; charset=UTF-8' );
+			$message = '<h3>' . __( 'Bem vindo ao ConverteFácil!', 'cf' ) . '</h3>';
+			$message .= '<p>' . __( 'Clique no link abaixo para ativar a sua conta.', 'cf' ) . '</p>';
+			$message .= '<h4><a href="' . $activation_url . '" target="_blank">' . __( 'Ativar conta!', 'cf' ) . '</a></h4>';
+			$message .= '<p>' . __( '--Equipe  ConverteFácil', 'cf' ) . '</p>';
+			$send_mail = wp_mail( $to, $subject, $message, $headers );
+		endif;
+	endif;
+	return $content;
 }
