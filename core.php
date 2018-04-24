@@ -87,3 +87,16 @@ function cf_select_estados_br( $selected = false ) {
 	<!-- /.select-wrapper -->
 	<?php
 }
+
+// Hooking up our functions to WordPress filters 
+add_filter( 'wp_mail_from', 'cf_sender_email' );
+add_filter( 'wp_mail_from_name', 'cf_sender_name' );
+
+function cf_sender_email( $original_email_address ) {
+    return 'comercial@convertefacil.com.br';
+}
+ 
+// Function to change sender name
+function cf_sender_name( $original_email_from ) {
+    return 'ConverteFácil';
+}
