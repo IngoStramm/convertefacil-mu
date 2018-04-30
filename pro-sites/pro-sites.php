@@ -144,6 +144,10 @@ function cf_checkout_complete_change_site_url( $content, $blog_id, $domain ) {
 		global $wpdb;
 		$user = wp_get_current_user();
 		$inactive_user = $wpdb->get_row( "SELECT * FROM $wpdb->signups WHERE active = 0 AND user_login = '$user->user_login'" );
+		$active_user = $wpdb->get_row( "SELECT * FROM $wpdb->signups WHERE active = 1 AND user_login = '$user->user_login'" );
+		// cf_debug( $user );
+		// cf_debug( $wpdb->signups );
+		// cf_debug( $active_user );
 		if( $inactive_user ) :
 			$network_url = network_site_url( '/wp-admin/' );
 			$new_site_url = network_site_url( $inactive_user->path . 'wp-admin/', 'https' );
