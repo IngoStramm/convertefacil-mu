@@ -157,3 +157,31 @@ function cf_checkout_complete_change_site_url( $content, $blog_id, $domain ) {
 	endif;
 	return $content;
 }
+
+// Fix para as screenshots corretas serem exibidas na tela de checkout
+// quando a validação do form encontra algum erro
+add_filter( 'nbt_signup_templates', 'cf_fix_templates', 11, 1 );
+
+function cf_fix_templates( $templates ) {
+
+	$fixed_templates = [];
+
+	foreach ( $templates as $template ) :
+
+		$new_template = $template;
+		
+		if( !empty( $template[ 'options' ] ) ) :
+
+			foreach ( $template[ 'options' ] as $key => $value ) :
+				$new_template[ $key ] = $value;
+			endforeach;
+
+		endif;
+
+		$fixed_templates[] = $new_template;
+
+	endforeach;
+
+	return $fixed_templates;
+
+}
