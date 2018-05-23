@@ -178,7 +178,11 @@ function cf_fix_templates( $templates ) {
 
 		endif;
 
-		$fixed_templates[] = $new_template;
+		// cf_debug( $new_template[ 'ID' ] );
+		// cf_debug( $new_template[ 'name' ] );
+
+		if( $new_template[ 'ID' ] != 5 || $new_template[ 'name' ] != 'Free' )
+			$fixed_templates[] = $new_template;
 
 	endforeach;
 
