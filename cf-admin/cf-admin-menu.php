@@ -95,7 +95,7 @@ function cf_admin_menu_init() {
 
 		function cf_remove_menus(){
 	        global $menu, $submenu;
-	        // cf_debug( $submenu );
+	        // cf_debug( $menu );
 	        // $edit_menu = $submenu['themes.php'][10];
 	        // add_menu_page( __( 'Editar Menus' ), __( ' Menus '), 'edit_theme_options', 'nav-menus.php', null, null, 60 );
 	        // remove_menu_page( 'index.php' );                  //Dashboard
@@ -299,6 +299,9 @@ function cf_admin_menu_init() {
 	        // remove_submenu_page( 'forminator', 'forminator-quiz-view' );
 	        // remove_submenu_page( 'forminator', 'forminator-settings' );
 	        // unset( $submenu[ 'forminator' ][2] );
+
+	        // Premmerce
+	        remove_menu_page( 'premmerce' );
 
 	    }
 
