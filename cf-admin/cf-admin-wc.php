@@ -85,7 +85,7 @@ function cf_admin_wc_init() {
 // Fix para definir o WC na lista de plugins ativos no option 'active_plugins'
 // por algum motivo, ao clonar ou criar um novo site, o WC vem ativado,
 // mas não consta como ativo no option 'active_plugins'
-add_filter( 'active_plugins', 'cf_fix_set_wc_as_active_plugin' );
+// add_filter( 'active_plugins', 'cf_fix_set_wc_as_active_plugin' );
 
 function cf_fix_set_wc_as_active_plugin( $active_plugins ) {
 	$wc_file = 'woocommerce/woocommerce.php';
