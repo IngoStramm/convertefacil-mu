@@ -134,7 +134,8 @@ function cf_admin_menu_init() {
 
 	        // Posts
 	        remove_menu_page( 'edit.php' );                   //Posts
-	        remove_submenu_page( 'edit.php', 'edit.php' ); 
+	        // Aqui Ingo
+	        // remove_submenu_page( 'edit.php', 'edit.php' );  // Não pode ser remvoida, senão o admin perde o acesso
 	        remove_submenu_page( 'edit.php', 'post-new.php' ); 
 	        remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=category' ); 
 	        remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=post_tag' ); 
@@ -416,27 +417,28 @@ function cf_admin_menu_init() {
 	        	// add_submenu_page( 'cf-seguranca-e-validacao-tudo-o-que-voce-precisa-saber', __( 'Validação', 'cf' ), __( 'Validação', 'cf' ), 'edit_theme_options', 'cf-seguranca-e-validacao-validacao', 'cf_em_breve' );
 
 	        // 9. Marketing
-	        add_menu_page( __( 'Marketing', 'cf' ), __( 'Marketing', 'cf' ), 'edit_theme_options', 'edit.php', null, 'dashicons-shield-alt', 9 );
+	        	//Aqui Ingo
+	        add_menu_page( __( 'Marketing', 'cf' ), __( 'Marketing', 'cf' ), 'edit_theme_options', 'cf-marketing', 'cf_marketing', 'dashicons-shield-alt', 9 );
 	        	// O que você precisa saber?
 	        	// add_submenu_page( 'edit.php', __( 'O que você precisa saber?', 'cf' ), __( 'O que você precisa saber?', 'cf' ), 'edit_theme_options', 'edit.php', 'cf_em_breve' );
 	        	// BlogPosts
-	        	add_submenu_page( 'edit.php', __( 'BlogPosts', 'cf' ), __( 'BlogPosts', 'cf' ), 'edit_theme_options', 'edit.php', null );
+	        	add_submenu_page( 'cf-marketing', __( 'BlogPosts', 'cf' ), __( 'BlogPosts', 'cf' ), 'edit_theme_options', 'edit.php', null );
 	        	// Categorias de BlogPost
-	        	add_submenu_page( 'edit.php', __( 'Categorias de BlogPost', 'cf' ), __( 'Categorias de BlogPost', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=category', null );
+	        	add_submenu_page( 'cf-marketing', __( 'Categorias de BlogPost', 'cf' ), __( 'Categorias de BlogPost', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=category', null );
 	        	// Tags de BlogPost
-	        	add_submenu_page( 'edit.php', __( 'Tags de BlogPost', 'cf' ), __( 'Tags de BlogPost', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=post_tag', null );
+	        	add_submenu_page( 'cf-marketing', __( 'Tags de BlogPost', 'cf' ), __( 'Tags de BlogPost', 'cf' ), 'edit_theme_options', 'edit-tags.php?taxonomy=post_tag', null );
 	        	// // Social
 	        	// add_submenu_page( 'edit.php', __( 'Social', 'cf' ), __( 'Social', 'cf' ), 'edit_theme_options', 'cf-marketing-social', 'cf_em_breve' );
 	        	// Popup
-	        	add_submenu_page( 'edit.php', __( 'Popup', 'cf' ), __( 'Popup', 'cf' ), 'edit_theme_options', 'edit.php?post_type=inc_popup', null );
+	        	add_submenu_page( 'cf-marketing', __( 'Popup', 'cf' ), __( 'Popup', 'cf' ), 'edit_theme_options', 'edit.php?post_type=inc_popup', null );
 	        	// E-mail Marketing
-	        	add_submenu_page( 'edit.php', __( 'E-mail Marketing', 'cf' ), __( 'E-mail Marketing', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=mailchimp', null );
+	        	add_submenu_page( 'cf-marketing', __( 'E-mail Marketing', 'cf' ), __( 'E-mail Marketing', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=mailchimp', null );
 	        	// E-goi
 	        	// add_submenu_page( 'edit.php', __( 'E-goi', 'cf' ), __( 'E-goi', 'cf' ), 'edit_theme_options', 'admin.php?page=egoi-mail-list-builder-contact-form-7-info', null );
 	        	// SendinBlue
 	        	// add_submenu_page( 'edit.php', __( 'SendinBlue', 'cf' ), __( 'SendinBlue', 'cf' ), 'edit_theme_options', 'admin.php?page=wc-settings&tab=sendinblue', null );
 	        	// Cupons
-	        	add_submenu_page( 'edit.php', __( 'Cupons', 'cf' ), __( 'Cupons', 'cf' ), 'edit_theme_options', 'edit.php?post_type=shop_coupon', null );
+	        	add_submenu_page( 'cf-marketing', __( 'Cupons', 'cf' ), __( 'Cupons', 'cf' ), 'edit_theme_options', 'edit.php?post_type=shop_coupon', null );
 	        	// Base de Contatos
 	        	// add_submenu_page( 'edit.php', __( 'Envios de Contatos', 'cf' ), __( 'Envios de Contatos', 'cf' ), 'edit_theme_options', 'admin.php?page=flamingo_inbound', null );
 	        	// Envios de Contatos
@@ -528,6 +530,10 @@ function cf_admin_menu_init() {
 
 		function cf_em_breve() {
 			echo '<h3>Em breve!</h3>';
+		}
+
+		function cf_marketing() {
+			wp_redirect( 'edit.php' );
 		}
 
 		// Substitui o nome dos menus e submenus

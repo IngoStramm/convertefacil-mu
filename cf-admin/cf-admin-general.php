@@ -110,6 +110,7 @@ function cf_admin_general_init() {
 	    $current_tab = isset( $_GET['tab'] ) && !empty( $_GET['tab'] ) ? $_GET['tab'] : false;
 	    // se for a tela de configuração do wc
 	    if ( $current_screen->id == 'woocommerce_page_wc-settings' ) :
+    		// cf_debug( $current_tab );
 	    	switch ( $current_tab ) {
 	    		case 'checkout':
 			        $plugin_page = 'admin.php?page=wc-settings&tab=checkout';
@@ -128,11 +129,11 @@ function cf_admin_general_init() {
 			        $submenu_file = 'admin.php?page=wc-settings&tab=integration&section=bling';
 	    			break;
 	    		case 'mailchimp':
-			        $plugin_page = 'edit.php';
+			        $plugin_page = 'cf-marketing';
 			        $submenu_file = 'admin.php?page=wc-settings&tab=mailchimp';
 	    			break;
 	    		case 'sendinblue':
-			        $plugin_page = 'cf-marketing-tudo-o-que-voce-precisa-saber';
+			        $plugin_page = 'cf-marketing';
 			        $submenu_file = 'admin.php?page=wc-settings&tab=sendinblue';
 	    			break;
 	    		
@@ -158,13 +159,16 @@ function cf_admin_general_init() {
 	    	$plugin_page = 'cf-vendas-e-pagamentos-tudo-o-que-voce-precisa-saber';
 	    // Tags
 	    elseif( $current_screen->id == 'edit-post_tag' && $taxonomy == 'post_tag' ) :
-	    	$plugin_page = 'cf-marketing-tudo-o-que-voce-precisa-saber';
+	    	$plugin_page = 'cf-marketing';
 	    // Categorias de post
 	    elseif( $current_screen->id == 'edit-category' && $taxonomy == 'category' ) :
-	    	$plugin_page = 'cf-marketing-tudo-o-que-voce-precisa-saber';
+	    	$plugin_page = 'cf-marketing';
 	    // Post
 	    elseif( $current_screen->id == 'edit-post' ) :
-	    	$plugin_page = 'cf-marketing-tudo-o-que-voce-precisa-saber';
+	    	$plugin_page = 'cf-marketing';
+	    // Page
+	    elseif( $current_screen->id == 'page' ) :
+	    	$plugin_page = 'edit.php?post_type=product';
 	    // Add Produto
 	    elseif( $current_screen->id == 'product' ) :
 	    	$plugin_page = 'edit.php?post_type=product';
@@ -190,7 +194,7 @@ function cf_admin_general_init() {
 	        $submenu_file = 'upload.php';
 	    // Popup
 	    elseif( $current_screen->id == 'edit-inc_popup' ) :
-	    	$plugin_page = 'cf-marketing-tudo-o-que-voce-precisa-saber';
+	    	$plugin_page = 'cf-marketing';
 	    // Flamingo
 	    elseif( $current_screen->id == 'flamingo_page_flamingo_inbound' ) :
 	    	$plugin_page = 'edit.php';
@@ -201,7 +205,7 @@ function cf_admin_general_init() {
 	        $submenu_file = 'admin.php?page=flamingo';
 	    // E-goi
 	    elseif( $current_screen->id == 'toplevel_page_egoi-mail-list-builder-contact-form-7-info' ) :
-	    	$plugin_page = 'cf-marketing-tudo-o-que-voce-precisa-saber';
+	    	$plugin_page = 'cf-marketing';
 	        $submenu_file = 'admin.php?page=egoi-mail-list-builder-contact-form-7-info';
 	    // Tawk
 	    elseif( $current_screen->id == 'settings_page_tawkto_plugin' ) :
