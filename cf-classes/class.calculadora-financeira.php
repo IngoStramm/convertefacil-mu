@@ -51,6 +51,7 @@ class Calculadora_Financeira
 			    	'post_type' 		=> 'item-calculadora',
 			    	'order'				=> 'ASC',
 			    	'orderby'			=> 'menu_order',
+			    	'post_status'		=> 'publish',
 			    	'meta_key'			=> 'position_item_calc_tela',
 			    	'posts_per_page' 	=> -1,
 		    		'meta_value'		=> $this->tela
@@ -245,6 +246,7 @@ class Calculadora_Financeira
 		    	'post_type' 		=> 'item-calculadora',
 		    	'order'				=> 'ASC',
 		    	'orderby'			=> 'menu_order',
+		    	'post_status'		=> 'publish',
 		    	'meta_key'   		=> 'position_item_calc_tela',
 		    	'posts_per_page' 	=> -1,
 	    		'meta_value' 		=> $tela
