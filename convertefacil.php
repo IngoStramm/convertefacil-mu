@@ -3,7 +3,7 @@
 Plugin Name:  ConverteFácil
 Plugin URI:   https://convertefacil.com.br
 Description:  Plugin integrante da plataforma ConverteFácil. Não pode ser comercializado separadamente.
-Version:      1.0.3
+Version:      1.0.4
 Author:       Ingo Stramm
 Author URI:   https://convertefacil.com.br
 Text Domain:  cf

@@ -102,9 +102,13 @@ jQuery( function( $ ) {
 	$(document).ready(function(){
 		// Máscaras
 		$( '.cpf' ).mask( '000.000.000-00', {clearIfNotMatch: true} );
+		$( '.cpf-wrapper' ).find( 'input' ).mask( '000.000.000-00', {clearIfNotMatch: true} );
 		$( '.cnpj' ).mask( '00.000.000/0000-00', {clearIfNotMatch: true} );
+		$( '.cnpj-wrapper' ).find( 'input' ).mask( '00.000.000/0000-00', {clearIfNotMatch: true} );
 		$( '.fone' ).mask( '(00) 00009-0000', {clearIfNotMatch: true} );
+		$( '.fone-wrapper' ).find( 'input' ).mask( '(00) 00009-0000', {clearIfNotMatch: true} );
 		$( '.cep' ).mask( '00000-000', {clearIfNotMatch: true} );
+		$( '.cep-wrapper' ).find( 'input' ).mask( '00000-000', {clearIfNotMatch: true} );
 
 		cep_onchange();
 		cf_troca_precos_de_lugar();
