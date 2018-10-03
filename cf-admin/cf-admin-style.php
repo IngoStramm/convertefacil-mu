@@ -205,7 +205,8 @@ function cf_admin_style_init() {
 				}
 				li#add-post-type-page,
 				li#add-post-type-post,
-				li#add-custom-links {
+				li#add-custom-links,
+				li#add-product_cat {
 					display: block !important;
 				}
 			</style>
